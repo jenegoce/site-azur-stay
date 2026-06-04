@@ -455,24 +455,28 @@ html[dir=rtl] .loc-line svg,html[dir=rtl] .hl svg,html[dir=rtl] .am svg,html[dir
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><linearGradient id="bm2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d4a63"/><stop offset="1" stop-color="#2E86AB"/></linearGradient></defs><circle cx="50" cy="50" r="50" fill="url(#bm2)"/><circle cx="50" cy="30" r="11" fill="#fff" opacity=".95"/><path d="M12,62 C20,52 28,52 36,62 C44,72 52,72 60,62 C68,52 76,52 84,62" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round"/></svg></span>Azur Stay</div>
-        <p data-i="foot_tag">Location de vacances en direct &amp; conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.</p>
+        <div class="brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><linearGradient id="bmf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d4a63"/><stop offset="1" stop-color="#2E86AB"/></linearGradient></defs><circle cx="50" cy="50" r="50" fill="url(#bmf)"/><circle cx="50" cy="30" r="11" fill="#fff" opacity=".95"/><path d="M12,62 C20,52 28,52 36,62 C44,72 52,72 60,62 C68,52 76,52 84,62" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round"/></svg></span>Azur Stay</div>
+        <p data-fi="tag">Location de vacances en direct &amp; conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.</p>
       </div>
       <div>
-        <h5 data-i="foot_nav">Navigation</h5>
+        <h5 data-fi="nav">Navigation</h5>
         <ul>
-          <li><a href="index.html#logements" data-i="foot_apts">Nos appartements</a></li>
-          <li><a href="index.html#conciergerie" data-i="foot_concierge">Conciergerie</a></li>
-          <li><a href="page-conciergerie.html" data-i="foot_concierge2">Conciergerie à Saïdia</a></li>
+          <li><a href="index.html" data-fi="home">Accueil</a></li>
+          <li><a href="index.html#logements" data-fi="apts">Nos appartements</a></li>
+          <li><a href="page-conciergerie.html" data-fi="concierge">Conciergerie</a></li>
+          <li><a href="page-avis.html" data-fi="reviews">Avis</a></li>
+          <li><a href="page-apropos.html" data-fi="about">À propos</a></li>
+          <li><a href="page-contact.html" data-fi="contact">Contact</a></li>
+          <li><a href="page-informations-legales.html" data-fi="privacy">Politique de confidentialité</a></li>
         </ul>
       </div>
       <div>
-        <h5 data-i="foot_contact">Nous contacter</h5>
-        <address class="nap">Azur Stay<br><span data-i="foot_addr">Quartier Franco 1, 63602 Saïdia, Maroc</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com">contact@azurstaysaidia.com</a></address>
+        <h5 data-fi="contact_h">Nous contacter</h5>
+        <address class="nap">Azur Stay<br><span data-fi="addr">Quartier Franco 1, 63602 Saïdia, Maroc</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com">contact@azurstaysaidia.com</a></address>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="year"></span> Azur Stay – <span data-i="rights">Tous droits réservés.</span></span>
+      <span>© <span id="year"></span> Azur Stay – <span data-fi="rights">Tous droits réservés.</span></span>
       <span>Saïdia · Oujda · Nador · Berkane</span>
     </div>
   </div>
@@ -611,7 +615,7 @@ document.getElementById("langSwitch").addEventListener("click",e=>{const b=e.tar
 /* Calculateur : 68€ base 2 (basse) + 10€/enfant 12-17, -12 gratuit */
 const BASE_BASSE=68,TEEN=10;
 const state={season:"basse",adults:2,ch1217:0,chU12:0};
-const MIN={adults:2,ch1217:0,chU12:0},MAX={adults:4,ch1217:4,chU12:4};
+const MIN={adults:2,ch1217:0,chU12:0},MAX={adults:4,ch1217:4,chU12:4},MAXTOTAL=4;
 function priceBasse(){return BASE_BASSE+TEEN*state.ch1217;}
 function nightWord(){return LANG==="ar"?"ليلة":(LANG==="en"?"night":(LANG==="es"?"noche":"nuit"));}
 function render(){
@@ -621,7 +625,7 @@ function render(){
   const tVal=document.getElementById("t-val"),bh=document.getElementById("bh-price"),bm=document.getElementById("bm-price");
   if(state.season==="basse"){const p=priceBasse();tVal.textContent=p+"€";bh.textContent=p+"€";bm.textContent=p+"€";}
   else{tVal.textContent=t("total_haute");bh.textContent="—";bm.textContent=t("cta_book_short");}
-  document.querySelectorAll(".stepper button").forEach(b=>{const k=b.dataset.k,d=+b.dataset.d,nv=state[k]+d;b.disabled=(nv<MIN[k]||nv>MAX[k]);});
+  document.querySelectorAll(".stepper button").forEach(b=>{const k=b.dataset.k,d=+b.dataset.d,nv=state[k]+d;var tot=state.adults+state.ch1217+state.chU12;b.disabled=(d<0?(nv<MIN[k]):(tot>=MAXTOTAL||nv>MAX[k]));});
   let p=[t("wa_intro"),t("wa_compo"),state.adults+" "+t("wa_adults")];
   if(state.ch1217>0)p.push(state.ch1217+" "+t("wa_teen"));
   if(state.chU12>0)p.push(state.chU12+" "+t("wa_childU12"));
@@ -630,7 +634,7 @@ function render(){
   document.getElementById("wa-book").href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(p.join(" "));
 }
 document.getElementById("season").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.season=b.dataset.s;document.querySelectorAll("#season button").forEach(x=>x.classList.toggle("on",x===b));render();});
-document.querySelectorAll(".stepper button").forEach(b=>{b.addEventListener("click",()=>{const k=b.dataset.k,d=+b.dataset.d,nv=state[k]+d;if(nv>=MIN[k]&&nv<=MAX[k]){state[k]=nv;render();}});});
+document.querySelectorAll(".stepper button").forEach(b=>{b.addEventListener("click",()=>{const k=b.dataset.k,d=+b.dataset.d,nv=state[k]+d;var tot=state.adults+state.ch1217+state.chU12;if(d<0){if(nv>=MIN[k]){state[k]=nv;render();}}else{if(nv<=MAX[k]&&tot<MAXTOTAL){state[k]=nv;render();}}});});
 
 const head=document.getElementById("head");
 const onScroll=()=>head.classList.toggle("scrolled",window.scrollY>40);
@@ -642,6 +646,21 @@ if(path.indexOf("/en/")===0)applyLang("en");
 else if(path.indexOf("/es/")===0)applyLang("es");
 else if(path.indexOf("/ar/")===0)applyLang("ar");
 else render();
+</script>
+<script>
+(function(){
+  var FI={
+    fr:{tag:"Location de vacances en direct & conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.",nav:"Navigation",home:"Accueil",apts:"Nos appartements",concierge:"Conciergerie",reviews:"Avis",about:"À propos",contact:"Contact",privacy:"Politique de confidentialité",contact_h:"Nous contacter",addr:"Quartier Franco 1, 63602 Saïdia, Maroc",rights:"Tous droits réservés."},
+    en:{tag:"Direct holiday rentals & concierge in Saïdia and Saïdia Marina. No commission, with a local team.",nav:"Navigation",home:"Home",apts:"Our apartments",concierge:"Concierge",reviews:"Reviews",about:"About",contact:"Contact",privacy:"Privacy policy",contact_h:"Contact us",addr:"Quartier Franco 1, 63602 Saïdia, Morocco",rights:"All rights reserved."},
+    es:{tag:"Alquiler vacacional directo y conserjería en Saïdia y Saïdia Marina. Sin comisión, con un equipo local.",nav:"Navegación",home:"Inicio",apts:"Nuestros apartamentos",concierge:"Conserjería",reviews:"Opiniones",about:"Quiénes somos",contact:"Contacto",privacy:"Política de privacidad",contact_h:"Contacto",addr:"Quartier Franco 1, 63602 Saïdia, Marruecos",rights:"Todos los derechos reservados."},
+    ar:{tag:"تأجير عطلات مباشر وإدارة وتسيير العقارات في السعيدية ومارينا السعيدية. بلا عمولة، مع فريق محلي.",nav:"تصفّح",home:"الرئيسية",apts:"شققنا",concierge:"إدارة العقارات",reviews:"الآراء",about:"من نحن",contact:"اتصل بنا",privacy:"سياسة الخصوصية",contact_h:"اتصل بنا",addr:"الحي الفرنسي 1، 63602 السعيدية، المغرب",rights:"جميع الحقوق محفوظة."}
+  };
+  function applyFooter(l){var d=FI[l]||FI.fr;document.querySelectorAll("[data-fi]").forEach(function(el){var k=el.getAttribute("data-fi");if(d[k]!=null)el.textContent=d[k];});}
+  var y=document.getElementById("year");if(y)y.textContent=new Date().getFullYear();
+  var L=document.documentElement.getAttribute("lang")||"fr";if(!FI[L])L="fr";applyFooter(L);
+  var ls=document.getElementById("langSwitch");
+  if(ls)ls.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.l&&FI[b.dataset.l])applyFooter(b.dataset.l);});
+})();
 </script>
 </body>
 </html>
