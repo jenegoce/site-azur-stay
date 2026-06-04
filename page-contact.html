@@ -285,28 +285,28 @@ html[dir=rtl] .info-item svg,html[dir=rtl] .note svg{transform:scaleX(-1)}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><linearGradient id="bm2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d4a63"/><stop offset="1" stop-color="#2E86AB"/></linearGradient></defs><circle cx="50" cy="50" r="50" fill="url(#bm2)"/><circle cx="50" cy="30" r="11" fill="#fff" opacity=".95"/><g stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"><line x1="50" y1="13" x2="50" y2="7"/><line x1="66" y1="17" x2="70" y2="13"/><line x1="34" y1="17" x2="30" y2="13"/><line x1="71" y1="30" x2="77" y2="30"/><line x1="29" y1="30" x2="23" y2="30"/></g><path d="M12,62 C20,52 28,52 36,62 C44,72 52,72 60,62 C68,52 76,52 84,62" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round"/><path d="M14,77 C22,68 30,68 38,77 C46,86 54,86 62,77 C70,68 78,68 86,77" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" opacity=".5"/></svg></span>Azur Stay</div>
-        <p data-i="foot_tag">Location de vacances en direct &amp; conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.</p>
+        <div class="brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><linearGradient id="bmf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d4a63"/><stop offset="1" stop-color="#2E86AB"/></linearGradient></defs><circle cx="50" cy="50" r="50" fill="url(#bmf)"/><circle cx="50" cy="30" r="11" fill="#fff" opacity=".95"/><path d="M12,62 C20,52 28,52 36,62 C44,72 52,72 60,62 C68,52 76,52 84,62" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round"/></svg></span>Azur Stay</div>
+        <p data-fi="tag">Location de vacances en direct &amp; conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.</p>
       </div>
       <div>
-        <h5 data-i="foot_nav">Navigation</h5>
+        <h5 data-fi="nav">Navigation</h5>
         <ul>
-          <li><a href="index.html" data-i="foot_home">Accueil</a></li>
-          <li><a href="index.html#logements" data-i="foot_apts">Nos appartements</a></li>
-          <li><a href="page-conciergerie.html" data-i="foot_concierge">Conciergerie</a></li>
-          <li><a href="page-avis.html" data-i="foot_reviews">Avis</a></li>
-          <li><a href="page-apropos.html" data-i="foot_about">À propos</a></li>
-          <li><a href="page-contact.html" data-i="foot_contact_nav">Contact</a></li>
-          <li><a href="page-informations-legales.html" data-i="foot_privacy">Politique de confidentialité</a></li>
+          <li><a href="index.html" data-fi="home">Accueil</a></li>
+          <li><a href="index.html#logements" data-fi="apts">Nos appartements</a></li>
+          <li><a href="page-conciergerie.html" data-fi="concierge">Conciergerie</a></li>
+          <li><a href="page-avis.html" data-fi="reviews">Avis</a></li>
+          <li><a href="page-apropos.html" data-fi="about">À propos</a></li>
+          <li><a href="page-contact.html" data-fi="contact">Contact</a></li>
+          <li><a href="page-informations-legales.html" data-fi="privacy">Politique de confidentialité</a></li>
         </ul>
       </div>
       <div>
-        <h5 data-i="foot_contact">Nous contacter</h5>
-        <address class="nap">Azur Stay<br><span data-i="foot_addr">Quartier Franco 1, 63602 Saïdia, Maroc</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com">contact@azurstaysaidia.com</a></address>
+        <h5 data-fi="contact_h">Nous contacter</h5>
+        <address class="nap">Azur Stay<br><span data-fi="addr">Quartier Franco 1, 63602 Saïdia, Maroc</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com">contact@azurstaysaidia.com</a></address>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="year"></span> Azur Stay – <span data-i="rights">Tous droits réservés.</span></span>
+      <span>© <span id="year"></span> Azur Stay – <span data-fi="rights">Tous droits réservés.</span></span>
       <span>Saïdia · Oujda · Nador · Berkane</span>
     </div>
   </div>
@@ -336,6 +336,21 @@ const p=location.pathname;
 if(p.indexOf("/en/")===0)applyLang("en");
 else if(p.indexOf("/es/")===0)applyLang("es");
 else if(p.indexOf("/ar/")===0)applyLang("ar");
+</script>
+<script>
+(function(){
+  var FI={
+    fr:{tag:"Location de vacances en direct & conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.",nav:"Navigation",home:"Accueil",apts:"Nos appartements",concierge:"Conciergerie",reviews:"Avis",about:"À propos",contact:"Contact",privacy:"Politique de confidentialité",contact_h:"Nous contacter",addr:"Quartier Franco 1, 63602 Saïdia, Maroc",rights:"Tous droits réservés."},
+    en:{tag:"Direct holiday rentals & concierge in Saïdia and Saïdia Marina. No commission, with a local team.",nav:"Navigation",home:"Home",apts:"Our apartments",concierge:"Concierge",reviews:"Reviews",about:"About",contact:"Contact",privacy:"Privacy policy",contact_h:"Contact us",addr:"Quartier Franco 1, 63602 Saïdia, Morocco",rights:"All rights reserved."},
+    es:{tag:"Alquiler vacacional directo y conserjería en Saïdia y Saïdia Marina. Sin comisión, con un equipo local.",nav:"Navegación",home:"Inicio",apts:"Nuestros apartamentos",concierge:"Conserjería",reviews:"Opiniones",about:"Quiénes somos",contact:"Contacto",privacy:"Política de privacidad",contact_h:"Contacto",addr:"Quartier Franco 1, 63602 Saïdia, Marruecos",rights:"Todos los derechos reservados."},
+    ar:{tag:"تأجير عطلات مباشر وإدارة وتسيير العقارات في السعيدية ومارينا السعيدية. بلا عمولة، مع فريق محلي.",nav:"تصفّح",home:"الرئيسية",apts:"شققنا",concierge:"إدارة العقارات",reviews:"الآراء",about:"من نحن",contact:"اتصل بنا",privacy:"سياسة الخصوصية",contact_h:"اتصل بنا",addr:"الحي الفرنسي 1، 63602 السعيدية، المغرب",rights:"جميع الحقوق محفوظة."}
+  };
+  function applyFooter(l){var d=FI[l]||FI.fr;document.querySelectorAll("[data-fi]").forEach(function(el){var k=el.getAttribute("data-fi");if(d[k]!=null)el.textContent=d[k];});}
+  var y=document.getElementById("year");if(y)y.textContent=new Date().getFullYear();
+  var L=document.documentElement.getAttribute("lang")||"fr";if(!FI[L])L="fr";applyFooter(L);
+  var ls=document.getElementById("langSwitch");
+  if(ls)ls.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.l&&FI[b.dataset.l])applyFooter(b.dataset.l);});
+})();
 </script>
 </body>
 </html>

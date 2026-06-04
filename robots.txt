@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /reglement-darcom.html
+
+Sitemap: https://azurstaysaidia.com/sitemap.xml
