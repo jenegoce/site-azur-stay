@@ -8,11 +8,6 @@
 <meta name="description" content="Confiez la gestion locative de votre bien à Saïdia à Azur Stay : annonces, accueil voyageurs, ménage, maintenance et suivi des revenus. Idéal propriétaires et MRE. Devis sur WhatsApp.">
 <link rel="canonical" href="https://azurstaysaidia.com/page-conciergerie.html">
 <meta name="robots" content="index, follow">
-<link rel="alternate" hreflang="fr" href="https://azurstaysaidia.com/page-conciergerie.html">
-<link rel="alternate" hreflang="en" href="https://azurstaysaidia.com/reservation-en-html.htmlconciergerie-saidia">
-<link rel="alternate" hreflang="es" href="https://azurstaysaidia.com/reservation-es-html.htmlconciergerie-saidia">
-<link rel="alternate" hreflang="ar" href="https://azurstaysaidia.com/reservation-ar-html.htmlconciergerie-saidia">
-<link rel="alternate" hreflang="x-default" href="https://azurstaysaidia.com/page-conciergerie.html">
 
 <link rel="icon" type="image/svg+xml" href="azurstay-favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -159,14 +154,137 @@ html[dir=rtl] .eyebrow{letter-spacing:.04em}
 html[dir=rtl] .qa p{padding-left:0;padding-right:1.7em}
 html[dir=rtl] .hero-trust .ht svg,html[dir=rtl] .why-item svg,html[dir=rtl] .qa h3 svg{transform:scaleX(-1)}
 html[dir=rtl] .step::before{left:auto;right:24px}
+
+/* --- Menu de navigation header --- */
+.head .wrap{position:relative}
+.mainnav{display:flex;gap:2px;align-items:center;margin:0 auto}
+.mainnav a{font-family:var(--ff-body);font-weight:600;font-size:.9rem;color:rgba(255,255,255,.82);padding:8px 11px;border-radius:8px;transition:color .2s,background .2s;white-space:nowrap;text-decoration:none}
+.mainnav a:hover{color:#fff}
+.head.scrolled .mainnav a{color:var(--ink-soft)}
+.head.scrolled .mainnav a:hover{color:var(--ink)}
+.navtoggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border:none;background:transparent;cursor:pointer;padding:0;flex:none}
+.navtoggle span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s;margin:0 auto}
+.head.scrolled .navtoggle span{background:var(--ink)}
+.head.navopen .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.head.navopen .navtoggle span:nth-child(2){opacity:0}
+.head.navopen .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1080px){
+  .mainnav{position:absolute;top:calc(100% + 6px);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);box-shadow:0 18px 40px -16px rgba(10,55,68,.45);border:1px solid var(--line);border-radius:16px;padding:10px;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .3s ease,opacity .2s;margin:0}
+  .head.navopen .mainnav{max-height:75vh;opacity:1;pointer-events:auto}
+  .mainnav a{color:var(--ink) !important;padding:14px 16px;border-radius:10px;font-size:1.02rem}
+  .mainnav a:hover{background:var(--cream)}
+  .navtoggle{display:flex}
+}
+
+/* --- Retour en haut --- */
+.backtop{position:fixed;left:20px;bottom:20px;z-index:60;width:46px;height:46px;border-radius:50%;border:none;background:var(--sea,#0D4A63);color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;box-shadow:0 10px 26px -10px rgba(10,55,68,.6);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s,background .2s}
+.backtop.show{opacity:1;pointer-events:auto;transform:none}
+.backtop:hover{background:var(--sea-deep,#0A3347)}
+
+/* --- WhatsApp flottant --- */
+.wafab{position:fixed;right:20px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:50%;background:#1FA855;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -10px rgba(31,168,85,.7);transition:transform .25s}
+.wafab svg{width:30px;height:30px}
+.wafab:hover{transform:translateY(-3px)}
+
+/* ===== Header haut de gamme ===== */
+.head.scrolled{background:rgba(255,255,255,.86) !important;backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);box-shadow:0 8px 30px -16px rgba(10,55,68,.30) !important}
+.nav-main{display:flex;align-items:center;gap:2px;margin:0 auto}
+.nav-link{position:relative;display:inline-flex;align-items:center;gap:.35em;font-family:var(--ff-body);font-weight:500;font-size:.93rem;color:rgba(255,255,255,.9);background:none;border:none;cursor:pointer;padding:9px 14px;border-radius:8px;transition:color .25s;white-space:nowrap;text-decoration:none}
+.nav-link .chev{width:13px;height:13px;transition:transform .25s}
+.nav-link::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:1.5px;background:var(--gold);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s ease}
+.nav-link:hover,.nav-link:focus-visible{color:#fff}
+.nav-link:hover::after,.nav-link:focus-visible::after{transform:scaleX(1)}
+.head.scrolled .nav-link{color:var(--ink-soft)}
+.head.scrolled .nav-link:hover,.head.scrolled .nav-link:focus-visible{color:var(--ink)}
+.nav-item{position:relative}
+.nav-item:hover .chev,.nav-item.open .chev{transform:rotate(180deg)}
+.nav-drop{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(8px);min-width:240px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 26px 54px -20px rgba(10,55,68,.45);padding:8px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease;z-index:5}
+.nav-item:hover .nav-drop,.nav-item.open .nav-drop,.nav-item:focus-within .nav-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-drop a{display:block;padding:11px 15px;border-radius:10px;color:var(--ink);font-size:.92rem;font-weight:600;transition:background .2s,color .2s;text-decoration:none;white-space:nowrap}
+.nav-drop a:hover{background:var(--cream);color:var(--gold-deep)}
+.nav-cta-mobile{display:none}
+.nav-burger{order:99;display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;border:none;background:transparent;cursor:pointer;padding:0;flex:none}
+.nav-burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s;margin:0 auto}
+.head.scrolled .nav-burger span{background:var(--ink)}
+.head.navopen .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.head.navopen .nav-burger span:nth-child(2){opacity:0}
+.head.navopen .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1080px){
+  .nav-burger{display:flex}
+  .nav-main{position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;align-items:stretch;gap:1px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 26px 54px -20px rgba(10,55,68,.45);padding:12px;margin:0;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .32s ease,opacity .2s}
+  .head.navopen .nav-main{max-height:calc(100vh - 96px);overflow-y:auto;opacity:1;pointer-events:auto}
+  .nav-link{color:var(--ink) !important;justify-content:space-between;font-size:1.04rem;padding:14px 16px;border-radius:10px}
+  .nav-link::after{display:none}
+  .nav-link:hover{background:var(--cream)}
+  .nav-item{position:static}
+  .nav-drop{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;border-radius:0;padding:0 0 4px 8px;min-width:0;max-height:0;overflow:hidden;transition:max-height .28s ease}
+  .nav-item.open .nav-drop{max-height:460px}
+  .nav-drop a{padding:12px 14px;font-weight:500}
+  .nav-cta-mobile{display:flex !important;justify-content:center;margin-top:8px}
+}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Conciergerie et gestion locative",
+  "name": "Conciergerie & gestion locative — Azur Stay",
+  "url": "https://azurstaysaidia.com/page-conciergerie.html",
+  "provider": {
+    "@type": "LodgingBusiness",
+    "name": "Azur Stay",
+    "@id": "https://azurstaysaidia.com/#business"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Saïdia"
+    },
+    {
+      "@type": "City",
+      "name": "Oujda"
+    },
+    {
+      "@type": "City",
+      "name": "Nador"
+    },
+    {
+      "@type": "City",
+      "name": "Berkane"
+    }
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Propriétaires"
+  },
+  "description": "Gestion locative clé en main pour propriétaires à Saïdia et dans l'Oriental : annonces, tarification, accueil voyageurs, ménage, linge, maintenance et suivi des revenus."
+}
+</script>
 </head>
 <body>
 
 <header class="head" id="head">
   <div class="wrap">
     <a href="index.html" class="brand" aria-label="Azur Stay"><span class="mark" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d4a63"/><stop offset="1" stop-color="#2E86AB"/></linearGradient></defs><circle cx="50" cy="50" r="50" fill="url(#bm)"/><circle cx="50" cy="30" r="11" fill="#fff" opacity=".95"/><g stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"><line x1="50" y1="13" x2="50" y2="7"/><line x1="66" y1="17" x2="70" y2="13"/><line x1="34" y1="17" x2="30" y2="13"/><line x1="71" y1="30" x2="77" y2="30"/><line x1="29" y1="30" x2="23" y2="30"/></g><path d="M12,62 C20,52 28,52 36,62 C44,72 52,72 60,62 C68,52 76,52 84,62" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round"/><path d="M14,77 C22,68 30,68 38,77 C46,86 54,86 62,77 C70,68 78,68 86,77" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" opacity=".5"/></svg></span>Azur Stay</a>
-    <div class="head-right">
+    <nav class="nav-main" id="navMain" aria-label="Navigation principale">
+      <div class="nav-item">
+        <button type="button" class="nav-link nav-drop-toggle" aria-haspopup="true" aria-expanded="false"><span data-hi="stays">Hébergements</span><svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop" role="menu">
+          <a href="page-rdc.html" data-hi="apt_rdc" role="menuitem">Rez-de-chaussée</a>
+          <a href="page-1er-etage.html" data-hi="apt_1er" role="menuitem">1ᵉʳ Étage</a>
+          <a href="page-loft.html" data-hi="apt_loft" role="menuitem">Le Loft</a>
+          <a href="page-studio.html" data-hi="apt_studio" role="menuitem">Studio en Terrasse</a>
+          <a href="page-panorama.html" data-hi="apt_panorama" role="menuitem">Panorama du Golf</a>
+        </div>
+      </div>
+      <a class="nav-link" href="guide-saidia.html" data-hi="guide">Guide</a>
+      <a class="nav-link" href="page-conciergerie.html" data-hi="concierge">Conciergerie</a>
+      <a class="nav-link" href="page-apropos.html" data-hi="about">À propos</a>
+      <a class="nav-link" href="page-avis.html" data-hi="reviews">Avis</a>
+      <a class="nav-link" href="page-contact.html" data-hi="contact">Contact</a>
+      <a class="nav-cta-mobile btn btn-gold" href="index.html#logements" data-hi="cta">Réserver en direct</a>
+    </nav>
+    <div class="head-right"><button class="nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="lang-switch" id="langSwitch" aria-label="Langue">
         <button data-l="fr" class="is-current">FR</button>
         <button data-l="en">EN</button>
@@ -368,7 +486,7 @@ const I18N={
   faq4_q:"Can I keep personal use of my property?",faq4_a:"Of course. You tell us the dates you'd like to keep for yourself, and we block them on the calendar.",
   final_h2:"Get a free estimate of your income",final_p:"One message is all it takes to get started. Fast reply, in French or Arabic.",
   foot_tag:"Direct holiday rentals & concierge in Saïdia and Saïdia Marina. No commission, with a local team.",
-  foot_nav:"Navigation",foot_apts:"Our apartments",foot_concierge:"Concierge",foot_home:"Home",
+  foot_nav:"Navigation",foot_apts:"Our apartments",foot_guide:"Guide",concierge:"Concierge",foot_home:"Home",
   foot_contact:"Contact us",foot_addr:"Quartier Franco 1, 63602 Saïdia, Morocco",rights:"All rights reserved.",
   wa:"Hello Azur Stay, I own a property in Saïdia and would like information about your concierge / rental management service."
  },
@@ -405,7 +523,7 @@ const I18N={
   faq4_q:"¿Puedo conservar un uso personal de mi propiedad?",faq4_a:"Por supuesto. Nos indicas las fechas que quieres reservarte y las bloqueamos en el calendario.",
   final_h2:"Recibe una estimación gratuita de tus ingresos",final_p:"Basta un mensaje para empezar. Respuesta rápida, en francés o árabe.",
   foot_tag:"Alquiler vacacional directo y conserjería en Saïdia y Saïdia Marina. Sin comisión, con un equipo local.",
-  foot_nav:"Navegación",foot_apts:"Nuestros apartamentos",foot_concierge:"Conserjería",foot_home:"Inicio",
+  foot_nav:"Navegación",foot_apts:"Nuestros apartamentos",foot_guide:"Guía",concierge:"Conserjería",foot_home:"Inicio",
   foot_contact:"Contacto",foot_addr:"Quartier Franco 1, 63602 Saïdia, Marruecos",rights:"Todos los derechos reservados.",
   wa:"Hola Azur Stay, soy propietario de un inmueble en Saïdia y quiero información sobre vuestro servicio de conserjería / gestión."
  },
@@ -442,7 +560,7 @@ const I18N={
   faq4_q:"هل يمكنني الاحتفاظ باستعمال شخصي لعقاري؟",faq4_a:"بالطبع. تخبرنا بالتواريخ التي ترغب في الاحتفاظ بها لنفسك، ونحجبها في التقويم.",
   final_h2:"احصل على تقدير مجاني لعائداتك",final_p:"رسالة واحدة تكفي للبدء. رد سريع، بالفرنسية أو العربية.",
   foot_tag:"تأجير عطلات مباشر وإدارة وتسيير العقارات في السعيدية ومارينا السعيدية. بلا عمولة، مع فريق محلي.",
-  foot_nav:"تصفّح",foot_apts:"شققنا",foot_concierge:"إدارة العقارات",foot_home:"الرئيسية",
+  foot_nav:"تصفّح",foot_apts:"شققنا",foot_guide:"دليل",concierge:"إدارة العقارات",foot_home:"الرئيسية",
   foot_contact:"اتصل بنا",foot_addr:"الحي الفرنسي 1، 63602 السعيدية، المغرب",rights:"جميع الحقوق محفوظة.",
   wa:"مرحباً Azur Stay، أملك عقاراً في السعيدية وأرغب في معلومات حول خدمة إدارة وتسيير العقارات لديكم."
  }
@@ -478,16 +596,41 @@ else setWA();
 <script>
 (function(){
   var FI={
-    fr:{tag:"Location de vacances en direct & conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.",nav:"Navigation",home:"Accueil",apts:"Nos appartements",concierge:"Conciergerie",reviews:"Avis",about:"À propos",contact:"Contact",privacy:"Politique de confidentialité",contact_h:"Nous contacter",addr:"Quartier Franco 1, 63602 Saïdia, Maroc",rights:"Tous droits réservés."},
-    en:{tag:"Direct holiday rentals & concierge in Saïdia and Saïdia Marina. No commission, with a local team.",nav:"Navigation",home:"Home",apts:"Our apartments",concierge:"Concierge",reviews:"Reviews",about:"About",contact:"Contact",privacy:"Privacy policy",contact_h:"Contact us",addr:"Quartier Franco 1, 63602 Saïdia, Morocco",rights:"All rights reserved."},
-    es:{tag:"Alquiler vacacional directo y conserjería en Saïdia y Saïdia Marina. Sin comisión, con un equipo local.",nav:"Navegación",home:"Inicio",apts:"Nuestros apartamentos",concierge:"Conserjería",reviews:"Opiniones",about:"Quiénes somos",contact:"Contacto",privacy:"Política de privacidad",contact_h:"Contacto",addr:"Quartier Franco 1, 63602 Saïdia, Marruecos",rights:"Todos los derechos reservados."},
-    ar:{tag:"تأجير عطلات مباشر وإدارة وتسيير العقارات في السعيدية ومارينا السعيدية. بلا عمولة، مع فريق محلي.",nav:"تصفّح",home:"الرئيسية",apts:"شققنا",concierge:"إدارة العقارات",reviews:"الآراء",about:"من نحن",contact:"اتصل بنا",privacy:"سياسة الخصوصية",contact_h:"اتصل بنا",addr:"الحي الفرنسي 1، 63602 السعيدية، المغرب",rights:"جميع الحقوق محفوظة."}
+    fr:{tag:"Location de vacances en direct & conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.",nav:"Navigation",home:"Accueil",apts:"Nos appartements",guide:"Guide",concierge:"Conciergerie",reviews:"Avis",about:"À propos",contact:"Contact",privacy:"Politique de confidentialité",contact_h:"Nous contacter",addr:"Quartier Franco 1, 63602 Saïdia, Maroc",rights:"Tous droits réservés."},
+    en:{tag:"Direct holiday rentals & concierge in Saïdia and Saïdia Marina. No commission, with a local team.",nav:"Navigation",home:"Home",apts:"Our apartments",guide:"Guide",concierge:"Concierge",reviews:"Reviews",about:"About",contact:"Contact",privacy:"Privacy policy",contact_h:"Contact us",addr:"Quartier Franco 1, 63602 Saïdia, Morocco",rights:"All rights reserved."},
+    es:{tag:"Alquiler vacacional directo y conserjería en Saïdia y Saïdia Marina. Sin comisión, con un equipo local.",nav:"Navegación",home:"Inicio",apts:"Nuestros apartamentos",guide:"Guía",concierge:"Conserjería",reviews:"Opiniones",about:"Quiénes somos",contact:"Contacto",privacy:"Política de privacidad",contact_h:"Contacto",addr:"Quartier Franco 1, 63602 Saïdia, Marruecos",rights:"Todos los derechos reservados."},
+    ar:{tag:"تأجير عطلات مباشر وإدارة وتسيير العقارات في السعيدية ومارينا السعيدية. بلا عمولة، مع فريق محلي.",nav:"تصفّح",home:"الرئيسية",apts:"شققنا",guide:"دليل",concierge:"إدارة العقارات",reviews:"الآراء",about:"من نحن",contact:"اتصل بنا",privacy:"سياسة الخصوصية",contact_h:"اتصل بنا",addr:"الحي الفرنسي 1، 63602 السعيدية، المغرب",rights:"جميع الحقوق محفوظة."}
   };
   function applyFooter(l){var d=FI[l]||FI.fr;document.querySelectorAll("[data-fi]").forEach(function(el){var k=el.getAttribute("data-fi");if(d[k]!=null)el.textContent=d[k];});}
   var y=document.getElementById("year");if(y)y.textContent=new Date().getFullYear();
   var L=document.documentElement.getAttribute("lang")||"fr";if(!FI[L])L="fr";applyFooter(L);
   var ls=document.getElementById("langSwitch");
   if(ls)ls.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.l&&FI[b.dataset.l])applyFooter(b.dataset.l);});
+})();
+</script>
+<button class="backtop" id="backTop" aria-label="Retour en haut" title="Retour en haut">↑</button>
+<a class="wafab" href="https://wa.me/212652615900" rel="nofollow" target="_blank" aria-label="Contacter sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg></a>
+<script>
+(function(){var b=document.getElementById("backTop");if(!b)return;
+var on=function(){b.classList.toggle("show",(window.scrollY||document.documentElement.scrollTop)>500);};
+on();window.addEventListener("scroll",on,{passive:true});
+b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});})();
+</script>
+<script>
+(function(){
+  var head=document.getElementById("head"),burger=document.getElementById("navBurger"),navmain=document.getElementById("navMain");
+  if(head&&burger){burger.addEventListener("click",function(){var o=head.classList.toggle("navopen");burger.setAttribute("aria-expanded",o?"true":"false");});}
+  document.querySelectorAll(".nav-drop-toggle").forEach(function(btn){btn.addEventListener("click",function(){var it=btn.closest(".nav-item");var o=it.classList.toggle("open");btn.setAttribute("aria-expanded",o?"true":"false");});});
+  if(navmain){navmain.addEventListener("click",function(e){if(e.target.closest("a")&&head){head.classList.remove("navopen");}});}
+  document.addEventListener("click",function(e){if(!e.target.closest("#head")){if(head)head.classList.remove("navopen");document.querySelectorAll(".nav-item.open").forEach(function(i){i.classList.remove("open");});}});
+  var HI={fr:{stays:"Hébergements",apt_rdc:"Rez-de-chaussée",apt_1er:"1ᵉʳ Étage",apt_loft:"Le Loft",apt_studio:"Studio en Terrasse",apt_panorama:"Panorama du Golf",guide:"Guide",concierge:"Conciergerie",about:"À propos",reviews:"Avis",contact:"Contact",cta:"Réserver en direct"},
+  en:{stays:"Accommodations",apt_rdc:"Ground Floor",apt_1er:"First Floor",apt_loft:"The Loft",apt_studio:"Terrace Studio",apt_panorama:"Golf Panorama",guide:"Guide",concierge:"Concierge",about:"About",reviews:"Reviews",contact:"Contact",cta:"Book Direct"},
+  es:{stays:"Alojamientos",apt_rdc:"Planta Baja",apt_1er:"Primera Planta",apt_loft:"El Loft",apt_studio:"Estudio con Terraza",apt_panorama:"Panorama del Golf",guide:"Guía",concierge:"Conserjería",about:"Quiénes somos",reviews:"Opiniones",contact:"Contacto",cta:"Reserva Directa"},
+  ar:{stays:"أماكن الإقامة",apt_rdc:"الطابق الأرضي",apt_1er:"الطابق الأول",apt_loft:"اللوفت",apt_studio:"استوديو بشرفة",apt_panorama:"بانوراما الغولف",guide:"دليل",concierge:"إدارة العقارات",about:"من نحن",reviews:"الآراء",contact:"اتصل بنا",cta:"احجز مباشرة"}};
+  function applyHeader(l){var d=HI[l]||HI.fr;document.querySelectorAll("[data-hi]").forEach(function(el){var k=el.getAttribute("data-hi");if(d[k]!=null)el.textContent=d[k];});}
+  var L=(document.documentElement.getAttribute("lang")||"fr");if(!HI[L])L="fr";applyHeader(L);
+  var ls=document.getElementById("langSwitch");
+  if(ls)ls.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.l&&HI[b.dataset.l])applyHeader(b.dataset.l);});
 })();
 </script>
 </body>

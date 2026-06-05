@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /reglement-darcom.html
+Disallow: /reglement-marina.html
 
 Sitemap: https://azurstaysaidia.com/sitemap.xml
