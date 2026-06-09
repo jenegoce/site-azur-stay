@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K5BX698D');</script>
+<!-- End Google Tag Manager -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ============================================================
      SEO — calibré sur le brief Rank Math (page d'accueil)
      Mot-clé focus : location vacances Saïdia
      ============================================================ -->
-<title>تأجير العطلات بالسعيدية ومارينا السعيدية | احجز مباشرة</title>
-<meta name="description" content="استأجر شقة في السعيدية ومارينا السعيدية مباشرة، بلا عمولة Airbnb أو Booking. حجز سريع ومباشر عبر واتساب.">
-<link rel="canonical" href="https://azurstaysaidia.com/reservation-ar-html.html">
+<title>Alquiler Vacacional en Saïdia y Saïdia Marina | Reserva Directa</title>
+<meta name="description" content="Alquila un apartamento en Saïdia y Saïdia Marina directamente, sin comisión de Airbnb ni Booking. Reserva rápida por WhatsApp.">
+<link rel="canonical" href="https://azurstaysaidia.com/index-es.html">
 <meta name="robots" content="index, follow">
 <link rel="alternate" hreflang="fr" href="https://azurstaysaidia.com/">
-<link rel="alternate" hreflang="en" href="https://azurstaysaidia.com/reservation-en-html.html">
-<link rel="alternate" hreflang="es" href="https://azurstaysaidia.com/reservation-es-html.html">
-<link rel="alternate" hreflang="ar" href="https://azurstaysaidia.com/reservation-ar-html.html">
+<link rel="alternate" hreflang="en" href="https://azurstaysaidia.com/index-en.html">
+<link rel="alternate" hreflang="es" href="https://azurstaysaidia.com/index-es.html">
+<link rel="alternate" hreflang="ar" href="https://azurstaysaidia.com/index-ar.html">
 <link rel="alternate" hreflang="x-default" href="https://azurstaysaidia.com/">
 
 <!-- Identité de marque Azur Stay -->
@@ -29,10 +37,10 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="تأجير العطلات وإدارة العقارات بالسعيدية | احجز مباشرة">
-<meta property="og:description" content="استأجر في مارينا السعيدية مباشرة، بلا عمولة Airbnb/Booking. إدارة وتسيير العقارات للملاك.">
-<meta property="og:locale" content="ar_MA">
-<meta property="og:url" content="https://azurstaysaidia.com/reservation-ar-html.html">
+<meta property="og:title" content="Alquiler Vacacional Saïdia & Conserjería | Reserva Directa">
+<meta property="og:description" content="Alquila en Saïdia Marina directamente, sin comisión Airbnb/Booking. Conserjería para propietarios.">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://azurstaysaidia.com/index-es.html">
 
 <!-- Polices : préconnexion pour la perf (LCP) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -439,27 +447,28 @@ footer a:hover{color:#FFE2A6}
   .nav-drop a{padding:12px 14px;font-weight:500}
   .nav-cta-mobile{display:flex !important;justify-content:center;margin-top:8px}
 }
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-html[dir=rtl] body{font-family:'Tajawal',sans-serif}
-html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3,html[dir=rtl] h4,html[dir=rtl] .brand,html[dir=rtl] .card-body h4,html[dir=rtl] .step h4,html[dir=rtl] .value-item h4{font-family:'Tajawal',sans-serif;letter-spacing:0;font-weight:700}
-html[dir=rtl] .eyebrow{letter-spacing:.04em}
-html[dir=rtl] .faq-q{padding:22px 0 22px 44px;text-align:right}
-html[dir=rtl] .faq-q::after{right:auto;left:4px}
-html[dir=rtl] .faq-a p{padding:0 0 24px 44px}
-html[dir=rtl] .wa-float{right:auto;left:22px}
-html[dir=rtl] .card-tag{left:auto;right:14px}
-html[dir=rtl] .step::before{left:auto;right:22px}
-html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(-1)}
+
+/* socle : sélecteur de langue en liens + drapeaux */
+.lang-switch{display:flex;gap:5px;align-items:center}
+.lang-switch a{display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,.72);padding:5px 9px;border-radius:8px;transition:.2s;font-family:var(--ff-body);font-weight:600;font-size:.82rem;text-decoration:none;line-height:1}
+.lang-switch a:hover{color:#fff}
+.lang-switch a.is-current{color:#fff;background:rgba(255,255,255,.18)}
+.head.scrolled .lang-switch a{color:var(--ink-soft)}
+.head.scrolled .lang-switch a.is-current{color:var(--ink);background:rgba(21,40,46,.08)}
+.lang-switch .flag{width:19px;height:13px;border-radius:2px;display:block;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.3)}
+.head.scrolled .lang-switch .flag{box-shadow:0 0 0 1px rgba(21,40,46,.2)}
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5BX698D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ============================ HEADER STICKY ============================ -->
 <header class="head" id="head">
   <div class="wrap">
-    <a href="index.html" class="brand" aria-label="Azur Stay — الرئيسية">
+    <a href="index-es.html" class="brand" aria-label="Azur Stay — inicio">
       <span class="mark" aria-hidden="true">
         <svg viewBox="0 0 100 100"><defs><linearGradient id="bm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d4a63"/><stop offset="1" stop-color="#2E86AB"/></linearGradient></defs><circle cx="50" cy="50" r="50" fill="url(#bm1)"/><circle cx="50" cy="30" r="11" fill="#fff" opacity=".95"/><g stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"><line x1="50" y1="13" x2="50" y2="7"/><line x1="66" y1="17" x2="70" y2="13"/><line x1="34" y1="17" x2="30" y2="13"/><line x1="71" y1="30" x2="77" y2="30"/><line x1="29" y1="30" x2="23" y2="30"/></g><path d="M12,62 C20,52 28,52 36,62 C44,72 52,72 60,62 C68,52 76,52 84,62" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round"/><path d="M14,77 C22,68 30,68 38,77 C46,86 54,86 62,77 C70,68 78,68 86,77" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" opacity=".5"/></svg>
       </span>
@@ -469,29 +478,29 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
       <div class="nav-item">
         <button type="button" class="nav-link nav-drop-toggle" aria-haspopup="true" aria-expanded="false"><span data-hi="stays">Hébergements</span><svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="nav-drop" role="menu">
-          <a href="page-rdc.html" data-hi="apt_rdc" role="menuitem">Rez-de-chaussée</a>
-          <a href="page-1er-etage.html" data-hi="apt_1er" role="menuitem">1ᵉʳ Étage</a>
-          <a href="page-loft.html" data-hi="apt_loft" role="menuitem">Le Loft</a>
-          <a href="page-studio.html" data-hi="apt_studio" role="menuitem">Studio en Terrasse</a>
-          <a href="page-panorama.html" data-hi="apt_panorama" role="menuitem">Panorama du Golf</a>
+          <a href="page-rdc-es.html" data-hi="apt_rdc" role="menuitem">Rez-de-chaussée</a>
+          <a href="page-1er-etage-es.html" data-hi="apt_1er" role="menuitem">1ᵉʳ Étage</a>
+          <a href="page-loft-es.html" data-hi="apt_loft" role="menuitem">Le Loft</a>
+          <a href="page-studio-es.html" data-hi="apt_studio" role="menuitem">Studio en Terrasse</a>
+          <a href="page-panorama-es.html" data-hi="apt_panorama" role="menuitem">Panorama du Golf</a>
         </div>
       </div>
-      <a class="nav-link" href="guide-saidia.html" data-hi="guide">Guide</a>
-      <a class="nav-link" href="page-conciergerie.html" data-hi="concierge">Conciergerie</a>
-      <a class="nav-link" href="page-apropos.html" data-hi="about">À propos</a>
-      <a class="nav-link" href="page-avis.html" data-hi="reviews">Avis</a>
-      <a class="nav-link" href="page-contact.html" data-hi="contact">Contact</a>
+      <a class="nav-link" href="guide-saidia-es.html" data-hi="guide">Guide</a>
+      <a class="nav-link" href="page-conciergerie-es.html" data-hi="concierge">Conciergerie</a>
+      <a class="nav-link" href="page-apropos-es.html" data-hi="about">À propos</a>
+      <a class="nav-link" href="page-avis-es.html" data-hi="reviews">Avis</a>
+      <a class="nav-link" href="page-contact-es.html" data-hi="contact">Contact</a>
       <a class="nav-cta-mobile btn btn-gold" href="index.html#logements" data-hi="cta">Réserver en direct</a>
     </nav>
     <div class="head-right"><button class="nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <nav class="lang-switch" aria-label="اللغة">
-      <a href="index.html" hreflang="fr">FR</a>
-      <a href="reservation-en-html.html" hreflang="en">EN</a>
-      <a href="reservation-es-html.html" hreflang="es">ES</a>
-      <a href="reservation-ar-html.html" hreflang="ar" class="is-current">AR</a>
+      <nav class="lang-switch" id="langSwitch" aria-label="Langue">
+      <a href="index-es.html" hreflang="fr"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg><span>FR</span></a>
+      <a href="index-en.html" hreflang="en"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="6"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><rect x="25" width="10" height="40" fill="#fff"/><rect y="15" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="40" fill="#C8102E"/><rect y="17" width="60" height="6" fill="#C8102E"/></svg><span>EN</span></a>
+      <a href="index-es.html" hreflang="es" class="is-current" aria-current="true"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg><span>ES</span></a>
+      <a href="index-ar.html" hreflang="ar"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#C1272D"/><path d="M30 10 35.88 28.09 20.49 16.91 39.51 16.91 24.12 28.09Z" fill="none" stroke="#006233" stroke-width="1.8"/></svg><span>AR</span></a>
     </nav>
     <div class="head-actions">
-      <a class="btn btn-gold" data-cta="reserver" href="#logements">احجز مباشرة</a>
+      <a class="btn btn-gold" data-cta="reserver" href="#logements">Reserva Directa</a>
       </div>
     </div>
   </div>
@@ -503,23 +512,23 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
     <path fill="#FBF6EC" d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,53.3C840,53,960,75,1080,80C1200,85,1320,75,1380,69.3L1440,64L1440,120L0,120Z"></path>
   </svg>
   <div class="wrap hero-inner">
-    <span class="eyebrow reveal">السعيدية · لؤلؤة البحر الأبيض المتوسط</span>
+    <span class="eyebrow reveal">Saïdia · La Perla Azul del Mediterráneo</span>
     <!-- H1 unique — focus : location vacances Saïdia -->
-    <h1 class="reveal">شقق العطلات في السعيدية ومارينا السعيدية — <em>احجز مباشرة ووفّر</em>، بلا عمولات</h1>
-    <p class="lead reveal">اقضِ صيفك في السعيدية بشقة عطلات مختارة ومجهّزة بعناية من طرف فريقنا، على بُعد خطوات من المارينا والشاطئ. احجز مباشرة مع Azur Stay وتجنّب عمولات Airbnb وBooking. ستدفع أقل، وتتعامل مع فريق محلي حقيقي، ويتم تأكيد حجزك في دقائق.</p>
+    <h1 class="reveal">Apartamentos en Saïdia y Saïdia Marina — <em>Reserva Directa, Sin Comisiones</em></h1>
+    <p class="lead reveal">Pasa el verano en Saïdia en un apartamento cuidadosamente seleccionado y preparado por nuestro equipo, a dos pasos de la Marina y la playa. Reserva directamente con Azur Stay y evita las comisiones de Airbnb y Booking. Pagas menos, tratas con un equipo local de verdad y tu reserva se confirma en pocos minutos.</p>
     <div class="hero-cta reveal">
       <!-- Flux VOYAGEUR -->
       <a class="btn btn-wa btn-lg" data-wa="voyageur" href="#" rel="nofollow">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg>
-        احجز مباشرة عبر واتساب
+        Reservar por WhatsApp
       </a>
       <!-- Flux PROPRIÉTAIRE -->
-      <a class="btn btn-ghost-light btn-lg" href="#conciergerie">أنا مالك العقار ←</a>
+      <a class="btn btn-ghost-light btn-lg" href="#conciergerie">Soy Propietario →</a>
     </div>
     <div class="hero-trust reveal">
-      <span><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>بلا عمولات Airbnb أو Booking</span>
-      <span><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>فريق محلي طوال أيام الأسبوع</span>
-      <span><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>رد في أقل من 10 دقائق</span>
+      <span><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sin comisiones de Airbnb ni Booking</span>
+      <span><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Equipo local, 7 días a la semana</span>
+      <span><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Respuesta en menos de 10 minutos</span>
     </div>
   </div>
 </section>
@@ -528,53 +537,53 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
 <section class="sec" id="logements">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">للمسافرين</span>
-      <h2>شقتك للعطلة في مارينا السعيدية، بحجزٍ مباشر</h2>
-      <p class="lead">استوديوهات وشقق وفيلات بموقع مثالي في مارينا السعيدية: وحداتنا مُعايَنة ومجهَّزة وجاهزة لاستقبالك طوال الصيف، على بُعد خطوات من الشاطئ والمارينا. بلا وسطاء ولا رسوم خدمة مبالَغ فيها — فقط أفضل سعر، ومباشرة.</p>
+      <span class="eyebrow">Para Viajeros</span>
+      <h2>Tu Apartamento en Saïdia Marina, Reservado Directamente</h2>
+      <p class="lead">Estudios, apartamentos y villas idealmente ubicados en Saïdia Marina: nuestros alojamientos están verificados, equipados y listos para recibirte todo el verano, a pocos pasos de la playa y del puerto deportivo. Sin intermediarios ni cargos abusivos: solo el mejor precio, directo.</p>
     </div>
 
     <!-- H3 — catalogue dynamique (rendu depuis JS, jamais figé en dur) -->
-    <div class="subhead"><h3>إقامات بموقع مثالي في قلب اللؤلؤة الزرقاء</h3></div>
+    <div class="subhead"><h3>Alojamientos Idealmente Ubicados en el Corazón de la Perla Azul</h3></div>
     <div class="cards" id="catalogue" aria-live="polite"><!-- injecté par JS --></div>
 
     <!-- H3 — pourquoi réserver en direct -->
-    <div class="subhead"><h3>لماذا الحجز المباشر (بعيداً عن Airbnb وBooking)؟</h3></div>
+    <div class="subhead"><h3>¿Por Qué Reservar Directamente (Sin Airbnb ni Booking)?</h3></div>
     <div class="value-band">
-      <span class="save-pill">💸 وفّر ما بين 10% إلى 12% مقارنة بالمنصات</span>
+      <span class="save-pill">💸 Ahorra entre un 10% y un 12% frente a las plataformas</span>
       <div class="value-grid">
         <div class="value-item">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-          <h4>أفضل سعر</h4>
-          <p>بلا عمولة للمنصّة: ما توفّره يبقى في جيبك، لا في جيب وسيط.</p>
+          <h4>El Mejor Precio</h4>
+          <p>Sin comisiones de plataforma: lo que ahorras se queda en tu bolsillo, no en el de un intermediario.</p>
         </div>
         <div class="value-item">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <h4>تواصل مباشر مع فريق حقيقي</h4>
-          <p>تتحدّث مباشرة مع فريقنا المحلي، بالفرنسية أو العربية، قبل إقامتك وخلالها.</p>
+          <h4>Trato Directo y Personal</h4>
+          <p>Hablas directamente con nuestro equipo local, en francés o árabe, antes y durante tu estancia.</p>
         </div>
         <div class="value-item">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <h4>وحدات مُعايَنة</h4>
-          <p>نقوم بمعاينة وتجهيز كل شقة بأنفسنا، لضمان إقامة خالية من المفاجآت غير السارة عند وصولكم.</p>
+          <h4>Alojamientos Verificados</h4>
+          <p>Cada apartamento es inspeccionado, equipado y preparado por nosotros. Sin sorpresas desagradables al llegar.</p>
         </div>
         <div class="value-item">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <h4>توفّر فوري</h4>
-          <p>أخبرنا بتواريخك وسيصلك تأكيد التوفّر وسعرك المخصّص في أقل من 10 دقائق.</p>
+          <h4>Disponibilidad Inmediata</h4>
+          <p>Indícanos tus fechas y recibirás la confirmación de disponibilidad y tu precio personalizado en menos de 10 minutos.</p>
         </div>
       </div>
     </div>
 
     <!-- H3 — réservation WhatsApp en 2 minutes -->
-    <div class="subhead"><h3>حجز وتأكيد الدفع في دقيقتين عبر واتساب</h3></div>
+    <div class="subhead"><h3>Reserva y Pago Confirmados en 2 Minutos por WhatsApp</h3></div>
     <div class="steps">
-      <div class="step"><h4>أرسل تواريخك</h4><p>رسالة واتساب بتواريخك وعدد الضيوف تكفي للبدء.</p></div>
-      <div class="step"><h4>استلم عرضك</h4><p>التوفّر، وحدة بموقع مثالي، وسعر شامل، في أقل من 10 دقائق.</p></div>
-      <div class="step"><h4>ثبّت تواريخك</h4><p>عربون آمن يؤكّد حجزك، ويُسوّى المبلغ المتبقّي وفق الشروط المتّفق عليها معاً.</p></div>
+      <div class="step"><h4>Envía Tus Fechas</h4><p>Un WhatsApp con tus fechas y número de huéspedes, y listo.</p></div>
+      <div class="step"><h4>Recibe Tu Oferta</h4><p>Disponibilidad, un alojamiento idealmente ubicado y un precio con todo incluido, en menos de 10 minutos.</p></div>
+      <div class="step"><h4>Asegura Tus Fechas</h4><p>Un depósito seguro confirma tu reserva, y el saldo restante se abona según las condiciones acordadas conjuntamente.</p></div>
     </div>
     <a class="btn btn-wa btn-lg" data-wa="dispo" href="#" rel="nofollow">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg>
-      تحقّق من التوفّر عبر واتساب
+      Consultar Disponibilidad por WhatsApp
     </a>
   </div>
 </section>
@@ -584,33 +593,33 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
   <div class="wrap">
     <div class="owner">
       <div class="owner-inner">
-        <span class="eyebrow">للملاك والمغاربة المقيمين بالخارج</span>
-        <h2>إدارة وتسيير العقارات بالسعيدية : لننسى معاً عناء التسيير عن بُعد</h2>
-        <p class="owner-lead">تملك شقة في السعيدية لكن لا وقت لديك — ولا رغبة — في إدارة التأجير، خصوصاً من الخارج؟ نتكفّل بكل شيء من الألف إلى الياء بينما تصلك أرباحك.</p>
+        <span class="eyebrow">Para Propietarios y Marroquíes en el Extranjero</span>
+        <h2>Conserjería en Saïdia: Confíanos la Gestión de tu Alquiler</h2>
+        <p class="owner-lead">¿Tienes un apartamento en Saïdia pero ni tiempo ni ganas de gestionar los alquileres, sobre todo desde el extranjero? Nuestra conserjería se encarga de todo de principio a fin mientras tú recibes tus ingresos.</p>
         <div class="owner-grid">
           <div>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-            <h3>إدارة وتسيير متكاملة في السعيدية ومارينا السعيدية</h3>
-            <p>إنشاء الإعلانات ونشرها، تسعير محسَّن، إدارة التقويم والتواصل مع الضيوف: ندير كل شيء. وتبقى أنت مطمئن البال.</p>
+            <h3>Gestión de Alquiler Llave en Mano en Saïdia y Saïdia Marina</h3>
+            <p>Creación y publicación de anuncios, precios optimizados, calendario y comunicación con huéspedes: lo gestionamos todo. Tú mantienes la tranquilidad.</p>
           </div>
           <div>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7h-9M14 17H5M17 17a3 3 0 100 6 3 3 0 000-6zM7 7a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-            <h3>استقبال الضيوف والتنظيف والصيانة ضمن الخدمة</h3>
-            <p>تسليم المفاتيح، جرد الحالة، تنظيف احترافي، فرش بمستوى الفنادق، وصيانة: نعتني بعقارك كأنه ملكنا.</p>
+            <h3>Recepción de Huéspedes, Limpieza y Mantenimiento Incluidos</h3>
+            <p>Entrega de llaves, inventario, limpieza profesional, ropa de cama de hotel y mantenimiento: cuidamos tu propiedad como si fuera nuestra.</p>
           </div>
           <div>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <h3>ضاعِف دخلك من التأجير دون أي عناء</h3>
-            <p>تسعير ديناميكي حسب الموسم وتقارير دخل شفّافة. عوائد مضمونة، دون أن تحرك ساكناً.</p>
+            <h3>Maximiza Tus Ingresos por Alquiler Sin Complicaciones</h3>
+            <p>Precios dinámicos por temporada e informes de ingresos transparentes. Tú ganas, sin mover un dedo.</p>
           </div>
         </div>
         <div class="owner-cta">
           <a class="btn btn-wa btn-lg" data-wa="proprietaire" href="#" rel="nofollow">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg>
-            احسب دخلك المتوقّع عبر واتساب
+            Calcular Mis Ingresos por WhatsApp
           </a>
           <!-- Maillage interne vers la page sœur dédiée -->
-          <a class="btn btn-ghost-light btn-lg" href="page-conciergerie.html">المزيد عن خدمة إدارة وتسيير العقارات بالسعيدية</a>
+          <a class="btn btn-ghost-light btn-lg" href="page-conciergerie-es.html">Más Sobre Nuestra Conserjería en Saïdia</a>
         </div>
       </div>
     </div>
@@ -621,38 +630,38 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
 <section class="sec">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">ثقة وشفافية</span>
-      <h2>لماذا تختارنا لعطلتك أو لعقارك في السعيدية؟</h2>
+      <span class="eyebrow">Confianza y Transparencia</span>
+      <h2>¿Por Qué Elegirnos para tus Vacaciones o tu Propiedad en Saïdia?</h2>
     </div>
     <div class="why-grid">
       <div class="why-item">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <h3>فريق محلي متواجد طوال أيام الأسبوع</h3>
-        <p>تعتمد وكالتنا على ثماني سنوات من الخبرة في إدارة وتسيير العقارات بالسعيدية والجهة الشرقية. وبفضل معاييرنا الفندقية وتواجدنا الميداني طوال أيام الأسبوع، نلبّي احتياجاتكم بسرعة، بالفرنسية أو العربية — شخص حقيقي، لا ردّ آلي.</p>
+        <h3>Un Equipo Local, Disponible los 7 Días</h3>
+        <p>Nuestra agencia cuenta con ocho años de experiencia en gestión de alquileres en Saïdia y la región Oriental. Gracias a nuestros estándares hoteleros y a nuestra presencia local los 7 días de la semana, respondemos con rapidez a tus necesidades, en francés o árabe: una persona real, nunca una centralita.</p>
       </div>
       <div class="why-item">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <h3>أسعار شفّافة، بلا رسوم خفيّة</h3>
-        <p>كل حجز مباشر يضمن لك توفير ما بين 10% إلى 12% مقارنة بالمنصات — للضيف والمالك معاً. بلا رسوم مفاجئة.</p>
+        <h3>Precios Transparentes, Sin Comisiones Ocultas</h3>
+        <p>Cada reserva directa ahorra entre un 10% y un 12% frente a las plataformas, tanto al huésped como al propietario. Sin cargos sorpresa.</p>
       </div>
     </div>
 
     <!-- Preuve sociale : avis conciergerie en direct (intégrés sans nouveau titre Hn) -->
-    <div class="reviews" aria-label="آراء ضيوفنا">
+    <div class="reviews" aria-label="Opiniones de nuestros clientes">
       <figure class="review">
         <div class="stars" aria-label="5 sur 5">★★★★★</div>
-        <blockquote>«إقامة مثالية في السعيدية! الشقة كانت نظيفة تماماً، والفرش برائحة منعشة، والاستقبال كان دافئاً. سنعود العام المقبل.»</blockquote>
-        <figcaption><span class="av" aria-hidden="true">SF</span><span><b>Sofia F.</b><br>ضيفة · Studio en Terrasse</span></figcaption>
+        <blockquote>"¡Estancia perfecta en Saïdia! El apartamento estaba impecable, la ropa de cama olía a limpio y el recibimiento fue muy cálido. Volveremos el año que viene."</blockquote>
+        <figcaption><span class="av" aria-hidden="true">SF</span><span><b>Sofia F.</b><br>Huésped · Studio en Terrasse</span></figcaption>
       </figure>
       <figure class="review">
         <div class="stars" aria-label="5 sur 5">★★★★★</div>
-        <blockquote>«أعيش في فرنسا ولم أكن أستطيع إدارة شقتي بنفسي. Azur Stay تتكفّل بكل شيء. ارتفعت عائداتي ولم يعد لديّ ما يقلقني.»</blockquote>
-        <figcaption><span class="av" aria-hidden="true">KM</span><span><b>Karim M.</b><br>مالك مقيم بالخارج · السعيدية</span></figcaption>
+        <blockquote>"Vivo en Francia y no podía gestionar mi apartamento. Azur Stay se encarga de todo. Mis ingresos han subido y no tengo de qué preocuparme."</blockquote>
+        <figcaption><span class="av" aria-hidden="true">KM</span><span><b>Karim M.</b><br>Propietario en el extranjero · Saïdia</span></figcaption>
       </figure>
       <figure class="review">
         <div class="stars" aria-label="5 sur 5">★★★★★</div>
-        <blockquote>«الـ Loft رائع — 110 م²، إطلالة بانورامية، مجهّز بالكامل. خدمة الإدارة متاحة على مدار الساعة. مستوى فندقي حقيقي بسعر معقول جداً.»</blockquote>
-        <figcaption><span class="av" aria-hidden="true">YB</span><span><b>Youssef B.</b><br>ضيف · Le Loft</span></figcaption>
+        <blockquote>"El Loft es increíble: 110 m², vistas panorámicas, totalmente equipado. La conserjería está disponible a cualquier hora. Nivel de hotel a un precio muy razonable."</blockquote>
+        <figcaption><span class="av" aria-hidden="true">YB</span><span><b>Youssef B.</b><br>Huésped · Le Loft</span></figcaption>
       </figure>
     </div>
   </div>
@@ -662,27 +671,27 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
 <section class="sec local">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">دليل محلي</span>
-      <h2>اكتشف السعيدية، لؤلؤة المتوسط الزرقاء</h2>
-      <p class="lead">14 كم من الشواطئ الرملية الناعمة، مارينا مفعمة بالحياة وشمس دافئة: السعيدية هي إحدى الوجهات البحرية الأكثر جاذبية في شمال شرق المغرب.</p>
+      <span class="eyebrow">Guía Local</span>
+      <h2>Descubre Saïdia, la Perla Azul del Mediterráneo</h2>
+      <p class="lead">14 km de playa de arena fina, una marina animada y sol generoso: Saïdia es uno de los destinos de playa más apreciados del noreste de Marruecos.</p>
     </div>
     <div class="local-grid">
       <article class="local-card">
-        <h3>المارينا، الشاطئ وأنشطة الصيف</h3>
-        <p>القلب النابض للمحطة، بين المارينا والمقاهي والأنشطة البحرية.</p>
+        <h3>La Marina, la Playa y las Actividades de Verano</h3>
+        <p>El corazón animado del resort: puerto deportivo, terrazas y actividades náuticas.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>تجوّل ومطاعم على مارينا السعيدية</li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>جت سكي، تجديف وجولات بحرية على طول الساحل</li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>غولف، ملاعب وسهرات حيّة في الموسم العالي</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Paseos y restaurantes en el puerto deportivo de Saïdia Marina</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Moto acuática, paddle surf y paseos en barco por la costa</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Golf, campos y noches animadas en temporada alta</li>
         </ul>
       </article>
       <article class="local-card">
-        <h3>كيف تصل إلى السعيدية وأين تقيم</h3>
-        <p>سهلة الوصول، صيفاً وفي غير موسمه، من أوروبا وباقي المغرب.</p>
+        <h3>Cómo Llegar y Dónde Alojarse en Saïdia</h3>
+        <p>Fácil de llegar, en verano y fuera de temporada, desde Europa y el resto de Marruecos.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>على بُعد 25 دقيقة فقط من مطار وجدة-أنجاد.</li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>وحدات بموقع مثالي، على بُعد دقائق من الشاطئ والمارينا</li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>إقامات أسبوعية، مثالية للعائلات والمجموعات</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>A solo 25 minutos del aeropuerto de Oujda-Angad.</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Alojamientos idealmente ubicados, a pocos minutos de la playa y el puerto</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Estancias por semana, ideal para familias y grupos</li>
         </ul>
       </article>
     </div>
@@ -693,29 +702,29 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
 <section class="sec">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">نجيب عن أسئلتك</span>
-      <h2>أسئلة شائعة حول التأجير والإدارة في السعيدية</h2>
+      <span class="eyebrow">Respondemos a tus Preguntas</span>
+      <h2>Preguntas Frecuentes sobre Alquiler y Conserjería en Saïdia</h2>
     </div>
     <div class="faq">
       <div class="faq-item">
-        <h3><button class="faq-q" aria-expanded="false">هل يمكنني الحجز دون المرور عبر Airbnb أو Booking؟</button></h3>
-        <div class="faq-a"><p>نعم. يتم الحجز مباشرة عبر واتساب، دون أي عمولة للمنصّة. تدفع أقل وتتواصل مباشرة مع فريقنا المحلي.</p></div>
+        <h3><button class="faq-q" aria-expanded="false">¿Puedo reservar sin pasar por Airbnb o Booking?</button></h3>
+        <div class="faq-a"><p>Sí. La reserva se hace directamente por WhatsApp, sin comisión de plataforma. Pagas menos y tratas directamente con nuestro equipo local.</p></div>
       </div>
       <div class="faq-item">
-        <h3><button class="faq-q" aria-expanded="false">كيف تتم عملية الدفع؟</button></h3>
-        <div class="faq-a"><p>يُدفع عربون لتثبيت التواريخ، ثم يُسوّى الباقي وفق ترتيبات آمنة يُتَّفق عليها مباشرة مع فريقنا.</p></div>
+        <h3><button class="faq-q" aria-expanded="false">¿Cómo se realiza el pago?</button></h3>
+        <div class="faq-a"><p>Un depósito reserva tus fechas y el saldo se abona según condiciones seguras acordadas directamente con nuestro equipo.</p></div>
       </div>
       <div class="faq-item">
-        <h3><button class="faq-q" aria-expanded="false">أين تقع الوحدات؟</button></h3>
-        <div class="faq-a"><p>في السعيدية ومارينا السعيدية، على بُعد خطوات من الشاطئ والمارينا.</p></div>
+        <h3><button class="faq-q" aria-expanded="false">¿Dónde están ubicados los alojamientos?</button></h3>
+        <div class="faq-a"><p>En Saïdia y Saïdia Marina, a pocos pasos de la playa y del puerto deportivo.</p></div>
       </div>
       <div class="faq-item">
-        <h3><button class="faq-q" aria-expanded="false">أنا مالك: ماذا تشمل خدمة إدارة وتسيير العقارات؟</button></h3>
-        <div class="faq-a"><p>إنشاء الإعلانات ونشرها، التسعير، استقبال الضيوف، التنظيف، الفرش، الصيانة، ومتابعة عائدات التأجير.</p></div>
+        <h3><button class="faq-q" aria-expanded="false">Soy propietario: ¿qué incluye la conserjería?</button></h3>
+        <div class="faq-a"><p>Creación y publicación de anuncios, fijación de precios, recepción de huéspedes, limpieza, ropa de cama, mantenimiento y seguimiento de los ingresos.</p></div>
       </div>
       <div class="faq-item">
-        <h3><button class="faq-q" aria-expanded="false">ما هي رسوم الإدارة لديكم؟</button></h3>
-        <div class="faq-a"><p>عمولة شفّافة على العائدات المحقّقة، بلا رسوم خفيّة. عرض سعر مخصّص عبر واتساب.</p></div>
+        <h3><button class="faq-q" aria-expanded="false">¿Cuáles son vuestras tarifas de gestión?</button></h3>
+        <div class="faq-a"><p>Una comisión transparente sobre los ingresos generados, sin costes ocultos. Presupuesto personalizado por WhatsApp.</p></div>
       </div>
     </div>
   </div>
@@ -724,12 +733,12 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
 <!-- ============================ CTA FINAL ============================ -->
 <section class="cta-final">
   <div class="wrap">
-    <h2>احجز إقامتك أو اعهد إلينا بعقارك اليوم</h2>
-    <p>رسالة واحدة تكفي للبدء. رد سريع، بالفرنسية أو العربية.</p>
+    <h2>Reserva Tu Estancia o Confía tu Propiedad Hoy Mismo</h2>
+    <p>Basta un mensaje para empezar. Respuesta rápida, en francés o árabe.</p>
     <div class="hero-cta">
       <a class="btn btn-wa btn-lg" data-wa="general" href="#" rel="nofollow">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg>
-        تحدّث عبر واتساب الآن
+        Hablar por WhatsApp Ahora
       </a>
     </div>
   </div>
@@ -746,13 +755,13 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
       <div>
         <h5 data-fi="nav">Navigation</h5>
         <ul>
-          <li><a href="index.html" data-fi="home">Accueil</a></li>
+          <li><a href="index-es.html" data-fi="home">Accueil</a></li>
           <li><a href="index.html#logements" data-fi="apts">Nos appartements</a></li>
-          <li><a href="page-conciergerie.html" data-fi="concierge">Conciergerie</a></li>
-          <li><a href="page-avis.html" data-fi="reviews">Avis</a></li>
-          <li><a href="page-apropos.html" data-fi="about">À propos</a></li>
-          <li><a href="page-contact.html" data-fi="contact">Contact</a></li>
-          <li><a href="page-informations-legales.html" data-fi="privacy">Politique de confidentialité</a></li>
+          <li><a href="page-conciergerie-es.html" data-fi="concierge">Conciergerie</a></li>
+          <li><a href="page-avis-es.html" data-fi="reviews">Avis</a></li>
+          <li><a href="page-apropos-es.html" data-fi="about">À propos</a></li>
+          <li><a href="page-contact-es.html" data-fi="contact">Contact</a></li>
+          <li><a href="page-informations-legales-es.html" data-fi="privacy">Politique de confidentialité</a></li>
         </ul>
       </div>
       <div>
@@ -768,8 +777,8 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
 </footer>
 
 <!-- ============================ STICKY MOBILE — 2 ACTIONS ============================ -->
-<nav class="mobile-bar" aria-label="إجراءات سريعة">
-  <a class="btn btn-gold" href="#logements">احجز مباشرة</a>
+<nav class="mobile-bar" aria-label="Acciones rápidas">
+  <a class="btn btn-gold" href="#logements">Reserva Directa</a>
   <a class="btn btn-wa" data-wa="voyageur" href="#" rel="nofollow">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg>
     WhatsApp
@@ -777,7 +786,7 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
 </nav>
 
 <!-- Bulle WhatsApp flottante (desktop) -->
-<a class="wa-float" data-wa="general" href="#" rel="nofollow" aria-label="تحدّث عبر واتساب">
+<a class="wa-float" data-wa="general" href="#" rel="nofollow" aria-label="Hablar por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg>
 </a>
 
@@ -791,9 +800,9 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
   "@type":"LodgingBusiness",
   "@id":"https://azurstaysaidia.com/#business",
   "name":"Azur Stay",
-  "description":"تأجير عطلات مباشر وإدارة وتسيير العقارات في السعيدية ومارينا السعيدية، بلا عمولة Airbnb أو Booking.",
-  "url":"https://azurstaysaidia.com/reservation-ar-html.html",
-  "inLanguage":"ar",
+  "description":"Alquiler vacacional directo y conserjería en Saïdia y Saïdia Marina, sin comisión de Airbnb ni Booking.",
+  "url":"https://azurstaysaidia.com/index-es.html",
+  "inLanguage":"es",
   "telephone":"+212652615900",
   "email":"contact@azurstaysaidia.com",
   "image":"https://azurstaysaidia.com/images/panorama/photo1.webp",
@@ -823,13 +832,13 @@ html[dir=rtl] .hero-trust svg,html[dir=rtl] .local-card li svg{transform:scaleX(
 {
   "@context":"https://schema.org",
   "@type":"FAQPage",
-  "inLanguage":"ar",
+  "inLanguage":"es",
   "mainEntity":[
-    {"@type":"Question","name":"هل يمكنني الحجز دون المرور عبر Airbnb أو Booking؟","acceptedAnswer":{"@type":"Answer","text":"نعم. يتم الحجز مباشرة عبر واتساب، دون أي عمولة للمنصّة."}},
-    {"@type":"Question","name":"كيف تتم عملية الدفع؟","acceptedAnswer":{"@type":"Answer","text":"يُدفع عربون لتثبيت التواريخ، ثم يُسوّى الباقي وفق ترتيبات آمنة يُتَّفق عليها مباشرة مع فريقنا."}},
-    {"@type":"Question","name":"أين تقع الوحدات؟","acceptedAnswer":{"@type":"Answer","text":"في السعيدية ومارينا السعيدية، على بُعد خطوات من الشاطئ والمارينا."}},
-    {"@type":"Question","name":"أنا مالك: ماذا تشمل خدمة إدارة وتسيير العقارات؟","acceptedAnswer":{"@type":"Answer","text":"إنشاء الإعلانات ونشرها، التسعير، استقبال الضيوف، التنظيف، الفرش، الصيانة، ومتابعة عائدات التأجير."}},
-    {"@type":"Question","name":"ما هي رسوم الإدارة لديكم؟","acceptedAnswer":{"@type":"Answer","text":"عمولة شفّافة على العائدات المحقّقة، بلا رسوم خفيّة. عرض سعر مخصّص عبر واتساب."}}
+    {"@type":"Question","name":"¿Puedo reservar sin pasar por Airbnb o Booking?","acceptedAnswer":{"@type":"Answer","text":"Sí. La reserva se hace directamente por WhatsApp, sin comisión de plataforma."}},
+    {"@type":"Question","name":"¿Cómo se realiza el pago?","acceptedAnswer":{"@type":"Answer","text":"Un depósito reserva tus fechas y el saldo se abona según condiciones seguras acordadas directamente con nuestro equipo."}},
+    {"@type":"Question","name":"¿Dónde están ubicados los alojamientos?","acceptedAnswer":{"@type":"Answer","text":"En Saïdia y Saïdia Marina, a pocos pasos de la playa y del puerto deportivo."}},
+    {"@type":"Question","name":"Soy propietario: ¿qué incluye la conserjería?","acceptedAnswer":{"@type":"Answer","text":"Creación y publicación de anuncios, fijación de precios, recepción de huéspedes, limpieza, ropa de cama, mantenimiento y seguimiento de los ingresos."}},
+    {"@type":"Question","name":"¿Cuáles son vuestras tarifas de gestión?","acceptedAnswer":{"@type":"Answer","text":"Una comisión transparente sobre los ingresos generados, sin costes ocultos. Presupuesto personalizado por WhatsApp."}}
   ]
 }
 </script>
@@ -849,10 +858,10 @@ const CONFIG = {
 
 /* ---- 2) Messages WhatsApp contextuels (pré-remplis) ---- */
 const WA_MESSAGES = {
-  general:      "مرحباً Azur Stay، أتواصل معكم من موقعكم وأرغب في بعض المعلومات.",
-  voyageur:     "مرحباً Azur Stay، أرغب في حجز شقة مباشرة في مارينا السعيدية. هذه تواريخي: ",
-  dispo:        "مرحباً Azur Stay، أرغب في التحقق من التوفّر لإقامة في السعيدية. تواريخي وعدد الضيوف: ",
-  proprietaire: "مرحباً Azur Stay، أملك عقاراً في السعيدية وأرغب في معلومات حول خدمة إدارة وتسيير العقارات لديكم.",
+  general:      "Hola Azur Stay, os escribo desde vuestra web y me gustaría recibir información.",
+  voyageur:     "Hola Azur Stay, quiero reservar directamente un apartamento en Saïdia Marina. Estas son mis fechas: ",
+  dispo:        "Hola Azur Stay, quiero consultar la disponibilidad para una estancia en Saïdia. Mis fechas y número de huéspedes: ",
+  proprietaire: "Hola Azur Stay, soy propietario de un inmueble en Saïdia y quiero información sobre vuestro servicio de conserjería / gestión.",
   // les messages par logement sont générés dynamiquement plus bas
 };
 function waLink(message){
@@ -876,11 +885,11 @@ document.querySelectorAll("[data-wa]").forEach(el=>{
    guests, bedrooms, seaView, priceFrom, image, available.
    ============================================================ */
 const apartments = [
-  { id:"panorama-golf-marina",        name:"Panorama du Golf", area:"مارينا السعيدية",            m2:75,  guests:5, priceFrom:68, priceNote:"",            tag:"إطلالة على الغولف والمارينا",  badge:"",             url:"page-panorama.html",        image:"images/panorama/photo1.webp" },
-  { id:"le-loft",                     name:"Le Loft",                        area:"الحي الفرنسي · السعيدية", m2:110, guests:4, priceFrom:68,   priceNote:"", tag:"إطلالة بانورامية",    badge:"اختيارنا", url:"page-loft.html",                     image:"images/le-loft-sejour.webp" },
-  { id:"appartement-1er-etage",       name:"Appartement 1er Étage",          area:"الحي الفرنسي · السعيدية", m2:110, guests:6, priceFrom:38, priceNote:"",            tag:"واسع · 110 م²",  badge:"",             url:"page-1er-etage.html",       image:"images/etage/photo1.webp" },
-  { id:"appartement-rez-de-chaussee", name:"Appartement Rez-de-Chaussée",    area:"الحي الفرنسي · السعيدية", m2:90,  guests:5, priceFrom:34, priceNote:"",            tag:"طابق واحد · 90 م²", badge:"",             url:"page-rdc.html", image:"" },
-  { id:"studio-terrasse",             name:"Studio en Terrasse",             area:"الحي الفرنسي · السعيدية", m2:45,  guests:2, priceFrom:30,   priceNote:"", tag:"تراس خاص",    badge:"أفضل سعر", url:"page-studio.html",            image:"images/studio/photo1.webp" }
+  { id:"panorama-golf-marina",        name:"Panorama du Golf", area:"Saïdia Marina",            m2:75,  guests:5, priceFrom:68, priceNote:"",            tag:"Vista golf y marina",  badge:"",             url:"page-panorama-es.html",        image:"images/panorama/photo1.webp" },
+  { id:"le-loft",                     name:"Le Loft",                        area:"Quartier Franco · Saïdia", m2:110, guests:4, priceFrom:68,   priceNote:"", tag:"Vista panorámica",    badge:"Favorito", url:"page-loft-es.html",                     image:"images/le-loft-sejour.webp" },
+  { id:"appartement-1er-etage",       name:"Appartement 1er Étage",          area:"Quartier Franco · Saïdia", m2:110, guests:6, priceFrom:38, priceNote:"",            tag:"Amplio · 110 m²",  badge:"",             url:"page-1er-etage-es.html",       image:"images/etage/photo1.webp" },
+  { id:"appartement-rez-de-chaussee", name:"Appartement Rez-de-Chaussée",    area:"Quartier Franco · Saïdia", m2:90,  guests:5, priceFrom:34, priceNote:"",            tag:"Una planta · 90 m²", badge:"",             url:"page-rdc-es.html", image:"" },
+  { id:"studio-terrasse",             name:"Studio en Terrasse",             area:"Quartier Franco · Saïdia", m2:45,  guests:2, priceFrom:30,   priceNote:"", tag:"Terraza privada",    badge:"Mejor precio", url:"page-studio-es.html",            image:"images/studio/photo1.webp" }
 ];
 
 /* Vague SVG décorative pour les cartes sans photo */
@@ -893,19 +902,19 @@ const wavePlaceholder = `<svg class="wave-ph" viewBox="0 0 400 300" preserveAspe
 function renderCatalogue(list){
   const c = document.getElementById("catalogue");
   c.innerHTML = list.map(a=>{
-    const altTxt = `${a.name} — تأجير عطلات في ${a.area}`;
+    const altTxt = `${a.name} — alquiler vacacional en ${a.area}`;
     const media = a.image
       ? `<img src="${a.image}" alt="${altTxt}" loading="lazy" width="400" height="300">`
       : wavePlaceholder;
     const badge = a.badge ? `<span class="card-tag">${a.badge}</span>` : "";
     const price = a.priceFrom
-      ? `<span class="card-price"><b>من ${a.priceFrom}€</b> <small>/ ليلة${a.priceNote ? " · "+a.priceNote : ""}</small></span>`
-      : `<span class="card-price"><small>السعر عبر واتساب</small></span>`;
+      ? `<span class="card-price"><b>desde ${a.priceFrom}€</b> <small>/ noche${a.priceNote ? " · "+a.priceNote : ""}</small></span>`
+      : `<span class="card-price"><small>Precio por WhatsApp</small></span>`;
     // Message WhatsApp PRÉ-REMPLI, propre à chaque appartement
-    const waMsg = `مرحباً Azur Stay، أرغب في حجز «${a.name}» في السعيدية. هذه تواريخي وعدد الضيوف: `;
+    const waMsg = `Hola Azur Stay, quiero reservar el "${a.name}" en Saïdia. Estas son mis fechas y el número de huéspedes: `;
     return `
     <article class="card">
-      <a class="card-media" href="${a.url}" aria-label="عرض ${a.name}">${media}${badge}</a>
+      <a class="card-media" href="${a.url}" aria-label="Ver ${a.name}">${media}${badge}</a>
       <div class="card-body">
         <h4><a href="${a.url}">${a.name}</a></h4>
         <span class="card-loc">
@@ -914,14 +923,14 @@ function renderCatalogue(list){
         </span>
         <div class="card-specs">
           <span class="chip">${a.m2} m²</span>
-          <span class="chip">${a.guests} ضيوف</span>
+          <span class="chip">${a.guests} huéspedes</span>
           <span class="chip">${a.tag}</span>
         </div>
         <div class="card-foot">
           ${price}
           <a class="btn btn-wa" href="${waLink(waMsg)}" rel="nofollow">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg>
-            احجز
+            Reservar
           </a>
         </div>
       </div>

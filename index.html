@@ -2,20 +2,28 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K5BX698D');</script>
+<!-- End Google Tag Manager -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ============================================================
      SEO — calibré sur le brief Rank Math (page d'accueil)
      Mot-clé focus : location vacances Saïdia
      ============================================================ -->
-<title>Location de Vacances à Saïdia &amp; Saïdia Marina | Réservez en Direct</title>
+<title>Location Vacances Saïdia &amp; Saïdia Marina | Réservez Direct</title>
 <meta name="description" content="Louez un appartement à Saïdia et Saïdia Marina en direct, sans commission Airbnb ni Booking. Réservation rapide et sans intermédiaire sur WhatsApp.">
 <link rel="canonical" href="https://azurstaysaidia.com/">
 <meta name="robots" content="index, follow">
 <link rel="alternate" hreflang="fr" href="https://azurstaysaidia.com/">
-<link rel="alternate" hreflang="en" href="https://azurstaysaidia.com/reservation-en-html.html">
-<link rel="alternate" hreflang="es" href="https://azurstaysaidia.com/reservation-es-html.html">
-<link rel="alternate" hreflang="ar" href="https://azurstaysaidia.com/reservation-ar-html.html">
+<link rel="alternate" hreflang="en" href="https://azurstaysaidia.com/index-en.html">
+<link rel="alternate" hreflang="es" href="https://azurstaysaidia.com/index-es.html">
+<link rel="alternate" hreflang="ar" href="https://azurstaysaidia.com/index-ar.html">
 <link rel="alternate" hreflang="x-default" href="https://azurstaysaidia.com/">
 
 <!-- Identité de marque Azur Stay -->
@@ -439,9 +447,23 @@ footer a:hover{color:#FFE2A6}
   .nav-drop a{padding:12px 14px;font-weight:500}
   .nav-cta-mobile{display:flex !important;justify-content:center;margin-top:8px}
 }
+
+/* socle : sélecteur de langue en liens + drapeaux */
+.lang-switch{display:flex;gap:5px;align-items:center}
+.lang-switch a{display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,.72);padding:5px 9px;border-radius:8px;transition:.2s;font-family:var(--ff-body);font-weight:600;font-size:.82rem;text-decoration:none;line-height:1}
+.lang-switch a:hover{color:#fff}
+.lang-switch a.is-current{color:#fff;background:rgba(255,255,255,.18)}
+.head.scrolled .lang-switch a{color:var(--ink-soft)}
+.head.scrolled .lang-switch a.is-current{color:var(--ink);background:rgba(21,40,46,.08)}
+.lang-switch .flag{width:19px;height:13px;border-radius:2px;display:block;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.3)}
+.head.scrolled .lang-switch .flag{box-shadow:0 0 0 1px rgba(21,40,46,.2)}
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5BX698D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ============================ HEADER STICKY ============================ -->
 <header class="head" id="head">
@@ -471,11 +493,11 @@ footer a:hover{color:#FFE2A6}
       <a class="nav-cta-mobile btn btn-gold" href="index.html#logements" data-hi="cta">Réserver en direct</a>
     </nav>
     <div class="head-right"><button class="nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <nav class="lang-switch" aria-label="Langue">
-      <a href="index.html" hreflang="fr" class="is-current">FR</a>
-      <a href="reservation-en-html.html" hreflang="en">EN</a>
-      <a href="reservation-es-html.html" hreflang="es">ES</a>
-      <a href="reservation-ar-html.html" hreflang="ar">AR</a>
+      <nav class="lang-switch" id="langSwitch" aria-label="Langue">
+      <a href="index.html" hreflang="fr" class="is-current" aria-current="true"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg><span>FR</span></a>
+      <a href="index-en.html" hreflang="en"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="6"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><rect x="25" width="10" height="40" fill="#fff"/><rect y="15" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="40" fill="#C8102E"/><rect y="17" width="60" height="6" fill="#C8102E"/></svg><span>EN</span></a>
+      <a href="index-es.html" hreflang="es"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg><span>ES</span></a>
+      <a href="index-ar.html" hreflang="ar"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#C1272D"/><path d="M30 10 35.88 28.09 20.49 16.91 39.51 16.91 24.12 28.09Z" fill="none" stroke="#006233" stroke-width="1.8"/></svg><span>AR</span></a>
     </nav>
     <div class="head-actions">
       <a class="btn btn-gold" data-cta="reserver" href="#logements">Réserver en Direct</a>
