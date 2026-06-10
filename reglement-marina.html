@@ -93,13 +93,18 @@ h1,h2,h3{font-family:var(--ff-display);font-weight:500;line-height:1.15;letter-s
 html[dir=rtl] body{font-family:'Tajawal',sans-serif}
 html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3,html[dir=rtl] .brand,html[dir=rtl] .io .t,html[dir=rtl] .wifi-row .v,html[dir=rtl] .contact .num{font-family:'Tajawal',sans-serif;letter-spacing:0;font-weight:700}
 html[dir=rtl] .check li svg,html[dir=rtl] .rule-group h3 svg,html[dir=rtl] .warn svg,html[dir=rtl] .contact .lab svg{transform:scaleX(-1)}
+
+.lang-switch button{display:inline-flex;align-items:center;gap:5px}
+.lang-switch .flag{width:18px;height:12px;border-radius:2px;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+[dir="rtl"] .wifi-row .v{direction:ltr;unicode-bidi:embed;display:inline-block}
+[dir="rtl"] a[href^="https://wa.me"],[dir="rtl"] a[href^="tel:"]{direction:ltr;unicode-bidi:embed;display:inline-block}
 </style>
 </head>
 <body>
 <div class="topbar"><div class="in">
   <span class="brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d4a63"/><stop offset="1" stop-color="#2E86AB"/></linearGradient></defs><circle cx="50" cy="50" r="50" fill="url(#bm)"/><circle cx="50" cy="30" r="11" fill="#fff" opacity=".95"/><g stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"><line x1="50" y1="13" x2="50" y2="7"/><line x1="66" y1="17" x2="70" y2="13"/><line x1="34" y1="17" x2="30" y2="13"/><line x1="71" y1="30" x2="77" y2="30"/><line x1="29" y1="30" x2="23" y2="30"/></g><path d="M12,62 C20,52 28,52 36,62 C44,72 52,72 60,62 C68,52 76,52 84,62" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round"/><path d="M14,77 C22,68 30,68 38,77 C46,86 54,86 62,77 C70,68 78,68 86,77" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" opacity=".5"/></svg></span>Azur Stay</span>
   <nav class="lang-switch" id="langSwitch" aria-label="Langue">
-    <button data-l="fr" class="is-current">FR</button><button data-l="en">EN</button><button data-l="es">ES</button><button data-l="ar">AR</button>
+    <button data-l="fr" class="is-current"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg><span>FR</span></button><button data-l="en"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="6"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><rect x="25" width="10" height="40" fill="#fff"/><rect y="15" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="40" fill="#C8102E"/><rect y="17" width="60" height="6" fill="#C8102E"/></svg><span>EN</span></button><button data-l="es"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg><span>ES</span></button><button data-l="ar"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#C1272D"/><path d="M30 10 35.88 28.09 20.49 16.91 39.51 16.91 24.12 28.09Z" fill="none" stroke="#006233" stroke-width="1.8"/></svg><span>AR</span></button>
   </nav>
 </div></div>
 

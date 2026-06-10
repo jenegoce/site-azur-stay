@@ -27,6 +27,35 @@ p{color:rgba(255,255,255,.88);margin-bottom:28px}
 .ghost:hover{background:rgba(255,255,255,.08)}
 .small{margin-top:20px;font-size:.85rem;color:rgba(255,255,255,.6)}
 </style>
+<script>
+(function(){
+  var p = location.pathname.toLowerCase().replace(/\/+$/,'');
+  if(!p) return;
+  var lang = (/(?:[\/_-])(en|es|ar)(?:[\/_.-]|$)/.exec(p)||[])[1] || '';
+  var map = [
+    [/1er-etage|premier-etage|first-floor|primera-planta/, 'page-1er-etage.html'],
+    [/rez-de-chauss|ground-floor|planta-baja|\brdc\b/, 'page-rdc.html'],
+    [/loft/, 'page-loft.html'],
+    [/studio/, 'page-studio.html'],
+    [/panorama|du-golf|marina/, 'page-panorama.html'],
+    [/concierg|gestion|proprietaire|owner/, 'page-conciergerie.html'],
+    [/a-propos|apropos|about|qui-sommes|quienes/, 'page-apropos.html'],
+    [/avis|review|opinion|temoignage/, 'page-avis.html'],
+    [/contact/, 'page-contact.html'],
+    [/que-faire|things-to-do/, 'guide-que-faire-a-saidia.html'],
+    [/guide|carnet|blog/, 'guide-saidia.html'],
+    [/reservation|booking|reserver|accueil|home/, 'index.html']
+  ];
+  for(var i=0;i<map.length;i++){
+    if(map[i][0].test(p)){
+      var t = map[i][1];
+      if(lang){ t = (t==='index.html') ? 'index-'+lang+'.html' : t.replace(/\.html$/, '-'+lang+'.html'); }
+      location.replace('https://azurstaysaidia.com/'+t);
+      return;
+    }
+  }
+})();
+</script>
 </head>
 <body>
   <div class="box">

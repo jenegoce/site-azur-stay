@@ -298,6 +298,8 @@ html[dir=rtl] .loc-line svg,html[dir=rtl] .hl svg,html[dir=rtl] .am svg,html[dir
 .head.scrolled .lang-switch a.is-current{color:var(--ink);background:rgba(21,40,46,.08)}
 .lang-switch .flag{width:19px;height:13px;border-radius:2px;display:block;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.3)}
 .head.scrolled .lang-switch .flag{box-shadow:0 0 0 1px rgba(21,40,46,.2)}
+/* mobile : forcer les noms d'appartements du menu déroulant en foncé (sinon blanc sur blanc) */
+@media(max-width:1080px){.nav-main .nav-drop a{color:var(--ink)!important}}
 </style>
 <script type="application/ld+json">
 {
@@ -373,12 +375,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="page-rdc-ar.html" data-hi="apt_rdc" role="menuitem">الطابق الأرضي</a>
           <a href="page-1er-etage-ar.html" data-hi="apt_1er" role="menuitem">الطابق الأول</a>
           <a href="page-loft-ar.html" data-hi="apt_loft" role="menuitem">اللوفت</a>
-          <a href="page-studio-ar.html" data-hi="apt_studio" role="menuitem">استوديو بشرفة</a>
+          <a href="page-studio-ar.html" data-hi="apt_studio" role="menuitem">استوديو بتراس</a>
           <a href="page-panorama-ar.html" data-hi="apt_panorama" role="menuitem">بانوراما الغولف</a>
         </div>
       </div>
       <a class="nav-link" href="guide-saidia-ar.html" data-hi="guide">دليل</a>
-      <a class="nav-link" href="page-conciergerie-ar.html" data-hi="concierge">إدارة العقارات</a>
+      <a class="nav-link" href="page-conciergerie-ar.html" data-hi="concierge">إدارة وتسيير العقارات</a>
       <a class="nav-link" href="page-apropos-ar.html" data-hi="about">من نحن</a>
       <a class="nav-link" href="page-avis-ar.html" data-hi="reviews">الآراء</a>
       <a class="nav-link" href="page-contact-ar.html" data-hi="contact">اتصل بنا</a>
@@ -386,7 +388,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </nav>
     <div class="head-right"><button class="nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="lang-switch" id="langSwitch" aria-label="Langue">
-        <a href="page-1er-etage-ar.html" hreflang="fr"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg><span>FR</span></a>
+        <a href="page-1er-etage.html" hreflang="fr"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg><span>FR</span></a>
         <a href="page-1er-etage-en.html" hreflang="en"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="6"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><rect x="25" width="10" height="40" fill="#fff"/><rect y="15" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="40" fill="#C8102E"/><rect y="17" width="60" height="6" fill="#C8102E"/></svg><span>EN</span></a>
         <a href="page-1er-etage-es.html" hreflang="es"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg><span>ES</span></a>
         <a href="page-1er-etage-ar.html" hreflang="ar" class="is-current" aria-current="true"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#C1272D"/><path d="M30 10 35.88 28.09 20.49 16.91 39.51 16.91 24.12 28.09Z" fill="none" stroke="#006233" stroke-width="1.8"/></svg><span>AR</span></a>
@@ -612,7 +614,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ul>
           <li><a href="index-ar.html" data-fi="home">الرئيسية</a></li>
           <li><a href="index.html#logements" data-fi="apts">شققنا</a></li>
-          <li><a href="page-conciergerie-ar.html" data-fi="concierge">إدارة العقارات</a></li>
+          <li><a href="page-conciergerie-ar.html" data-fi="concierge">إدارة وتسيير العقارات</a></li>
           <li><a href="page-avis-ar.html" data-fi="reviews">الآراء</a></li>
           <li><a href="page-apropos-ar.html" data-fi="about">من نحن</a></li>
           <li><a href="page-contact-ar.html" data-fi="contact">اتصل بنا</a></li>
@@ -818,7 +820,7 @@ b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})
   var HI={fr:{stays:"Hébergements",apt_rdc:"Rez-de-chaussée",apt_1er:"1ᵉʳ Étage",apt_loft:"Le Loft",apt_studio:"Studio en Terrasse",apt_panorama:"Panorama du Golf",guide:"Guide",concierge:"Conciergerie",about:"À propos",reviews:"Avis",contact:"Contact",cta:"Réserver en direct"},
   en:{stays:"Accommodations",apt_rdc:"Ground Floor",apt_1er:"First Floor",apt_loft:"The Loft",apt_studio:"Terrace Studio",apt_panorama:"Golf Panorama",guide:"Guide",concierge:"Concierge",about:"About",reviews:"Reviews",contact:"Contact",cta:"Book Direct"},
   es:{stays:"Alojamientos",apt_rdc:"Planta Baja",apt_1er:"Primera Planta",apt_loft:"El Loft",apt_studio:"Estudio con Terraza",apt_panorama:"Panorama del Golf",guide:"Guía",concierge:"Conserjería",about:"Quiénes somos",reviews:"Opiniones",contact:"Contacto",cta:"Reserva Directa"},
-  ar:{stays:"أماكن الإقامة",apt_rdc:"الطابق الأرضي",apt_1er:"الطابق الأول",apt_loft:"اللوفت",apt_studio:"استوديو بشرفة",apt_panorama:"بانوراما الغولف",guide:"دليل",concierge:"إدارة العقارات",about:"من نحن",reviews:"الآراء",contact:"اتصل بنا",cta:"احجز مباشرة"}};
+  ar:{stays:"أماكن الإقامة",apt_rdc:"الطابق الأرضي",apt_1er:"الطابق الأول",apt_loft:"اللوفت",apt_studio:"استوديو بتراس",apt_panorama:"بانوراما الغولف",guide:"دليل",concierge:"إدارة العقارات",about:"من نحن",reviews:"الآراء",contact:"اتصل بنا",cta:"احجز مباشرة"}};
   function applyHeader(l){var d=HI[l]||HI.fr;document.querySelectorAll("[data-hi]").forEach(function(el){var k=el.getAttribute("data-hi");if(d[k]!=null)el.textContent=d[k];});}
   var L=(document.documentElement.getAttribute("lang")||"fr");if(!HI[L])L="fr";applyHeader(L);
   var ls=document.getElementById("langSwitch");

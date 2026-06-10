@@ -220,6 +220,8 @@ html[dir=rtl] .hero-rating svg,html[dir=rtl] .card .ic svg{transform:none}
 .head.scrolled .lang-switch a.is-current{color:var(--ink);background:rgba(21,40,46,.08)}
 .lang-switch .flag{width:19px;height:13px;border-radius:2px;display:block;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.3)}
 .head.scrolled .lang-switch .flag{box-shadow:0 0 0 1px rgba(21,40,46,.2)}
+/* mobile : forcer les noms d'appartements du menu déroulant en foncé (sinon blanc sur blanc) */
+@media(max-width:1080px){.nav-main .nav-drop a{color:var(--ink)!important}}
 </style>
 </head>
 <body>
