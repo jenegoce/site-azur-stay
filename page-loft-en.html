@@ -300,6 +300,26 @@ html[dir=rtl] .loc-line svg,html[dir=rtl] .hl svg,html[dir=rtl] .am svg,html[dir
 .head.scrolled .lang-switch .flag{box-shadow:0 0 0 1px rgba(21,40,46,.2)}
 /* mobile : forcer les noms d'appartements du menu déroulant en foncé (sinon blanc sur blanc) */
 @media(max-width:1080px){.nav-main .nav-drop a,.head .nav-main .nav-drop a,.head:not(.scrolled) .nav-main .nav-drop a{color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;opacity:1!important;visibility:visible!important}}@media(max-width:1080px){.nav-item:hover .nav-drop,.nav-item.open .nav-drop,.nav-item:focus-within .nav-drop{transform:none!important}}
+
+/* ===== V2 ===== */
+.trust-strip{background:var(--sea-deep);color:#fff;font-size:.86rem}
+.trust-strip .wrap{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;padding:10px 22px}
+.trust-strip span{display:inline-flex;align-items:center;gap:7px;opacity:.95}
+.trust-strip svg{flex:none}
+.dispo-box{background:var(--paper);border:1px solid #e7dcc6;border-radius:18px;padding:26px 24px;box-shadow:0 10px 30px rgba(10,51,71,.06);max-width:760px;margin:0 auto}
+.dispo-grid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end}
+.dispo-grid label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.dispo-grid input,.dispo-grid select{width:100%;padding:12px 12px;border:1px solid #d9c9a6;border-radius:10px;background:#fff;font:inherit;color:var(--ink)}
+.dispo-grid input:focus-visible,.dispo-grid select:focus-visible{outline:2px solid var(--azure);outline-offset:1px}
+.dispo-note{margin-top:12px;font-size:.88rem;color:var(--ink-soft);text-align:center}
+.btn-wa-go{background:var(--wa);color:#fff;border:0;border-radius:12px;padding:13px 20px;font:inherit;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn-wa-go:hover{filter:brightness(1.06)}
+.copy-mail{display:inline-flex;align-items:center;gap:6px;margin-inline-start:10px;border:1px solid #d9c9a6;background:#fff;color:var(--ink);border-radius:9px;padding:7px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+.copy-mail:hover{background:var(--cream)}
+.est-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.est-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
+@media(max-width:760px){.dispo-grid{grid-template-columns:1fr 1fr}.dispo-grid .go{grid-column:1/-1}.est-grid{grid-template-columns:1fr}}
+[dir="rtl"] .dispo-grid input,[dir="rtl"] .dispo-grid select{text-align:right}
 </style>
 <script type="application/ld+json">
 {
@@ -358,6 +378,7 @@ html[dir=rtl] .loc-line svg,html[dir=rtl] .hl svg,html[dir=rtl] .am svg,html[dir
   "image": "https://azurstaysaidia.com/images/le-loft-salon.webp"
 }
 </script>
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="The Loft, Saïdia — 110 m², Top Floor, Sleeps 4"><meta name="twitter:description" content="Bright top-floor Loft in Saïdia, Morocco: 110 m², sleeps up to 4, sunny terrace. From €68/night. Book direct on WhatsApp — no Airbnb or Booking fees."><meta name="twitter:image" content="https://azurstaysaidia.com/images/le-loft-sejour.webp">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -416,11 +437,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- GALERIE : vraies photos WebP -->
   <div class="gallery" aria-label="Galerie photos Le Loft">
-    <div class="g"><img src="images/le-loft-sejour.webp" alt="Le Loft à Saïdia — séjour ouvert avec cheminée et cuisine" loading="lazy"></div>
-    <div class="g"><img src="images/le-loft-salon.webp" alt="Le Loft à Saïdia — salon marocain avec TV écran plat" loading="lazy"></div>
-    <div class="g"><img src="images/le-loft-salon-2.webp" alt="Le Loft à Saïdia — second salon lumineux" loading="lazy"></div>
-    <div class="g"><img src="images/le-loft-chambre.webp" alt="Le Loft à Saïdia — chambre parentale avec lit double" loading="lazy"></div>
-    <div class="g"><img src="images/le-loft-cuisine.webp" alt="Le Loft à Saïdia — cuisine ouverte avec cheminée et coin repas" loading="lazy"></div>
+    <div class="g"><img width="1280" height="960" decoding="async" src="images/le-loft-sejour.webp" alt="Le Loft à Saïdia — séjour ouvert avec cheminée et cuisine" loading="lazy"></div>
+    <div class="g"><img width="1280" height="960" decoding="async" src="images/le-loft-salon.webp" alt="Le Loft à Saïdia — salon marocain avec TV écran plat" loading="lazy"></div>
+    <div class="g"><img width="1280" height="960" decoding="async" src="images/le-loft-salon-2.webp" alt="Le Loft à Saïdia — second salon lumineux" loading="lazy"></div>
+    <div class="g"><img width="1280" height="960" decoding="async" src="images/le-loft-chambre.webp" alt="Le Loft à Saïdia — chambre parentale avec lit double" loading="lazy"></div>
+    <div class="g"><img width="1280" height="960" decoding="async" src="images/le-loft-cuisine.webp" alt="Le Loft à Saïdia — cuisine ouverte avec cheminée et coin repas" loading="lazy"></div>
   </div>
 
   <div class="layout">
@@ -596,7 +617,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg>
             <span data-i="cta_wa">Book via WhatsApp</span>
           </a>
-          <a class="btn btn-ghost btn-full" style="margin-top:10px" href="mailto:contact@azurstaysaidia.com" data-i="cta_email">Request by email</a>
+          <a class="btn btn-ghost btn-full" style="margin-top:10px" href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Demande%20de%20disponibilit%C3%A9s" data-i="cta_email">Request by email</a>
           <div class="booking-foot">
             <span data-i="foot_terms">No fees · Pay on site · Under 12 free</span>
             <span class="secure"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-i="foot_secure">Verified · Secure · Reply within 15 min</span></span>
@@ -615,6 +636,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+
+<section class="sec" id="dispo"><div class="wrap">
+  <h2 style="text-align:center">Check availability</h2>
+  <div class="dispo-box">
+    <div class="dispo-grid">
+      <div><label for="d-in">Check-in</label><input type="date" id="d-in"></div>
+      <div><label for="d-out">Check-out</label><input type="date" id="d-out"></div>
+      <div><label for="d-g">Guests</label><select id="d-g"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div>
+      <div class="go"><button class="btn-wa-go" id="d-go">Ask on WhatsApp</button></div>
+    </div>
+    <p class="dispo-note">Fast reply — direct booking, no commission.</p>
+  </div>
+  <div id="booking-widget" data-property="loft" data-ical="" hidden></div>
+</div></section>
+<script>(function(){var g=document.getElementById("d-go");if(!g)return;
+g.addEventListener("click",function(){
+var i=document.getElementById("d-in").value,o=document.getElementById("d-out").value,n=document.getElementById("d-g").value;
+if(!i||!o){document.getElementById("d-in").focus();return}
+var m="Hello, I would like to check availability — {p} — from {i} to {o} — {n} guest(s).".replace("{p}","The Loft").replace("{i}",i).replace("{o}",o).replace("{n}",n);
+(window.dataLayer=window.dataLayer||[]).push({event:"booking_check",property:"loft",page:location.pathname});
+window.open("https://wa.me/212652615900?text="+encodeURIComponent(m),"_blank","noopener");});
+var bw=document.getElementById("booking-widget");/* hook channel manager / iCal : renseigner data-ical pour activer */
+})();</script>
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -636,7 +680,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div>
         <h5 data-fi="contact_h">Contact us</h5>
-        <address class="nap">Azur Stay<br><span data-fi="addr">Quartier Franco 1, 63602 Saïdia, Morocco</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com">contact@azurstaysaidia.com</a></address>
+        <address class="nap">Azur Stay<br><span data-fi="addr">Quartier Franco 1, 63602 Saïdia, Morocco</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Demande%20de%20disponibilit%C3%A9s">contact@azurstaysaidia.com</a></address>
       </div>
     </div>
     <div class="foot-bottom">
@@ -846,5 +890,16 @@ b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})
   if(ls)ls.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.l&&HI[b.dataset.l])applyHeader(b.dataset.l);});
 })();
 </script>
+<script>(function(){function dl(o){(window.dataLayer=window.dataLayer||[]).push(o)}
+document.addEventListener("click",function(e){var a=e.target.closest("a,button");if(!a)return;
+var h=a.getAttribute("href")||"";
+if(h.indexOf("wa.me")>-1)dl({event:"click_whatsapp",page:location.pathname});
+else if(h.indexOf("mailto:")===0)dl({event:"click_email",page:location.pathname});
+if(a.hasAttribute("data-copy")){var v=a.getAttribute("data-copy");
+(navigator.clipboard&&navigator.clipboard.writeText)?navigator.clipboard.writeText(v).then(function(){ok(a)}):ok(a);
+dl({event:"copy_email",page:location.pathname});}
+});
+function ok(b){var t=b.getAttribute("data-done")||"OK";var o=b.innerHTML;b.innerHTML=t;setTimeout(function(){b.innerHTML=o},1600);}
+})();</script>
 </body>
 </html>

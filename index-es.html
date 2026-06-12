@@ -459,7 +459,28 @@ footer a:hover{color:#FFE2A6}
 .head.scrolled .lang-switch .flag{box-shadow:0 0 0 1px rgba(21,40,46,.2)}
 /* mobile : forcer les noms d'appartements du menu déroulant en foncé (sinon blanc sur blanc) */
 @media(max-width:1080px){.nav-main .nav-drop a,.head .nav-main .nav-drop a,.head:not(.scrolled) .nav-main .nav-drop a{color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;opacity:1!important;visibility:visible!important}}@media(max-width:1080px){.nav-item:hover .nav-drop,.nav-item.open .nav-drop,.nav-item:focus-within .nav-drop{transform:none!important}}
+
+/* ===== V2 ===== */
+.trust-strip{background:var(--sea-deep);color:#fff;font-size:.86rem}
+.trust-strip .wrap{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;padding:10px 22px}
+.trust-strip span{display:inline-flex;align-items:center;gap:7px;opacity:.95}
+.trust-strip svg{flex:none}
+.dispo-box{background:var(--paper);border:1px solid #e7dcc6;border-radius:18px;padding:26px 24px;box-shadow:0 10px 30px rgba(10,51,71,.06);max-width:760px;margin:0 auto}
+.dispo-grid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end}
+.dispo-grid label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.dispo-grid input,.dispo-grid select{width:100%;padding:12px 12px;border:1px solid #d9c9a6;border-radius:10px;background:#fff;font:inherit;color:var(--ink)}
+.dispo-grid input:focus-visible,.dispo-grid select:focus-visible{outline:2px solid var(--azure);outline-offset:1px}
+.dispo-note{margin-top:12px;font-size:.88rem;color:var(--ink-soft);text-align:center}
+.btn-wa-go{background:var(--wa);color:#fff;border:0;border-radius:12px;padding:13px 20px;font:inherit;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn-wa-go:hover{filter:brightness(1.06)}
+.copy-mail{display:inline-flex;align-items:center;gap:6px;margin-inline-start:10px;border:1px solid #d9c9a6;background:#fff;color:var(--ink);border-radius:9px;padding:7px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+.copy-mail:hover{background:var(--cream)}
+.est-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.est-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
+@media(max-width:760px){.dispo-grid{grid-template-columns:1fr 1fr}.dispo-grid .go{grid-column:1/-1}.est-grid{grid-template-columns:1fr}}
+[dir="rtl"] .dispo-grid input,[dir="rtl"] .dispo-grid select{text-align:right}
 </style>
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Alquiler Vacacional Saïdia & Conserjería | Reserva Directa"><meta name="twitter:description" content="Alquila en Saïdia Marina directamente, sin comisión Airbnb/Booking. Conserjería para propietarios."><meta name="twitter:image" content="https://azurstaysaidia.com/azurstay-logo.svg">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -536,6 +557,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ============================ ENTONNOIR VOYAGEUR ============================ -->
+<div class="trust-strip" role="note"><div class="wrap"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Reserva directa, sin comisión</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Respuesta rápida por WhatsApp</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Nota 4,9/5 de nuestros huéspedes</span></div></div>
 <section class="sec" id="logements">
   <div class="wrap">
     <div class="sec-head">
@@ -768,7 +790,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div>
         <h5 data-fi="contact_h">Nous contacter</h5>
-        <address class="nap">Azur Stay<br><span data-fi="addr">Quartier Franco 1, 63602 Saïdia, Maroc</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com">contact@azurstaysaidia.com</a></address>
+        <address class="nap">Azur Stay<br><span data-fi="addr">Quartier Franco 1, 63602 Saïdia, Maroc</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Demande%20de%20disponibilit%C3%A9s">contact@azurstaysaidia.com</a></address>
       </div>
     </div>
     <div class="foot-bottom">
@@ -906,7 +928,7 @@ function renderCatalogue(list){
   c.innerHTML = list.map(a=>{
     const altTxt = `${a.name} — alquiler vacacional en ${a.area}`;
     const media = a.image
-      ? `<img src="${a.image}" alt="${altTxt}" loading="lazy" width="400" height="300">`
+      ? `<img decoding="async" src="${a.image}" alt="${altTxt}" loading="lazy" width="400" height="300">`
       : wavePlaceholder;
     const badge = a.badge ? `<span class="card-tag">${a.badge}</span>` : "";
     const price = a.priceFrom
@@ -1000,5 +1022,16 @@ b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})
   if(ls)ls.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.l&&HI[b.dataset.l])applyHeader(b.dataset.l);});
 })();
 </script>
+<script>(function(){function dl(o){(window.dataLayer=window.dataLayer||[]).push(o)}
+document.addEventListener("click",function(e){var a=e.target.closest("a,button");if(!a)return;
+var h=a.getAttribute("href")||"";
+if(h.indexOf("wa.me")>-1)dl({event:"click_whatsapp",page:location.pathname});
+else if(h.indexOf("mailto:")===0)dl({event:"click_email",page:location.pathname});
+if(a.hasAttribute("data-copy")){var v=a.getAttribute("data-copy");
+(navigator.clipboard&&navigator.clipboard.writeText)?navigator.clipboard.writeText(v).then(function(){ok(a)}):ok(a);
+dl({event:"copy_email",page:location.pathname});}
+});
+function ok(b){var t=b.getAttribute("data-done")||"OK";var o=b.innerHTML;b.innerHTML=t;setTimeout(function(){b.innerHTML=o},1600);}
+})();</script>
 </body>
 </html>

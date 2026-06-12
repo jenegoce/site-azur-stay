@@ -254,7 +254,28 @@ html[dir=rtl] .info-item svg,html[dir=rtl] .note svg{transform:scaleX(-1)}
 .head.scrolled .lang-switch .flag{box-shadow:0 0 0 1px rgba(21,40,46,.2)}
 /* mobile : forcer les noms d'appartements du menu déroulant en foncé (sinon blanc sur blanc) */
 @media(max-width:1080px){.nav-main .nav-drop a,.head .nav-main .nav-drop a,.head:not(.scrolled) .nav-main .nav-drop a{color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;opacity:1!important;visibility:visible!important}}@media(max-width:1080px){.nav-item:hover .nav-drop,.nav-item.open .nav-drop,.nav-item:focus-within .nav-drop{transform:none!important}}
+
+/* ===== V2 ===== */
+.trust-strip{background:var(--sea-deep);color:#fff;font-size:.86rem}
+.trust-strip .wrap{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;padding:10px 22px}
+.trust-strip span{display:inline-flex;align-items:center;gap:7px;opacity:.95}
+.trust-strip svg{flex:none}
+.dispo-box{background:var(--paper);border:1px solid #e7dcc6;border-radius:18px;padding:26px 24px;box-shadow:0 10px 30px rgba(10,51,71,.06);max-width:760px;margin:0 auto}
+.dispo-grid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end}
+.dispo-grid label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.dispo-grid input,.dispo-grid select{width:100%;padding:12px 12px;border:1px solid #d9c9a6;border-radius:10px;background:#fff;font:inherit;color:var(--ink)}
+.dispo-grid input:focus-visible,.dispo-grid select:focus-visible{outline:2px solid var(--azure);outline-offset:1px}
+.dispo-note{margin-top:12px;font-size:.88rem;color:var(--ink-soft);text-align:center}
+.btn-wa-go{background:var(--wa);color:#fff;border:0;border-radius:12px;padding:13px 20px;font:inherit;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn-wa-go:hover{filter:brightness(1.06)}
+.copy-mail{display:inline-flex;align-items:center;gap:6px;margin-inline-start:10px;border:1px solid #d9c9a6;background:#fff;color:var(--ink);border-radius:9px;padding:7px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+.copy-mail:hover{background:var(--cream)}
+.est-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.est-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
+@media(max-width:760px){.dispo-grid{grid-template-columns:1fr 1fr}.dispo-grid .go{grid-column:1/-1}.est-grid{grid-template-columns:1fr}}
+[dir="rtl"] .dispo-grid input,[dir="rtl"] .dispo-grid select{text-align:right}
 </style>
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Contact — Azur Stay Saïdia"><meta name="twitter:description" content="Contact Azur Stay in Saïdia: WhatsApp +212 652 615 900 and email, 7 days a week. Quartier Franco, Saïdia. Fast reply for bookings and property management.">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -317,8 +338,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9 6 9-6M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
         <h3 data-i="mail_t">Email</h3>
         <p data-i="mail_d">For detailed requests or documents. We reply within the day.</p>
-        <div class="val">contact@azurstaysaidia.com</div>
-        <a class="btn btn-ghost" href="mailto:contact@azurstaysaidia.com"><span data-i="mail_btn">Send an email</span></a>
+        <a class="val" href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Demande%20de%20disponibilit%C3%A9s">contact@azurstaysaidia.com</a><button class="copy-mail" type="button" data-copy="contact@azurstaysaidia.com" data-done="Copied!">Copy email</button>
+        <a class="btn btn-ghost" href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Demande%20de%20disponibilit%C3%A9s"><span data-i="mail_btn">Send an email</span></a>
       </div>
     </div>
 
@@ -353,7 +374,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="info-band">
       <div class="info-item"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.8"/></svg><span><b data-i="i_addr_t">Address</b><span data-i="i_addr_v">Quartier Franco 1, 63602 Saïdia, Morocco</span></span></div>
       <div class="info-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg><span><b data-i="i_wa_t">WhatsApp</b><a href="https://wa.me/212652615900" rel="nofollow">+212 652 615 900</a></span></div>
-      <div class="info-item"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9 6 9-6M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span><b data-i="i_mail_t">Email</b><a href="mailto:contact@azurstaysaidia.com">contact@azurstaysaidia.com</a></span></div>
+      <div class="info-item"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9 6 9-6M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span><b data-i="i_mail_t">Email</b><a href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Demande%20de%20disponibilit%C3%A9s">contact@azurstaysaidia.com</a></span></div>
       <div class="info-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.8"/></svg><span><b data-i="i_hours_t">Availability</b><span data-i="i_hours_v">7 days a week · fast reply · FR &amp; AR</span></span></div>
     </div>
 
@@ -412,7 +433,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div>
         <h5 data-fi="contact_h">Contact us</h5>
-        <address class="nap">Azur Stay<br><span data-fi="addr">Quartier Franco 1, 63602 Saïdia, Morocco</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com">contact@azurstaysaidia.com</a></address>
+        <address class="nap">Azur Stay<br><span data-fi="addr">Quartier Franco 1, 63602 Saïdia, Morocco</span><br><a href="https://wa.me/212652615900" rel="nofollow">WhatsApp : +212 652 615 900</a><br><a href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Demande%20de%20disponibilit%C3%A9s">contact@azurstaysaidia.com</a></address>
       </div>
     </div>
     <div class="foot-bottom">
@@ -484,5 +505,16 @@ b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})
   if(ls)ls.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.l&&HI[b.dataset.l])applyHeader(b.dataset.l);});
 })();
 </script>
+<script>(function(){function dl(o){(window.dataLayer=window.dataLayer||[]).push(o)}
+document.addEventListener("click",function(e){var a=e.target.closest("a,button");if(!a)return;
+var h=a.getAttribute("href")||"";
+if(h.indexOf("wa.me")>-1)dl({event:"click_whatsapp",page:location.pathname});
+else if(h.indexOf("mailto:")===0)dl({event:"click_email",page:location.pathname});
+if(a.hasAttribute("data-copy")){var v=a.getAttribute("data-copy");
+(navigator.clipboard&&navigator.clipboard.writeText)?navigator.clipboard.writeText(v).then(function(){ok(a)}):ok(a);
+dl({event:"copy_email",page:location.pathname});}
+});
+function ok(b){var t=b.getAttribute("data-done")||"OK";var o=b.innerHTML;b.innerHTML=t;setTimeout(function(){b.innerHTML=o},1600);}
+})();</script>
 </body>
 </html>
