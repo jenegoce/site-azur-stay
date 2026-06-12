@@ -458,7 +458,7 @@ footer a:hover{color:#FFE2A6}
 .lang-switch .flag{width:19px;height:13px;border-radius:2px;display:block;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.3)}
 .head.scrolled .lang-switch .flag{box-shadow:0 0 0 1px rgba(21,40,46,.2)}
 /* mobile : forcer les noms d'appartements du menu déroulant en foncé (sinon blanc sur blanc) */
-@media(max-width:1080px){.nav-main .nav-drop a{color:var(--ink)!important}}
+@media(max-width:1080px){.nav-main .nav-drop a,.head .nav-main .nav-drop a,.head:not(.scrolled) .nav-main .nav-drop a{color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;opacity:1!important;visibility:visible!important}}
 </style>
 </head>
 <body>
