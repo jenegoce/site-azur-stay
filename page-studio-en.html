@@ -310,6 +310,33 @@ html[dir=rtl] .loc-line svg,html[dir=rtl] .hl svg,html[dir=rtl] .am svg{transfor
 .est-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
 @media(max-width:760px){.dispo-grid{grid-template-columns:1fr 1fr}.dispo-grid .go{grid-column:1/-1}.est-grid{grid-template-columns:1fr}}
 [dir="rtl"] .dispo-grid input,[dir="rtl"] .dispo-grid select{text-align:right}
+.dates2{display:flex;gap:8px}.dates2 input{flex:1;min-width:0;padding:9px;border:1px solid #d9cdb4;border-radius:9px;font:inherit;background:#fff;color:var(--ink)}
+.min-warn{margin-top:8px;background:#fdeaea;color:#9a2b2b;border:1px solid #f3c9c9;border-radius:9px;padding:7px 10px;font-size:.85rem;font-weight:600}
+.dates-note{display:block;margin-top:6px;color:var(--ink-soft);font-size:.78rem}
+.seasonline{margin:10px 0 4px}
+.season-badge{display:inline-block;background:var(--sea-deep);color:#fff;border-radius:99px;padding:5px 14px;font-size:.82rem;font-weight:600}
+.season-note{margin-top:8px;background:#fff6e6;color:var(--gold-deep);border:1px solid #ecd9a8;border-radius:9px;padding:7px 10px;font-size:.82rem;font-weight:600}
+.breakdown{margin:10px 0 0;font-size:.84rem;color:var(--ink)}
+.breakdown div{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px dashed #e7dcc6}
+.breakdown div:last-child{border-bottom:0}
+.v3{padding:46px 0}.v3 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.v3 h2{font-family:Fraunces,Georgia,serif;color:var(--sea);text-align:center;font-size:1.5rem;margin:0 0 8px}
+.deal-badge{display:block;text-align:center;background:var(--sand);color:var(--gold-deep);border-radius:99px;padding:9px 18px;max-width:600px;margin:0 auto 22px;font-weight:600;font-size:.9rem}
+.rates{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:0 auto}
+.rate{background:var(--paper);border:1px solid #e7dcc6;border-radius:14px;padding:18px 14px;text-align:center}
+.rate.hi{border-color:var(--gold);box-shadow:0 8px 24px rgba(168,134,47,.14)}
+.rate .rn{font-weight:700;color:var(--sea)}.rate .rd{font-size:.78rem;color:var(--ink-soft);display:block;margin:3px 0}
+.rate .rp{font-family:Fraunces,Georgia,serif;font-size:1.5rem;color:var(--ink);display:block;margin-top:6px}
+.rate .rdh{font-size:.76rem;color:var(--ink-soft)}.rate .rmin{font-size:.74rem;color:var(--gold-deep);font-weight:600;display:block}
+.cap{max-width:680px;margin:22px auto 0;background:var(--paper);border:1px solid #e7dcc6;border-radius:14px;padding:18px 20px}
+.cap ul{margin:8px 0 0;padding-inline-start:20px}.cap li{margin:5px 0}
+.howto-steps{counter-reset:s;list-style:none;max-width:680px;margin:0 auto;padding:0}
+.howto-steps li{counter-increment:s;position:relative;padding:0 0 18px 50px}
+[dir=rtl] .howto-steps li{padding:0 50px 18px 0}
+.howto-steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--sea-deep);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.host-card{display:flex;gap:22px;align-items:center;max-width:760px;margin:0 auto;background:var(--paper);border:1px solid #e7dcc6;border-radius:16px;padding:22px}
+.host-card img{width:190px;height:120px;object-fit:cover;border-radius:12px;flex:none}
+@media(max-width:620px){.rates{grid-template-columns:1fr}.host-card{flex-direction:column;text-align:center}.host-card img{width:100%;height:auto}}
 </style>
 <script type="application/ld+json">
 {
@@ -539,28 +566,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="booking" id="reserver">
         <div class="booking-head">
           <div class="price"><span id="bh-price">30€</span> <small data-i="per_night">/ night</small></div>
-          <div class="sub" data-i="price_sub">Flat rate — 1 or 2 guests · low season</div>
+          <div class="sub" data-i="price_sub">Whole place · per night</div>
         </div>
         <div class="booking-body">
           <div class="field">
             <label data-i="f_season">Season</label>
-            <div class="seg" id="season">
-              <button class="on" data-s="basse" data-i="season_low">Low</button>
-              <button data-s="haute" data-i="season_high">High</button>
-            </div>
+            <div class="seasonline"><span class="season-badge" id="season-badge" data-i="pick_dates">Select your dates</span></div><div class="season-note" id="season-note" hidden></div>
           </div>
-          <div class="field">
-            <label data-i="f_guests">Guests</label>
-            <div class="stepper">
-              <span class="lab"><span data-i="g_adults">Adults / teens</span><small data-i="g_adults_s">12 and over · max 2</small></span>
-              <span class="ctrl"><button data-k="adults" data-d="-1">−</button><span class="val" id="v-adults">1</span><button data-k="adults" data-d="1">+</button></span>
-            </div>
-            <div class="stepper">
-              <span class="lab"><span data-i="g_child">Under 12</span><small data-i="g_child_s">Free · max 1</small></span>
-              <span class="ctrl"><button data-k="chU12" data-d="-1">−</button><span class="val" id="v-chU12">0</span><button data-k="chU12" data-d="1">+</button></span>
-            </div>
-          </div>
-          <div class="total">
+          <div class="field"><label data-i="f_dates">Your dates</label><div class="dates2"><input type="date" id="d-in"><input type="date" id="d-out"></div><div class="min-warn" id="min-warn" hidden></div><small class="dates-note" data-i="dates_note">Write to us in your language — we reply to everyone.</small></div><div class="field"><label data-i="f_guests">Guests</label><div class="stepper"><span class="lab"><span data-i="g_adults">Adults</span><small data-i="g_adults_s">13 and over</small></span><span class="ctrl"><button data-k="adults" data-d="-1">−</button><span class="val" id="v-adults">2</span><button data-k="adults" data-d="1">+</button></span></div><div class="stepper"><span class="lab"><span data-i="g_child">Children</span><small data-i="g_child_s">Under 12</small></span><span class="ctrl"><button data-k="child" data-d="-1">−</button><span class="val" id="v-child">0</span><button data-k="child" data-d="1">+</button></span></div></div><div class="breakdown" id="breakdown" hidden></div><div class="total">
             <span class="t-lab" data-i="total_lab">Total / night</span>
             <span class="t-val" id="t-val">30€</span>
           </div>
@@ -569,8 +582,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span data-i="cta_wa">Book via WhatsApp</span>
           </a>
           <a class="btn btn-ghost btn-full" style="margin-top:10px" href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Demande%20de%20disponibilit%C3%A9s" data-i="cta_email">Request by email</a>
-          <div class="booking-foot">
-            <span data-i="foot_terms">No fees · Pay on site · Under 12 free (max 1)</span>
+          <div id="booking-widget" data-property="studio" data-ical="" hidden></div><div class="booking-foot">
+            <span data-i="foot_terms">No hidden fees · 50% deposit · Balance on arrival</span>
             <span class="secure"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-i="foot_secure">Verified · Secure · Reply within 15 min</span></span>
           </div>
         </div>
@@ -588,28 +601,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 
-<section class="sec" id="dispo"><div class="wrap">
-  <h2 style="text-align:center">Check availability</h2>
-  <div class="dispo-box">
-    <div class="dispo-grid">
-      <div><label for="d-in">Check-in</label><input type="date" id="d-in"></div>
-      <div><label for="d-out">Check-out</label><input type="date" id="d-out"></div>
-      <div><label for="d-g">Guests</label><select id="d-g"><option value="1">1</option><option value="2">2</option></select></div>
-      <div class="go"><button class="btn-wa-go" id="d-go">Ask on WhatsApp</button></div>
-    </div>
-    <p class="dispo-note">Fast reply — direct booking, no commission.</p>
-  </div>
-  <div id="booking-widget" data-property="studio" data-ical="" hidden></div>
+
+
+<section class="v3" id="tarifs" style="background:var(--cream)"><div class="wrap">
+<h2>Rates</h2>
+<span class="deal-badge">Direct booking: −10% vs Airbnb & Booking — no hidden fees</span>
+<div class="rates"><div class="rate"><span class="rn">Low</span><span class="rd">1 Oct → 19 May</span><span class="rp">25&nbsp;&euro;</span><span class="rdh">≈ 275 DH</span></div><div class="rate"><span class="rn">Mid</span><span class="rd">20 May → 10 Jul · 19 Aug → 30 Sep</span><span class="rp">30&nbsp;&euro;</span><span class="rdh">≈ 330 DH</span></div><div class="rate hi"><span class="rn">High</span><span class="rd">11 Jul → 18 Aug</span><span class="rmin">min. 4 nights</span><span class="rp">50&nbsp;&euro;</span><span class="rdh">≈ 550 DH</span></div></div>
+<div class="cap"><b>Capacity</b><ul><li>2 adults + 1 child</li><li>Baby cot on request, subject to availability.</li></ul></div>
 </div></section>
-<script>(function(){var g=document.getElementById("d-go");if(!g)return;
-g.addEventListener("click",function(){
-var i=document.getElementById("d-in").value,o=document.getElementById("d-out").value,n=document.getElementById("d-g").value;
-if(!i||!o){document.getElementById("d-in").focus();return}
-var m="Hello, I would like to check availability — {p} — from {i} to {o} — {n} guest(s).".replace("{p}","Terrace Studio").replace("{i}",i).replace("{o}",o).replace("{n}",n);
-(window.dataLayer=window.dataLayer||[]).push({event:"booking_check",property:"studio",page:location.pathname});
-window.open("https://wa.me/212652615900?text="+encodeURIComponent(m),"_blank","noopener");});
-var bw=document.getElementById("booking-widget");/* hook channel manager / iCal : renseigner data-ical pour activer */
-})();</script>
+<section class="v3" id="howto"><div class="wrap"><h2>How to book</h2>
+<ol class="howto-steps"><li>Send your dates on WhatsApp (or via the widget above). Write to us in your language — we reply.</li><li>You receive a written confirmation: property, dates, total price, address. No payment before this summary.</li><li>You pay a 50% deposit to lock the dates — bank transfer, Western Union, Wafacash or cash. The balance is paid on arrival.</li></ol>
+</div></section>
+<section class="v3" id="hote" style="background:var(--cream)"><div class="wrap"><h2>Your host</h2>
+<div class="host-card"><img src="images/hote.webp" alt="Ahmed" width="190" height="120" loading="lazy" decoding="async"><div><p style="margin:0"><b>Ahmed — your host in Saïdia.</b> 10 years in seasonal rentals in Saïdia and 12 years in Paris hospitality. I personally manage each of the 5 apartments. Write to me in your language on WhatsApp, I'll reply.</p></div></div>
+</div></section>
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -672,7 +677,7 @@ const I18N={
   f_season:"Season",season_low:"Low",season_high:"High",f_guests:"Guests",
   g_adults:"Adults / teens",g_adults_s:"12 and over · max 2",g_child:"Under 12",g_child_s:"Free · max 1",
   total_lab:"Total / night",cta_wa:"Book via WhatsApp",cta_email:"Request by email",
-  foot_terms:"No fees · Pay on site · Under 12 free (max 1)",foot_secure:"Verified · Secure · Reply within 15 min",
+  foot_terms:"No hidden fees · 50% deposit · Balance on arrival (max 1)",foot_secure:"Verified · Secure · Reply within 15 min",
   related_title:"Our other properties in Saïdia",rel_rdc:"Ground-floor Apartment",rel_1er:"First-floor Apartment",rel_pan:"Panorama Golf",
   foot_tag:"Direct holiday rentals & concierge in Saïdia and Saïdia Marina. No commission, with a local team.",
   foot_nav:"Navigation",foot_apts:"Our apartments",foot_guide:"Guide",concierge:"Concierge",foot_concierge2:"Saïdia Concierge",
@@ -701,7 +706,7 @@ const I18N={
   f_season:"Temporada",season_low:"Baja",season_high:"Alta",f_guests:"Huéspedes",
   g_adults:"Adultos / adolescentes",g_adults_s:"12 años o más · máx 2",g_child:"Menores de 12",g_child_s:"Gratis · máx 1",
   total_lab:"Total / noche",cta_wa:"Reservar por WhatsApp",cta_email:"Solicitar por correo",
-  foot_terms:"Sin cargos · Pago in situ · Menores de 12 gratis (máx 1)",foot_secure:"Verificado · Seguro · Respuesta en 15 min",
+  foot_terms:"Sin cargos ocultos · Anticipo 50% · Resto a la llegada (máx 1)",foot_secure:"Verificado · Seguro · Respuesta en 15 min",
   related_title:"Nuestros otros alojamientos en Saïdia",rel_rdc:"Apartamento Planta Baja",rel_1er:"Apartamento 1ª Planta",rel_pan:"Panorama Golf",
   foot_tag:"Alquiler vacacional directo y conserjería en Saïdia y Saïdia Marina. Sin comisión, con un equipo local.",
   foot_nav:"Navegación",foot_apts:"Nuestros apartamentos",foot_guide:"Guía",concierge:"Conserjería",foot_concierge2:"Conserjería en Saïdia",
@@ -730,7 +735,7 @@ const I18N={
   f_season:"الموسم",season_low:"منخفض",season_high:"مرتفع",f_guests:"الضيوف",
   g_adults:"بالغون / مراهقون",g_adults_s:"12 سنة فأكثر · بحد أقصى 2",g_child:"أقل من 12 سنة",g_child_s:"مجاناً · بحد أقصى 1",
   total_lab:"الإجمالي / ليلة",cta_wa:"احجز عبر واتساب",cta_email:"طلب عبر البريد",
-  foot_terms:"بلا رسوم · الدفع في المكان · أقل من 12 مجاناً (بحد أقصى 1)",foot_secure:"موثّق · آمن · رد خلال 15 دقيقة",
+  foot_terms:"بلا رسوم خفية · عربون 50% · الباقي عند الوصول (بحد أقصى 1)",foot_secure:"موثّق · آمن · رد خلال 15 دقيقة",
   related_title:"وحداتنا الأخرى في السعيدية",rel_rdc:"شقة الطابق الأرضي",rel_1er:"شقة الطابق الأول",rel_pan:"بانوراما الغولف",
   foot_tag:"تأجير عطلات مباشر وإدارة وتسيير العقارات في السعيدية ومارينا السعيدية. بلا عمولة، مع فريق محلي.",
   foot_nav:"تصفّح",foot_apts:"شققنا",foot_guide:"دليل",concierge:"إدارة العقارات",foot_concierge2:"إدارة العقارات بالسعيدية",
@@ -755,39 +760,47 @@ function applyLang(l){
 }
 document.getElementById("langSwitch").addEventListener("click",e=>{const b=e.target.closest("button");if(b)applyLang(b.dataset.l);});
 
-/* ===== Calculateur (logique réelle : prix fixe 30€, 1 ou 2 pers., max 2 ados, -12 max 1) ===== */
-const BASE_BASSE=30;
-const state={season:"basse",adults:1,chU12:0};
-const MIN={adults:1,chU12:0},MAX={adults:2,chU12:1};
-function t(k){return (I18N[LANG][k]!=null?I18N[LANG][k]:I18N.fr[k]);}
-
-function render(){
-  document.getElementById("v-adults").textContent=state.adults;
-  document.getElementById("v-chU12").textContent=state.chU12;
-  const tVal=document.getElementById("t-val"),bh=document.getElementById("bh-price"),bm=document.getElementById("bm-price");
-  if(state.season==="basse"){
-    tVal.textContent=BASE_BASSE+"€";bh.textContent=BASE_BASSE+"€";bm.textContent=BASE_BASSE+"€";
-  }else{
-    tVal.textContent=t("total_haute");bh.textContent="—";bm.textContent=t("cta_book_short");
-  }
-  document.querySelectorAll(".stepper button").forEach(b=>{const k=b.dataset.k,d=+b.dataset.d,nv=state[k]+d;b.disabled=(nv<MIN[k]||nv>MAX[k]);});
-  // message WhatsApp localisé
-  let p=[t("wa_intro"),state.adults+" "+t("wa_adults")];
-  if(state.chU12>0)p.push(state.chU12+" "+t("wa_childU12"));
-  if(state.season==="basse"){p.push(t("wa_low"),t("wa_price")+" "+BASE_BASSE+"€/"+(LANG==="ar"?"ليلة":(LANG==="en"?"night":(LANG==="es"?"noche":"nuit")))+".");}
-  else{p.push(t("wa_high"),t("wa_haute"));}
-  document.getElementById("wa-book").href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(p.join(" "));
-}
-document.getElementById("season").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.season=b.dataset.s;document.querySelectorAll("#season button").forEach(x=>x.classList.toggle("on",x===b));render();});
-document.querySelectorAll(".stepper button").forEach(b=>{b.addEventListener("click",()=>{const k=b.dataset.k,d=+b.dataset.d,nv=state[k]+d;if(nv>=MIN[k]&&nv<=MAX[k]){state[k]=nv;render();}});});
-
-const head=document.getElementById("head");
-const onScroll=()=>head.classList.add("scrolled");
-onScroll();window.addEventListener("scroll",onScroll,{passive:true});
-document.getElementById("year").textContent=new Date().getFullYear();
-
-/* langue initiale depuis l'URL (/en/ /es/ /ar/) */
-LANG="en";render();
+/* Calculateur studio — total + detail par periode */
+const PRICES={basse:25,moyenne:30,haute:50};
+const CAP={adults:2,child:1,total:3};
+const MINSTAY={basse:2,moyenne:2,haute:4};
+const SN={basse:"low season",moyenne:"mid season",haute:"high season"};
+const SLAB={basse:"Low season",moyenne:"Mid season",haute:"High season"};
+const ONREQ="On request",PN="/ night",MW="Minimum {n} nights in {s}.",PICK="Select your dates";
+const TOTALLAB="Stay total",PNLAB="Price / night",PRORATA="Total prorated per night (multiple seasons).",OFFNOTE="Includes low-season nights \u2014 price on request.",TOTALW="Total";
+const HELLO="Hello Azur Stay, I'd like to book",WAD="adult(s)",WCH="child(ren)",WF="from",WT="to",WN0="night",WN1="nights",NAME="Studio with Terrace";
+const state={season:null,adults:2,child:0};
+function fmtP(x){return PRICES[x]==null?ONREQ:PRICES[x]+"\u20AC";}
+function fmtD(s){var p=s.split("-");return p[2]+"/"+p[1];}
+function priceRange(){var v=[];for(var k in PRICES){if(PRICES[k]!=null)v.push(PRICES[k]);}if(!v.length)return ONREQ;var a=Math.min.apply(null,v),b=Math.max.apply(null,v);return a===b?(a+"\u20AC"):(a+"\u2013"+b+"\u20AC");}
+function seasonOf(s){var p=s.split("-"),md=(+p[1])*100+(+p[2]);if(md>=711&&md<=818)return "haute";if((md>=520&&md<=710)||(md>=819&&md<=930))return "moyenne";return "basse";}
+function segments(){var di=document.getElementById("d-in").value,dou=document.getElementById("d-out").value;if(!di||!dou)return null;var d=new Date(di),end=new Date(dou),segs=[],cur=null;while(d<end){var ds=d.toISOString().slice(0,10),sx=seasonOf(ds);if(!cur||cur.season!==sx){cur={season:sx,start:ds,end:ds,nights:1,rate:PRICES[sx]};segs.push(cur);}else{cur.end=ds;cur.nights++;}d.setDate(d.getDate()+1);}return segs.length?segs:null;}
+function clampG(){if(state.adults<1)state.adults=1;if(state.child<0)state.child=0;if(state.adults>CAP.adults)state.adults=CAP.adults;if(state.child>CAP.child)state.child=CAP.child;while(state.adults+state.child>CAP.total){if(state.child>0)state.child--;else state.adults--;}}
+function recompute(){clampG();
+document.getElementById("v-adults").textContent=state.adults;document.getElementById("v-child").textContent=state.child;
+var di=document.getElementById("d-in").value,dou=document.getElementById("d-out").value;
+var badge=document.getElementById("season-badge"),note=document.getElementById("season-note"),warn=document.getElementById("min-warn"),wa=document.getElementById("wa-book"),bh=document.getElementById("bh-price"),tval=document.getElementById("t-val"),tlab=document.querySelector(".t-lab"),bd=document.getElementById("breakdown");
+var segs=segments(),season=di?seasonOf(di):null;state.season=season;
+var n=0,tot=0,hasNull=false,multi=!!(segs&&segs.length>1);
+if(segs){for(var i=0;i<segs.length;i++){n+=segs[i].nights;if(segs[i].rate==null){hasNull=true;}else{tot+=segs[i].nights*segs[i].rate;}}}
+badge.textContent=di?SLAB[season]:PICK;
+bh.textContent=!di?priceRange():(multi?priceRange():fmtP(season));
+if(segs){tlab.textContent=TOTALLAB+" \u2014 "+n+" "+(n>1?WN1:WN0);tval.textContent=hasNull?ONREQ:(tot+"\u20AC");}else{tlab.textContent=PNLAB;tval.textContent=priceRange();}
+if(multi){var h="";for(var j=0;j<segs.length;j++){var sg=segs[j],rt=sg.rate==null?ONREQ:(sg.rate+"\u20AC");h+="<div><span>"+WF+" "+fmtD(sg.start)+" "+WT+" "+fmtD(sg.end)+"</span><span>"+sg.nights+" "+(sg.nights>1?WN1:WN0)+" \u00d7 "+rt+"</span></div>";}bd.innerHTML=h;bd.hidden=false;}else{bd.hidden=true;bd.innerHTML="";}
+if(hasNull){note.hidden=false;note.textContent=OFFNOTE;}else if(multi){note.hidden=false;note.textContent=PRORATA;}else{note.hidden=true;}
+var tooShort=false;if(di&&segs){var mn=MINSTAY[season];if(n<mn){tooShort=true;warn.hidden=false;warn.textContent=MW.replace("{n}",mn).replace("{s}",SN[season]);}else{warn.hidden=true;}}else{warn.hidden=true;}
+var dp=(di&&dou&&segs)?(" \u2014 "+WF+" "+di+" "+WT+" "+dou+" ("+n+" "+(n>1?WN1:WN0)+")"):"";
+var totpart=(segs&&!hasNull)?(" \u2014 "+TOTALW+" "+tot+"\u20AC"):"";var slabel=season&&!multi?SN[season]:"";
+var msg=HELLO+" \u00AB "+NAME+" \u00BB"+(slabel?" \u2014 "+slabel:"")+dp+" \u2014 "+state.adults+" "+WAD+(state.child?" + "+state.child+" "+WCH:"")+totpart+".";
+wa.href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg);
+if(tooShort){wa.setAttribute("aria-disabled","true");wa.style.opacity="0.5";wa.style.pointerEvents="none";}else{wa.removeAttribute("aria-disabled");wa.style.opacity="";wa.style.pointerEvents="";}
+(window.dataLayer=window.dataLayer||[]).push({event:"booking_widget_change",property:"studio",season:season,nights:n,total:(segs&&!hasNull)?tot:null});}
+(function(){var t=new Date().toISOString().slice(0,10);var di=document.getElementById("d-in"),dou=document.getElementById("d-out");if(di)di.min=t;if(dou)dou.min=t;})();
+document.querySelectorAll(".stepper .ctrl button").forEach(function(b){b.addEventListener("click",function(){state[b.dataset.k]+=(+b.dataset.d);recompute();});});
+var DI=document.getElementById("d-in"),DO=document.getElementById("d-out");
+if(DI)DI.addEventListener("change",function(){if(DO&&this.value)DO.min=this.value;recompute();});
+if(DO)DO.addEventListener("change",recompute);
+recompute();
 </script>
 <script>
 (function(){

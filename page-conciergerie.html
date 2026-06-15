@@ -267,6 +267,17 @@ html[dir=rtl] .step::before{left:auto;right:24px}
 .est-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
 @media(max-width:760px){.dispo-grid{grid-template-columns:1fr 1fr}.dispo-grid .go{grid-column:1/-1}.est-grid{grid-template-columns:1fr}}
 [dir="rtl"] .dispo-grid input,[dir="rtl"] .dispo-grid select{text-align:right}
+.svc-premium{border-color:var(--gold);position:relative;background:linear-gradient(180deg,#fffdf7,var(--paper))}
+.svc-badge{position:absolute;top:-10px;inset-inline-end:14px;background:var(--gold);color:#3a2e08;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:99px}
+.hiv-elig{max-width:680px;margin:26px auto 0;background:var(--paper);border:1px solid #e7dcc6;border-radius:16px;padding:24px;text-align:center}
+.hiv-elig h3{font-family:Fraunces,Georgia,serif;color:var(--sea);margin:0 0 4px}
+.checklist{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:start}
+.checklist li{position:relative;padding-inline-start:28px;font-size:.92rem;color:var(--ink)}
+.checklist li::before{content:"";position:absolute;inset-inline-start:0;top:1px;width:19px;height:19px;border-radius:50%;background:var(--wa)}
+.checklist li::after{content:"✓";position:absolute;inset-inline-start:5px;top:0;color:#fff;font-size:.8rem;font-weight:700}
+.hiv-clause{font-size:.85rem;color:var(--gold-deep);font-weight:600;margin:16px 0 18px}
+.hiv-elig .btn{margin:0 auto}
+@media(max-width:560px){.checklist{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
 {
@@ -386,9 +397,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M14 7l3 3-9 9H5v-3l9-9zM13 8l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 data-i="svc6_t">Maintenance &amp; entretien</h3><p data-i="svc6_d">Suivi de la maintenance et petites réparations : votre bien est entretenu comme s'il s'agissait du nôtre.</p></div>
       <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 16l3-4 3 2 4-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 data-i="svc7_t">Suivi des revenus</h3><p data-i="svc7_d">Tarification dynamique et reporting transparent : vous suivez vos revenus locatifs en toute clarté.</p></div>
       <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 data-i="svc8_t">Sérénité totale</h3><p data-i="svc8_d">Une équipe locale présente sur place 7j/7, idéale pour les propriétaires qui vivent loin de Saïdia.</p></div>
-    </div>
+    <div class="svc svc-premium"><span class="svc-badge" data-i="opt_badge">Option</span><div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.1 5.1l1.8 1.8M17.1 17.1l1.8 1.8M18.9 5.1l-1.8 1.8M6.9 17.1l-1.8 1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 data-i="svc_winter_t">🌟 Option Hivernage Actif (Octobre - Mai)</h3><p data-i="svc_winter_d">Ne laissez plus votre propriété vide durant les mois d’hiver. Azur Stay bascule automatiquement votre logement en mode « Long séjour » (location mensuelle) pour cibler des profils vérifiés à haut pouvoir d’achat (retraités, MRE, professionnels en mission). Une solution clés en main pour sécuriser vos revenus, éviter les dégâts de l’humidité et couvrir 100 % de vos charges en basse saison.</p></div>
+        </div>
   </div>
 </section>
+
+<!-- HIVERNAGE ACTIF -->
+<section class="sec sec-tint" id="hivernage"><div class="wrap">
+<div class="sec-head center"><span class="eyebrow" data-i="hiv_eyebrow">Option haut de gamme</span><h2 data-i="hiv_h2">Hivernage Actif : vos revenus sécurisés d’octobre à mai</h2><p data-i="hiv_lead">Un service optionnel pour propriétaires exigeants : nous transformons les mois creux en revenus, sans aucun risque pour vous.</p></div>
+<div class="steps"><div class="step"><h3 data-i="hiv_s1_t">Votre demande</h3><p data-i="hiv_s1_d">Vous nous indiquez votre intérêt pour le programme Hivernage Actif.</p></div><div class="step"><h3 data-i="hiv_s2_t">Audit de conformité</h3><p data-i="hiv_s2_d">Nous vérifions les critères de confort d’hiver de votre bien (ci-dessous).</p></div><div class="step"><h3 data-i="hiv_s3_t">Intégration au catalogue mensuel</h3><p data-i="hiv_s3_d">Si conforme, votre logement rejoint l’offre « Long séjour », avec clause de consommation d’électricité responsable.</p></div><div class="step"><h3 data-i="hiv_s4_t">Aucune perte : repli automatique</h3><p data-i="hiv_s4_d">Si aucune demande mensuelle un mois donné, votre calendrier reste actif à la nuitée (Airbnb, Booking, Azur Stay). Bascule automatique.</p></div></div>
+<div class="hiv-elig"><h3 data-i="hiv_elig_t">Critères d’éligibilité</h3><ul class="checklist"><li data-i="hiv_elig1">Climatisation réversible fonctionnelle</li><li data-i="hiv_elig2">Wi-Fi haut débit dédié</li><li data-i="hiv_elig3">Machine à laver</li><li data-i="hiv_elig4">Cuisine entièrement équipée</li></ul><p class="hiv-clause" data-i="hiv_clause">Forfait électricité inclus pour une consommation responsable.</p><a class="btn btn-wa btn-lg" id="cta-hivernage" href="https://wa.me/212652615900?text=%5BHivernage%5D%20Bonjour%2C%20mon%20bien%20est-il%20%C3%A9ligible%20au%20programme%20Hivernage%20Actif%20%3F" rel="nofollow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg><span data-i="hiv_cta">Mon bien est-il éligible ? Demandez l’audit gratuit</span></a><p class="ld-crosslink" style="margin-top:14px"><a href="location-longue-duree-saidia.html" style="color:var(--azure);font-weight:600;text-decoration:none">Voir notre offre de location longue durée →</a></p></div>
+</div></section>
 
 <!-- COMMENT ÇA MARCHE -->
 <section class="sec sec-tint">
@@ -443,7 +462,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="qa"><h3><svg viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 116 0c0 2-3 2.5-3 4m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i="faq2_q">Quels sont vos tarifs de gestion ?</span></h3><p data-i="faq2_a">Une commission transparente sur les revenus générés, sans frais cachés. Devis personnalisé sur WhatsApp.</p></div>
       <div class="qa"><h3><svg viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 116 0c0 2-3 2.5-3 4m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i="faq3_q">Je vis à l'étranger, comment ça se passe ?</span></h3><p data-i="faq3_a">C'est notre cœur de métier auprès des MRE : notre équipe locale s'occupe de tout sur place, et vous suivez vos revenus à distance. Tout se règle par WhatsApp, en français comme en arabe.</p></div>
       <div class="qa"><h3><svg viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 116 0c0 2-3 2.5-3 4m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i="faq4_q">Puis-je garder un usage personnel de mon bien ?</span></h3><p data-i="faq4_a">Bien sûr. Vous nous indiquez les dates que vous souhaitez vous réserver, et nous les bloquons sur le calendrier.</p></div>
-    </div>
+    <div class="qa"><h3><svg viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 116 0c0 2-3 2.5-3 4m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i="faq_winter_q">La location longue durée l’hiver est-elle garantie pour mon appartement et quelles sont les conditions ?</span></h3><p data-i="faq_winter_a">Nous déployons une stratégie de référencement Google unique à Saïdia pour capter les locataires mensuels. Pour adhérer à ce programme, votre bien doit valider nos critères de confort d’hiver : climatisation réversible fonctionnelle, connexion Wi-Fi haut débit dédiée et équipements complets (machine à laver, cuisine équipée). Pour garantir votre sérénité financière, si aucune demande mensuelle ne se présente pour un mois donné, votre calendrier reste automatiquement actif à la nuitée sur les plateformes internationales. Avec Azur Stay, vous multipliez vos opportunités sans aucun risque de blocage.</p></div>
+        </div>
   </div>
 </section>
 
@@ -719,5 +739,6 @@ dl({event:"copy_email",page:location.pathname});}
 });
 function ok(b){var t=b.getAttribute("data-done")||"OK";var o=b.innerHTML;b.innerHTML=t;setTimeout(function(){b.innerHTML=o},1600);}
 })();</script>
+<script>(function(){var c=document.getElementById("cta-hivernage");if(c)c.addEventListener("click",function(){(window.dataLayer=window.dataLayer||[]).push({event:"hivernage_audit_click",page:location.pathname});});})();</script>
 </body>
 </html>

@@ -267,6 +267,17 @@ html[dir=rtl] .step::before{left:auto;right:24px}
 .est-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
 @media(max-width:760px){.dispo-grid{grid-template-columns:1fr 1fr}.dispo-grid .go{grid-column:1/-1}.est-grid{grid-template-columns:1fr}}
 [dir="rtl"] .dispo-grid input,[dir="rtl"] .dispo-grid select{text-align:right}
+.svc-premium{border-color:var(--gold);position:relative;background:linear-gradient(180deg,#fffdf7,var(--paper))}
+.svc-badge{position:absolute;top:-10px;inset-inline-end:14px;background:var(--gold);color:#3a2e08;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:99px}
+.hiv-elig{max-width:680px;margin:26px auto 0;background:var(--paper);border:1px solid #e7dcc6;border-radius:16px;padding:24px;text-align:center}
+.hiv-elig h3{font-family:Fraunces,Georgia,serif;color:var(--sea);margin:0 0 4px}
+.checklist{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:start}
+.checklist li{position:relative;padding-inline-start:28px;font-size:.92rem;color:var(--ink)}
+.checklist li::before{content:"";position:absolute;inset-inline-start:0;top:1px;width:19px;height:19px;border-radius:50%;background:var(--wa)}
+.checklist li::after{content:"✓";position:absolute;inset-inline-start:5px;top:0;color:#fff;font-size:.8rem;font-weight:700}
+.hiv-clause{font-size:.85rem;color:var(--gold-deep);font-weight:600;margin:16px 0 18px}
+.hiv-elig .btn{margin:0 auto}
+@media(max-width:560px){.checklist{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
 {
@@ -387,9 +398,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M14 7l3 3-9 9H5v-3l9-9zM13 8l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 data-i="svc6_t">الصيانة والعناية</h3><p data-i="svc6_d">متابعة الصيانة والإصلاحات الصغيرة: نعتني بعقارك كأنه ملكنا.</p></div>
       <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 16l3-4 3 2 4-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 data-i="svc7_t">متابعة العائدات</h3><p data-i="svc7_d">تسعير ديناميكي وتقارير شفّافة: تتابع عائداتك بكل وضوح.</p></div>
       <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 data-i="svc8_t">راحة بال تامة</h3><p data-i="svc8_d">فريق محلي متواجد طوال الأسبوع، مثالي للملاك الذين يعيشون بعيداً عن السعيدية.</p></div>
-    </div>
+    <div class="svc svc-premium"><span class="svc-badge" data-i="opt_badge">خيار</span><div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.1 5.1l1.8 1.8M17.1 17.1l1.8 1.8M18.9 5.1l-1.8 1.8M6.9 17.1l-1.8 1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 data-i="svc_winter_t">🌟 خيار الإشتاء النشط (أكتوبر - ماي)</h3><p data-i="svc_winter_d">لا تترك عقارك فارغاً خلال أشهر الشتاء. تقوم Azur Stay تلقائياً بتحويل سكنك إلى وضع «الإقامة الطويلة» (كراء شهري) لاستهداف عملاء موثوقين ذوي قدرة شرائية عالية (متقاعدون، مغاربة العالم، مهنيون في مهمة). حل متكامل لتأمين دخلك، وتجنب أضرار الرطوبة، وتغطية 100% من مصاريفك في الموسم المنخفض.</p></div>
+        </div>
   </div>
 </section>
+
+<!-- HIVERNAGE ACTIF -->
+<section class="sec sec-tint" id="hivernage"><div class="wrap">
+<div class="sec-head center"><span class="eyebrow" data-i="hiv_eyebrow">خيار راقٍ</span><h2 data-i="hiv_h2">الإشتاء النشط: دخلك مؤمَّن من أكتوبر إلى ماي</h2><p data-i="hiv_lead">خدمة اختيارية للملاك المتطلبين: نحوّل الأشهر الفارغة إلى دخل، دون أي خطر عليك.</p></div>
+<div class="steps"><div class="step"><h3 data-i="hiv_s1_t">طلبك</h3><p data-i="hiv_s1_d">تخبرنا باهتمامك ببرنامج الإشتاء النشط.</p></div><div class="step"><h3 data-i="hiv_s2_t">تدقيق المطابقة</h3><p data-i="hiv_s2_d">نتحقق من معايير راحة الشتاء في عقارك (أدناه).</p></div><div class="step"><h3 data-i="hiv_s3_t">الإدراج في الكتالوغ الشهري</h3><p data-i="hiv_s3_d">إذا كان مطابقاً، ينضم سكنك إلى عرض «الإقامة الطويلة»، مع بند استهلاك كهربائي مسؤول.</p></div><div class="step"><h3 data-i="hiv_s4_t">دون خسارة: تحول تلقائي</h3><p data-i="hiv_s4_d">إذا لم يرد طلب شهري، يبقى تقويمك نشطاً للحجز الليلي (Airbnb، Booking، Azur Stay). تحول تلقائي.</p></div></div>
+<div class="hiv-elig"><h3 data-i="hiv_elig_t">معايير الأهلية</h3><ul class="checklist"><li data-i="hiv_elig1">مكيف هواء عاكس يعمل</li><li data-i="hiv_elig2">Wi-Fi عالي السرعة مخصص</li><li data-i="hiv_elig3">غسالة</li><li data-i="hiv_elig4">مطبخ مجهز بالكامل</li></ul><p class="hiv-clause" data-i="hiv_clause">باقة كهرباء مشمولة لاستهلاك مسؤول.</p><a class="btn btn-wa btn-lg" id="cta-hivernage" href="https://wa.me/212652615900?text=%5B%D8%A7%D9%84%D8%A5%D8%B4%D8%AA%D8%A7%D8%A1%5D%20%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D9%87%D9%84%20%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%20%D9%85%D8%A4%D9%87%D9%84%20%D9%84%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%A5%D8%B4%D8%AA%D8%A7%D8%A1%20%D8%A7%D9%84%D9%86%D8%B4%D8%B7%D8%9F" rel="nofollow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg><span data-i="hiv_cta">هل عقاري مؤهل؟ اطلب تدقيقاً مجانياً</span></a><p class="ld-crosslink" style="margin-top:14px"><a href="location-longue-duree-saidia-ar.html" style="color:var(--azure);font-weight:600;text-decoration:none">اطّلع على عرض الكراء طويل الأمد ←</a></p></div>
+</div></section>
 
 <!-- COMMENT ÇA MARCHE -->
 <section class="sec sec-tint">
@@ -444,7 +463,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="qa"><h3><svg viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 116 0c0 2-3 2.5-3 4m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i="faq2_q">ما هي رسوم الإدارة لديكم؟</span></h3><p data-i="faq2_a">عمولة شفّافة على العائدات المحقّقة، بلا رسوم خفيّة. عرض سعر مخصّص عبر واتساب.</p></div>
       <div class="qa"><h3><svg viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 116 0c0 2-3 2.5-3 4m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i="faq3_q">أعيش في الخارج، كيف تتم العملية؟</span></h3><p data-i="faq3_a">هذا تخصّصنا الأساسي مع المغاربة المقيمين بالخارج: فريقنا المحلي يتولّى كل شيء في المكان، وأنت تتابع عائداتك عن بُعد. كل شيء يُرتَّب عبر واتساب، بالفرنسية أو العربية.</p></div>
       <div class="qa"><h3><svg viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 116 0c0 2-3 2.5-3 4m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i="faq4_q">هل يمكنني الاحتفاظ باستعمال شخصي لعقاري؟</span></h3><p data-i="faq4_a">بالطبع. تخبرنا بالتواريخ التي ترغب في الاحتفاظ بها لنفسك، ونحجبها في التقويم.</p></div>
-    </div>
+    <div class="qa"><h3><svg viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 116 0c0 2-3 2.5-3 4m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i="faq_winter_q">هل الكراء طويل الأمد في الشتاء مضمون لشقتي، وما هي الشروط؟</span></h3><p data-i="faq_winter_a">نعتمد استراتيجية تهيئة فريدة على Google خاصة بالسعيدية لجذب المستأجرين الشهريين. للانضمام إلى هذا البرنامج، يجب أن يستوفي عقارك معايير راحة الشتاء: مكيف هواء عاكس يعمل، واتصال Wi-Fi عالي السرعة مخصص، وتجهيزات كاملة (غسالة، مطبخ مجهز). لراحتك المالية، إذا لم يرد أي طلب شهري في شهر ما، يبقى تقويمك نشطاً تلقائياً للحجز الليلي على المنصات الدولية. مع Azur Stay، تضاعف فرصك دون أي خطر تعطل.</p></div>
+        </div>
   </div>
 </section>
 
@@ -716,5 +736,6 @@ dl({event:"copy_email",page:location.pathname});}
 });
 function ok(b){var t=b.getAttribute("data-done")||"OK";var o=b.innerHTML;b.innerHTML=t;setTimeout(function(){b.innerHTML=o},1600);}
 })();</script>
+<script>(function(){var c=document.getElementById("cta-hivernage");if(c)c.addEventListener("click",function(){(window.dataLayer=window.dataLayer||[]).push({event:"hivernage_audit_click",page:location.pathname});});})();</script>
 </body>
 </html>

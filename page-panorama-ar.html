@@ -320,6 +320,33 @@ html[dir=rtl] .loc-line svg,html[dir=rtl] .hl svg,html[dir=rtl] .am svg,html[dir
 .est-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
 @media(max-width:760px){.dispo-grid{grid-template-columns:1fr 1fr}.dispo-grid .go{grid-column:1/-1}.est-grid{grid-template-columns:1fr}}
 [dir="rtl"] .dispo-grid input,[dir="rtl"] .dispo-grid select{text-align:right}
+.dates2{display:flex;gap:8px}.dates2 input{flex:1;min-width:0;padding:9px;border:1px solid #d9cdb4;border-radius:9px;font:inherit;background:#fff;color:var(--ink)}
+.min-warn{margin-top:8px;background:#fdeaea;color:#9a2b2b;border:1px solid #f3c9c9;border-radius:9px;padding:7px 10px;font-size:.85rem;font-weight:600}
+.dates-note{display:block;margin-top:6px;color:var(--ink-soft);font-size:.78rem}
+.seasonline{margin:10px 0 4px}
+.season-badge{display:inline-block;background:var(--sea-deep);color:#fff;border-radius:99px;padding:5px 14px;font-size:.82rem;font-weight:600}
+.season-note{margin-top:8px;background:#fff6e6;color:var(--gold-deep);border:1px solid #ecd9a8;border-radius:9px;padding:7px 10px;font-size:.82rem;font-weight:600}
+.breakdown{margin:10px 0 0;font-size:.84rem;color:var(--ink)}
+.breakdown div{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px dashed #e7dcc6}
+.breakdown div:last-child{border-bottom:0}
+.v3{padding:46px 0}.v3 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.v3 h2{font-family:Fraunces,Georgia,serif;color:var(--sea);text-align:center;font-size:1.5rem;margin:0 0 8px}
+.deal-badge{display:block;text-align:center;background:var(--sand);color:var(--gold-deep);border-radius:99px;padding:9px 18px;max-width:600px;margin:0 auto 22px;font-weight:600;font-size:.9rem}
+.rates{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:0 auto}
+.rate{background:var(--paper);border:1px solid #e7dcc6;border-radius:14px;padding:18px 14px;text-align:center}
+.rate.hi{border-color:var(--gold);box-shadow:0 8px 24px rgba(168,134,47,.14)}
+.rate .rn{font-weight:700;color:var(--sea)}.rate .rd{font-size:.78rem;color:var(--ink-soft);display:block;margin:3px 0}
+.rate .rp{font-family:Fraunces,Georgia,serif;font-size:1.5rem;color:var(--ink);display:block;margin-top:6px}
+.rate .rdh{font-size:.76rem;color:var(--ink-soft)}.rate .rmin{font-size:.74rem;color:var(--gold-deep);font-weight:600;display:block}
+.cap{max-width:680px;margin:22px auto 0;background:var(--paper);border:1px solid #e7dcc6;border-radius:14px;padding:18px 20px}
+.cap ul{margin:8px 0 0;padding-inline-start:20px}.cap li{margin:5px 0}
+.howto-steps{counter-reset:s;list-style:none;max-width:680px;margin:0 auto;padding:0}
+.howto-steps li{counter-increment:s;position:relative;padding:0 0 18px 50px}
+[dir=rtl] .howto-steps li{padding:0 50px 18px 0}
+.howto-steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--sea-deep);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.host-card{display:flex;gap:22px;align-items:center;max-width:760px;margin:0 auto;background:var(--paper);border:1px solid #e7dcc6;border-radius:16px;padding:22px}
+.host-card img{width:190px;height:120px;object-fit:cover;border-radius:12px;flex:none}
+@media(max-width:620px){.rates{grid-template-columns:1fr}.host-card{flex-direction:column;text-align:center}.host-card img{width:100%;height:auto}}
 </style>
 <script type="application/ld+json">
 {
@@ -589,32 +616,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="booking" id="reserver">
         <div class="booking-head">
           <div class="price"><span id="bh-price">68€</span> <small data-i="per_night">/ ليلة</small></div>
-          <div class="sub" data-i="price_sub">على أساس شخصين · الموسم المنخفض</div>
+          <div class="sub" data-i="price_sub">السكن كامل · لكل ليلة</div>
         </div>
         <div class="booking-body">
           <div class="field">
             <label data-i="f_season">الموسم</label>
-            <div class="seg" id="season">
-              <button class="on" data-s="basse" data-i="season_low">منخفض</button>
-              <button data-s="haute" data-i="season_high">مرتفع</button>
-            </div>
+            <div class="seasonline"><span class="season-badge" id="season-badge" data-i="pick_dates">اختاروا تواريخكم</span></div><div class="season-note" id="season-note" hidden></div>
           </div>
-          <div class="field">
-            <label data-i="f_guests">الضيوف</label>
-            <div class="stepper">
-              <span class="lab"><span data-i="g_adults">بالغون</span><small data-i="g_adults_s">13 سنة فأكثر · 2 كحد أدنى</small></span>
-              <span class="ctrl"><button data-k="adults" data-d="-1">−</button><span class="val" id="v-adults">2</span><button data-k="adults" data-d="1">+</button></span>
-            </div>
-            <div class="stepper">
-              <span class="lab"><span data-i="g_teen">أطفال 12–17</span><small data-i="g_teen_s">+10€ / ليلة لكل فرد</small></span>
-              <span class="ctrl"><button data-k="ch1217" data-d="-1">−</button><span class="val" id="v-ch1217">0</span><button data-k="ch1217" data-d="1">+</button></span>
-            </div>
-            <div class="stepper">
-              <span class="lab"><span data-i="g_child">أقل من 12 سنة</span><small data-i="g_child_s">مجاناً</small></span>
-              <span class="ctrl"><button data-k="chU12" data-d="-1">−</button><span class="val" id="v-chU12">0</span><button data-k="chU12" data-d="1">+</button></span>
-            </div>
-          </div>
-          <div class="total">
+          <div class="field"><label data-i="f_dates">تواريخكم</label><div class="dates2"><input type="date" id="d-in"><input type="date" id="d-out"></div><div class="min-warn" id="min-warn" hidden></div><small class="dates-note" data-i="dates_note">راسلونا بلغتكم، نرد على الجميع.</small></div><div class="field"><label data-i="f_guests">الضيوف</label><div class="stepper"><span class="lab"><span data-i="g_adults">بالغون</span><small data-i="g_adults_s">13 سنة فأكثر</small></span><span class="ctrl"><button data-k="adults" data-d="-1">−</button><span class="val" id="v-adults">2</span><button data-k="adults" data-d="1">+</button></span></div><div class="stepper"><span class="lab"><span data-i="g_child">أطفال</span><small data-i="g_child_s">أقل من 12 سنة</small></span><span class="ctrl"><button data-k="child" data-d="-1">−</button><span class="val" id="v-child">0</span><button data-k="child" data-d="1">+</button></span></div></div><div class="breakdown" id="breakdown" hidden></div><div class="total">
             <span class="t-lab" data-i="total_lab">الإجمالي / ليلة</span>
             <span class="t-val" id="t-val">68€</span>
           </div>
@@ -623,8 +632,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span data-i="cta_wa">احجز عبر واتساب</span>
           </a>
           <a class="btn btn-ghost btn-full" style="margin-top:10px" href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Demande%20de%20disponibilit%C3%A9s" data-i="cta_email">طلب عبر البريد</a>
-          <div class="booking-foot">
-            <span data-i="foot_terms">بلا رسوم · الدفع في المكان · أقل من 12 مجاناً</span>
+          <div id="booking-widget" data-property="panorama" data-ical="" hidden></div><div class="booking-foot">
+            <span data-i="foot_terms">بلا رسوم خفية · عربون 50% · الباقي عند الوصول</span>
             <span class="secure"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-i="foot_secure">موثّق · آمن · رد خلال 15 دقيقة</span></span>
           </div>
         </div>
@@ -642,28 +651,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 
-<section class="sec" id="dispo"><div class="wrap">
-  <h2 style="text-align:center">تحقق من التوفر</h2>
-  <div class="dispo-box">
-    <div class="dispo-grid">
-      <div><label for="d-in">الوصول</label><input type="date" id="d-in"></div>
-      <div><label for="d-out">المغادرة</label><input type="date" id="d-out"></div>
-      <div><label for="d-g">الضيوف</label><select id="d-g"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
-      <div class="go"><button class="btn-wa-go" id="d-go">اسأل عبر واتساب</button></div>
-    </div>
-    <p class="dispo-note">رد سريع — حجز مباشر، بدون عمولة.</p>
-  </div>
-  <div id="booking-widget" data-property="panorama" data-ical="" hidden></div>
+
+
+<section class="v3" id="tarifs" style="background:var(--cream)"><div class="wrap">
+<h2>الأسعار</h2>
+<span class="deal-badge">حجز مباشر: −10% مقابل Airbnb و Booking — بلا رسوم خفية</span>
+<div class="rates"><div class="rate"><span class="rn">منخفض</span><span class="rd">1 أكتوبر ← 19 ماي</span><span class="rp">65&nbsp;&euro;</span><span class="rdh">≈ 715 DH</span></div><div class="rate"><span class="rn">متوسط</span><span class="rd">20 ماي ← 10 يوليوز · 19 غشت ← 30 شتنبر</span><span class="rp">80&nbsp;&euro;</span><span class="rdh">≈ 880 DH</span></div><div class="rate hi"><span class="rn">مرتفع</span><span class="rd">11 يوليوز ← 18 غشت</span><span class="rmin">4 ليالٍ كحد أدنى</span><span class="rp">110&nbsp;&euro;</span><span class="rdh">≈ 1210 DH</span></div></div>
+<div class="cap"><b>السعة</b><ul><li>4 بالغين + 1 طفل</li><li>سرير رضيع مخصص، متوفر دائماً.</li></ul></div>
 </div></section>
-<script>(function(){var g=document.getElementById("d-go");if(!g)return;
-g.addEventListener("click",function(){
-var i=document.getElementById("d-in").value,o=document.getElementById("d-out").value,n=document.getElementById("d-g").value;
-if(!i||!o){document.getElementById("d-in").focus();return}
-var m="مرحبا، أود التحقق من التوفر — {p} — من {i} إلى {o} — {n} ضيف.".replace("{p}","بانوراما الغولف").replace("{i}",i).replace("{o}",o).replace("{n}",n);
-(window.dataLayer=window.dataLayer||[]).push({event:"booking_check",property:"panorama",page:location.pathname});
-window.open("https://wa.me/212652615900?text="+encodeURIComponent(m),"_blank","noopener");});
-var bw=document.getElementById("booking-widget");/* hook channel manager / iCal : renseigner data-ical pour activer */
-})();</script>
+<section class="v3" id="howto"><div class="wrap"><h2>كيفية الحجز</h2>
+<ol class="howto-steps"><li>أرسلوا تواريخكم عبر واتساب (أو عبر الأداة أعلاه). راسلونا بلغتكم، نرد عليكم.</li><li>تستلمون تأكيداً كتابياً: السكن، التواريخ، السعر الإجمالي، العنوان. لا دفع قبل هذا الملخص.</li><li>تدفعون عربوناً بنسبة 50% لحجز التواريخ — تحويل بنكي، Western Union، Wafacash أو نقداً. يُدفع الباقي عند الوصول.</li></ol>
+</div></section>
+<section class="v3" id="hote" style="background:var(--cream)"><div class="wrap"><h2>مضيفكم</h2>
+<div class="host-card"><img src="images/hote.webp" alt="Ahmed" width="190" height="120" loading="lazy" decoding="async"><div><p style="margin:0"><b>أحمد — مضيفكم في السعيدية.</b> 10 سنوات في الكراء الموسمي بالسعيدية و12 سنة في الفندقة بباريس. أدير شخصياً كل شقة من الشقق الخمس. راسلوني بلغتكم عبر واتساب، أرد عليكم.</p></div></div>
+</div></section>
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -727,11 +728,11 @@ const I18N={
   rev_1:"The golf view is absolutely magnificent. Morning coffee on the terrace is a magical moment. Very modern, well-equipped apartment. Responsive host.",
   rev_2:"Impeccable apartment in a magnificent residence. The pool is right downstairs. Extraordinary golf view. I recommend it 100%.",
   sc_comm:"Communication",sc_check:"Check-in",sc_value:"Value for money",sc_loc:"Location",
-  per_night:"/ night",price_sub:"Based on 2 guests · low season",
+  per_night:"/ night",price_sub:"Whole place · per night",
   f_season:"Season",season_low:"Low",season_high:"High",f_guests:"Guests",
-  g_adults:"Adults",g_adults_s:"13 and over · min. 2",g_teen:"Children 12–17",g_teen_s:"+€10 / night each",g_child:"Under 12",g_child_s:"Free",
+  g_adults:"Adults",g_adults_s:"13 and over · min. 2",g_child:"Under 12",g_child_s:"Free",
   total_lab:"Total / night",cta_wa:"Book via WhatsApp",cta_email:"Request by email",
-  foot_terms:"No fees · Pay on site · Under 12 free",foot_secure:"Verified · Secure · Reply within 15 min",
+  foot_terms:"No hidden fees · 50% deposit · Balance on arrival",foot_secure:"Verified · Secure · Reply within 15 min",
   related_title:"Our other properties in Saïdia",rel_rdc:"Ground-floor Apartment",rel_1er:"First-floor Apartment",rel_studio:"Studio with Terrace",rel_pan:"Panorama Golf",
   foot_tag:"Direct holiday rentals & concierge in Saïdia and Saïdia Marina. No commission, with a local team.",
   foot_nav:"Navigation",foot_apts:"Our apartments",foot_guide:"Guide",concierge:"Concierge",foot_concierge2:"Saïdia Concierge",
@@ -762,11 +763,11 @@ const I18N={
   rev_1:"La vista al golf es absolutamente magnífica. El café por la mañana en la terraza es un momento mágico. Apartamento muy moderno y bien equipado. Anfitrión atento.",
   rev_2:"Apartamento impecable en una residencia magnífica. La piscina está justo abajo. Vista extraordinaria al golf. Lo recomiendo al 100%.",
   sc_comm:"Comunicación",sc_check:"Entrada",sc_value:"Relación calidad-precio",sc_loc:"Ubicación",
-  per_night:"/ noche",price_sub:"Base 2 personas · temporada baja",
+  per_night:"/ noche",price_sub:"Alojamiento completo · por noche",
   f_season:"Temporada",season_low:"Baja",season_high:"Alta",f_guests:"Huéspedes",
-  g_adults:"Adultos",g_adults_s:"13 años o más · mín. 2",g_teen:"Niños 12–17",g_teen_s:"+10€ / noche c/u",g_child:"Menores de 12",g_child_s:"Gratis",
+  g_adults:"Adultos",g_adults_s:"13 años o más · mín. 2",g_child:"Menores de 12",g_child_s:"Gratis",
   total_lab:"Total / noche",cta_wa:"Reservar por WhatsApp",cta_email:"Solicitar por correo",
-  foot_terms:"Sin cargos · Pago in situ · Menores de 12 gratis",foot_secure:"Verificado · Seguro · Respuesta en 15 min",
+  foot_terms:"Sin cargos ocultos · Anticipo 50% · Resto a la llegada",foot_secure:"Verificado · Seguro · Respuesta en 15 min",
   related_title:"Nuestros otros alojamientos en Saïdia",rel_rdc:"Apartamento Planta Baja",rel_1er:"Apartamento 1ª Planta",rel_studio:"Estudio con Terraza",rel_pan:"Panorama Golf",
   foot_tag:"Alquiler vacacional directo y conserjería en Saïdia y Saïdia Marina. Sin comisión, con un equipo local.",
   foot_nav:"Navegación",foot_apts:"Nuestros apartamentos",foot_guide:"Guía",concierge:"Conserjería",foot_concierge2:"Conserjería en Saïdia",
@@ -797,11 +798,11 @@ const I18N={
   rev_1:"الإطلالة على الغولف رائعة تماماً. قهوة الصباح على التراس لحظة ساحرة. شقة عصرية جداً ومجهّزة جيداً. مضيف متجاوب.",
   rev_2:"شقة لا تشوبها شائبة في إقامة رائعة. المسبح في الأسفل مباشرة. إطلالة استثنائية على الغولف. أنصح بها 100%.",
   sc_comm:"التواصل",sc_check:"تسجيل الوصول",sc_value:"القيمة مقابل السعر",sc_loc:"الموقع",
-  per_night:"/ ليلة",price_sub:"على أساس شخصين · الموسم المنخفض",
+  per_night:"/ ليلة",price_sub:"السكن كامل · لكل ليلة",
   f_season:"الموسم",season_low:"منخفض",season_high:"مرتفع",f_guests:"الضيوف",
-  g_adults:"بالغون",g_adults_s:"13 سنة فأكثر · 2 كحد أدنى",g_teen:"أطفال 12–17",g_teen_s:"+10€ / ليلة لكل فرد",g_child:"أقل من 12 سنة",g_child_s:"مجاناً",
+  g_adults:"بالغون",g_adults_s:"13 سنة فأكثر · 2 كحد أدنى",g_child:"أقل من 12 سنة",g_child_s:"مجاناً",
   total_lab:"الإجمالي / ليلة",cta_wa:"احجز عبر واتساب",cta_email:"طلب عبر البريد",
-  foot_terms:"بلا رسوم · الدفع في المكان · أقل من 12 مجاناً",foot_secure:"موثّق · آمن · رد خلال 15 دقيقة",
+  foot_terms:"بلا رسوم خفية · عربون 50% · الباقي عند الوصول",foot_secure:"موثّق · آمن · رد خلال 15 دقيقة",
   related_title:"وحداتنا الأخرى في السعيدية",rel_rdc:"شقة الطابق الأرضي",rel_1er:"شقة الطابق الأول",rel_studio:"استوديو بتراس",rel_pan:"بانوراما الغولف",
   foot_tag:"تأجير عطلات مباشر وإدارة وتسيير العقارات في السعيدية ومارينا السعيدية. بلا عمولة، مع فريق محلي.",
   foot_nav:"تصفّح",foot_apts:"شققنا",foot_guide:"دليل",concierge:"إدارة العقارات",foot_concierge2:"إدارة العقارات بالسعيدية",
@@ -825,36 +826,47 @@ function applyLang(l){
 }
 document.getElementById("langSwitch").addEventListener("click",e=>{const b=e.target.closest("button");if(b)applyLang(b.dataset.l);});
 
-/* Calculateur : 68€ base 2 (basse) + 10€/enfant 12-17, -12 gratuit */
-const BASE_BASSE=68,TEEN=10;
-const state={season:"basse",adults:2,ch1217:0,chU12:0};
-const MIN={adults:2,ch1217:0,chU12:0},MAX={adults:5,ch1217:5,chU12:5},MAXTOTAL=5;
-function priceBasse(){return BASE_BASSE+TEEN*state.ch1217;}
-function nightWord(){return LANG==="ar"?"ليلة":(LANG==="en"?"night":(LANG==="es"?"noche":"nuit"));}
-function render(){
-  document.getElementById("v-adults").textContent=state.adults;
-  document.getElementById("v-ch1217").textContent=state.ch1217;
-  document.getElementById("v-chU12").textContent=state.chU12;
-  const tVal=document.getElementById("t-val"),bh=document.getElementById("bh-price"),bm=document.getElementById("bm-price");
-  if(state.season==="basse"){const p=priceBasse();tVal.textContent=p+"€";bh.textContent=p+"€";bm.textContent=p+"€";}
-  else{tVal.textContent=t("total_haute");bh.textContent="—";bm.textContent=t("cta_book_short");}
-  document.querySelectorAll(".stepper button").forEach(b=>{const k=b.dataset.k,d=+b.dataset.d,nv=state[k]+d;var tot=state.adults+state.ch1217+state.chU12;b.disabled=(d<0?(nv<MIN[k]):(tot>=MAXTOTAL||nv>MAX[k]));});
-  let p=[t("wa_intro"),t("wa_compo"),state.adults+" "+t("wa_adults")];
-  if(state.ch1217>0)p.push(state.ch1217+" "+t("wa_teen"));
-  if(state.chU12>0)p.push(state.chU12+" "+t("wa_childU12"));
-  if(state.season==="basse"){p.push(t("wa_low"),t("wa_price")+" "+priceBasse()+"€/"+nightWord()+".");}
-  else{p.push(t("wa_high"),t("wa_haute"));}
-  document.getElementById("wa-book").href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(p.join(" "));
-}
-document.getElementById("season").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.season=b.dataset.s;document.querySelectorAll("#season button").forEach(x=>x.classList.toggle("on",x===b));render();});
-document.querySelectorAll(".stepper button").forEach(b=>{b.addEventListener("click",()=>{const k=b.dataset.k,d=+b.dataset.d,nv=state[k]+d;var tot=state.adults+state.ch1217+state.chU12;if(d<0){if(nv>=MIN[k]){state[k]=nv;render();}}else{if(nv<=MAX[k]&&tot<MAXTOTAL){state[k]=nv;render();}}});});
-
-const head=document.getElementById("head");
-const onScroll=()=>head.classList.add("scrolled");
-onScroll();window.addEventListener("scroll",onScroll,{passive:true});
-document.getElementById("year").textContent=new Date().getFullYear();
-
-LANG="ar";render();
+/* Calculateur panorama — total + detail par periode */
+const PRICES={basse:65,moyenne:80,haute:110};
+const CAP={adults:4,child:1,total:5};
+const MINSTAY={basse:2,moyenne:2,haute:4};
+const SN={basse:"\u0627\u0644\u0645\u0648\u0633\u0645 \u0627\u0644\u0645\u0646\u062e\u0641\u0636",moyenne:"\u0627\u0644\u0645\u0648\u0633\u0645 \u0627\u0644\u0645\u062a\u0648\u0633\u0637",haute:"\u0627\u0644\u0645\u0648\u0633\u0645 \u0627\u0644\u0645\u0631\u062a\u0641\u0639"};
+const SLAB={basse:"\u0627\u0644\u0645\u0648\u0633\u0645 \u0627\u0644\u0645\u0646\u062e\u0641\u0636",moyenne:"\u0627\u0644\u0645\u0648\u0633\u0645 \u0627\u0644\u0645\u062a\u0648\u0633\u0637",haute:"\u0627\u0644\u0645\u0648\u0633\u0645 \u0627\u0644\u0645\u0631\u062a\u0641\u0639"};
+const ONREQ="\u0639\u0646\u062f \u0627\u0644\u0637\u0644\u0628",PN="/ \u0644\u064a\u0644\u0629",MW="{n} \u0644\u064a\u0627\u0644\u064d \u0643\u062d\u062f \u0623\u062f\u0646\u0649 \u0641\u064a {s}.",PICK="\u0627\u062e\u062a\u0627\u0631\u0648\u0627 \u062a\u0648\u0627\u0631\u064a\u062e\u0643\u0645";
+const TOTALLAB="\u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u0625\u0642\u0627\u0645\u0629",PNLAB="\u0627\u0644\u0633\u0639\u0631 / \u0644\u064a\u0644\u0629",PRORATA="\u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a \u0645\u062d\u0633\u0648\u0628 \u062d\u0633\u0628 \u0643\u0644 \u0644\u064a\u0644\u0629 (\u0639\u062f\u0629 \u0645\u0648\u0627\u0633\u0645).",OFFNOTE="\u064a\u0634\u0645\u0644 \u0644\u064a\u0627\u0644\u064a \u0627\u0644\u0645\u0648\u0633\u0645 \u0627\u0644\u0645\u0646\u062e\u0641\u0636 \u2014 \u0627\u0644\u0633\u0639\u0631 \u0639\u0646\u062f \u0627\u0644\u0637\u0644\u0628.",TOTALW="\u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a";
+const HELLO="\u0645\u0631\u062d\u0628\u0627\u064b Azur Stay\u060c \u0623\u0631\u063a\u0628 \u0641\u064a \u062d\u062c\u0632",WAD="\u0628\u0627\u0644\u063a",WCH="\u0637\u0641\u0644",WF="\u0645\u0646",WT="\u0625\u0644\u0649",WN0="\u0644\u064a\u0644\u0629",WN1="\u0644\u064a\u0627\u0644\u064d",NAME="\u0628\u0627\u0646\u0648\u0631\u0627\u0645\u0627 \u063a\u0648\u0644\u0641 \u0645\u0627\u0631\u064a\u0646\u0627 AP13";
+const state={season:null,adults:2,child:0};
+function fmtP(x){return PRICES[x]==null?ONREQ:PRICES[x]+"\u20AC";}
+function fmtD(s){var p=s.split("-");return p[2]+"/"+p[1];}
+function priceRange(){var v=[];for(var k in PRICES){if(PRICES[k]!=null)v.push(PRICES[k]);}if(!v.length)return ONREQ;var a=Math.min.apply(null,v),b=Math.max.apply(null,v);return a===b?(a+"\u20AC"):(a+"\u2013"+b+"\u20AC");}
+function seasonOf(s){var p=s.split("-"),md=(+p[1])*100+(+p[2]);if(md>=711&&md<=818)return "haute";if((md>=520&&md<=710)||(md>=819&&md<=930))return "moyenne";return "basse";}
+function segments(){var di=document.getElementById("d-in").value,dou=document.getElementById("d-out").value;if(!di||!dou)return null;var d=new Date(di),end=new Date(dou),segs=[],cur=null;while(d<end){var ds=d.toISOString().slice(0,10),sx=seasonOf(ds);if(!cur||cur.season!==sx){cur={season:sx,start:ds,end:ds,nights:1,rate:PRICES[sx]};segs.push(cur);}else{cur.end=ds;cur.nights++;}d.setDate(d.getDate()+1);}return segs.length?segs:null;}
+function clampG(){if(state.adults<1)state.adults=1;if(state.child<0)state.child=0;if(state.adults>CAP.adults)state.adults=CAP.adults;if(state.child>CAP.child)state.child=CAP.child;while(state.adults+state.child>CAP.total){if(state.child>0)state.child--;else state.adults--;}}
+function recompute(){clampG();
+document.getElementById("v-adults").textContent=state.adults;document.getElementById("v-child").textContent=state.child;
+var di=document.getElementById("d-in").value,dou=document.getElementById("d-out").value;
+var badge=document.getElementById("season-badge"),note=document.getElementById("season-note"),warn=document.getElementById("min-warn"),wa=document.getElementById("wa-book"),bh=document.getElementById("bh-price"),tval=document.getElementById("t-val"),tlab=document.querySelector(".t-lab"),bd=document.getElementById("breakdown");
+var segs=segments(),season=di?seasonOf(di):null;state.season=season;
+var n=0,tot=0,hasNull=false,multi=!!(segs&&segs.length>1);
+if(segs){for(var i=0;i<segs.length;i++){n+=segs[i].nights;if(segs[i].rate==null){hasNull=true;}else{tot+=segs[i].nights*segs[i].rate;}}}
+badge.textContent=di?SLAB[season]:PICK;
+bh.textContent=!di?priceRange():(multi?priceRange():fmtP(season));
+if(segs){tlab.textContent=TOTALLAB+" \u2014 "+n+" "+(n>1?WN1:WN0);tval.textContent=hasNull?ONREQ:(tot+"\u20AC");}else{tlab.textContent=PNLAB;tval.textContent=priceRange();}
+if(multi){var h="";for(var j=0;j<segs.length;j++){var sg=segs[j],rt=sg.rate==null?ONREQ:(sg.rate+"\u20AC");h+="<div><span>"+WF+" "+fmtD(sg.start)+" "+WT+" "+fmtD(sg.end)+"</span><span>"+sg.nights+" "+(sg.nights>1?WN1:WN0)+" \u00d7 "+rt+"</span></div>";}bd.innerHTML=h;bd.hidden=false;}else{bd.hidden=true;bd.innerHTML="";}
+if(hasNull){note.hidden=false;note.textContent=OFFNOTE;}else if(multi){note.hidden=false;note.textContent=PRORATA;}else{note.hidden=true;}
+var tooShort=false;if(di&&segs){var mn=MINSTAY[season];if(n<mn){tooShort=true;warn.hidden=false;warn.textContent=MW.replace("{n}",mn).replace("{s}",SN[season]);}else{warn.hidden=true;}}else{warn.hidden=true;}
+var dp=(di&&dou&&segs)?(" \u2014 "+WF+" "+di+" "+WT+" "+dou+" ("+n+" "+(n>1?WN1:WN0)+")"):"";
+var totpart=(segs&&!hasNull)?(" \u2014 "+TOTALW+" "+tot+"\u20AC"):"";var slabel=season&&!multi?SN[season]:"";
+var msg=HELLO+" \u00AB "+NAME+" \u00BB"+(slabel?" \u2014 "+slabel:"")+dp+" \u2014 "+state.adults+" "+WAD+(state.child?" + "+state.child+" "+WCH:"")+totpart+".";
+wa.href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg);
+if(tooShort){wa.setAttribute("aria-disabled","true");wa.style.opacity="0.5";wa.style.pointerEvents="none";}else{wa.removeAttribute("aria-disabled");wa.style.opacity="";wa.style.pointerEvents="";}
+(window.dataLayer=window.dataLayer||[]).push({event:"booking_widget_change",property:"panorama",season:season,nights:n,total:(segs&&!hasNull)?tot:null});}
+(function(){var t=new Date().toISOString().slice(0,10);var di=document.getElementById("d-in"),dou=document.getElementById("d-out");if(di)di.min=t;if(dou)dou.min=t;})();
+document.querySelectorAll(".stepper .ctrl button").forEach(function(b){b.addEventListener("click",function(){state[b.dataset.k]+=(+b.dataset.d);recompute();});});
+var DI=document.getElementById("d-in"),DO=document.getElementById("d-out");
+if(DI)DI.addEventListener("change",function(){if(DO&&this.value)DO.min=this.value;recompute();});
+if(DO)DO.addEventListener("change",recompute);
+recompute();
 </script>
 <script>
 (function(){
