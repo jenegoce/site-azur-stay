@@ -15,7 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"Hanken Grotesk",system-ui,sans-serif;background:linear-gradient(155deg,#0A3347,#0D4A63 55%,#2E86AB);color:#fff;min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px}
@@ -55,14 +55,16 @@ p{color:rgba(255,255,255,.88);margin-bottom:28px}
     if(map[i][0].test(p)){
       var t = map[i][1];
       if(lang){ t = (t==='index.html') ? 'index-'+lang+'.html' : t.replace(/\.html$/, '-'+lang+'.html'); }
+      if(('/'+t).toLowerCase() === location.pathname.toLowerCase()){ return; }
       location.replace('https://azurstaysaidia.com/'+t);
       return;
     }
   }
 })();
 </script>
+<link rel="stylesheet" href="theme.css">
 </head>
-<body>
+<body data-page-type="voyageurs">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5BX698D"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="box">

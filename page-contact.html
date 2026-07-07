@@ -31,9 +31,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:url" content="https://azurstaysaidia.com/page-contact.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="styles.css">
+<style>:root{
   --sea-deep:#0A3347;--sea:#0D4A63;--azure:#2E86AB;--azure-soft:#5BB8D4;
   --sand:#F3E8D5;--cream:#FBF6EC;--paper:#FEFCF7;--gold:#C9A84C;--gold-deep:#A8862F;
   --ink:#15282E;--ink-soft:#4C5C61;--line:rgba(21,40,46,.12);
@@ -41,32 +41,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --ff-display:"Fraunces",Georgia,serif;--ff-body:"Hanken Grotesk",-apple-system,system-ui,sans-serif;--maxw:1180px;
   --wa:#1FA855;--wa-deep:#128C46;
 }
-*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--ff-body);color:var(--ink);background:var(--cream);line-height:1.62;font-size:17px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 h1,h2,h3{font-family:var(--ff-display);font-weight:500;line-height:1.12;letter-spacing:-.015em}
 h2{font-size:clamp(1.5rem,3.6vw,2.1rem);margin-bottom:.4em}
 h3{font-size:1.18rem;font-weight:600}
 .eyebrow{font-family:var(--ff-body);font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);display:inline-flex;align-items:center;gap:.55em;margin-bottom:.8rem}
-.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:var(--ff-body);font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;line-height:1;text-align:center}
-.btn svg{width:19px;height:19px;flex:none}
-.btn:hover{transform:translateY(-2px)}
-.btn-wa{background:var(--wa);color:#fff;box-shadow:0 12px 26px -12px rgba(31,168,85,.7)}
-.btn-wa:hover{background:var(--wa-deep)}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--ink)}
 .btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
 .btn-ghost-light:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 .btn-lg{padding:17px 32px;font-size:1.04rem}
 .head{position:fixed;top:0;left:0;right:0;z-index:60;padding:16px 0;transition:padding .3s,background .3s,box-shadow .3s}
 .head.scrolled{padding:9px 0;background:rgba(251,246,236,.92);backdrop-filter:saturate(150%) blur(12px);box-shadow:0 1px 0 var(--line)}
-.head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--ff-display);font-weight:600;font-size:1.25rem;color:#fff;transition:color .3s}
-.head.scrolled .brand{color:var(--ink)}
 .brand .mark{width:38px;height:38px;border-radius:50%;flex:none;overflow:hidden;box-shadow:var(--shadow-soft)}
 .brand .mark svg{width:100%;height:100%}
 .head-right{display:flex;align-items:center;gap:14px}
@@ -133,16 +122,12 @@ footer{background:var(--sea-deep);color:rgba(255,255,255,.82);padding:54px 0 28p
 footer .brand{color:#fff;margin-bottom:12px}
 footer h5{color:#fff;font-family:var(--ff-display);font-weight:600;margin-bottom:12px}
 footer ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-footer a:hover{color:#FFE2A6}
-.nap{font-style:normal;line-height:1.9}
-.nap a{color:#FFE2A6}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.14);padding-top:22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:rgba(255,255,255,.6)}
 @media(max-width:680px){.foot-grid{grid-template-columns:1fr}}
 html[dir=rtl] body{font-family:'Tajawal',sans-serif}
 html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3,html[dir=rtl] .brand{font-family:'Tajawal',sans-serif;letter-spacing:0;font-weight:700}
 html[dir=rtl] .eyebrow{letter-spacing:.04em}
 html[dir=rtl] .hero-rating svg,html[dir=rtl] .card .ic svg{transform:none}
-
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
 @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
 .ccard{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;display:flex;flex-direction:column}
@@ -174,110 +159,18 @@ html[dir=rtl] .hero-rating svg,html[dir=rtl] .card .ic svg{transform:none}
 .note{display:flex;gap:.7em;align-items:flex-start;background:var(--sand);border-radius:var(--r);padding:18px 20px;margin-top:24px;font-size:.94rem}
 .note svg{width:22px;height:22px;color:var(--gold-deep);flex:none;margin-top:1px}
 html[dir=rtl] .info-item svg,html[dir=rtl] .note svg{transform:scaleX(-1)}
-
-/* --- Menu de navigation header --- */
-.head .wrap{position:relative}
-.mainnav{display:flex;gap:2px;align-items:center;margin:0 auto}
-.mainnav a{font-family:var(--ff-body);font-weight:600;font-size:.9rem;color:rgba(255,255,255,.82);padding:8px 11px;border-radius:8px;transition:color .2s,background .2s;white-space:nowrap;text-decoration:none}
-.mainnav a:hover{color:#fff}
-.head.scrolled .mainnav a{color:var(--ink-soft)}
-.head.scrolled .mainnav a:hover{color:var(--ink)}
-.navtoggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border:none;background:transparent;cursor:pointer;padding:0;flex:none}
-.navtoggle span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s;margin:0 auto}
-.head.scrolled .navtoggle span{background:var(--ink)}
-.head.navopen .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.head.navopen .navtoggle span:nth-child(2){opacity:0}
-.head.navopen .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:1080px){
-  .mainnav{position:absolute;top:calc(100% + 6px);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);box-shadow:0 18px 40px -16px rgba(10,55,68,.45);border:1px solid var(--line);border-radius:16px;padding:10px;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .3s ease,opacity .2s;margin:0}
-  .head.navopen .mainnav{max-height:75vh;opacity:1;pointer-events:auto}
-  .mainnav a{color:var(--ink) !important;padding:14px 16px;border-radius:10px;font-size:1.02rem}
-  .mainnav a:hover{background:var(--cream)}
-  .navtoggle{display:flex}
-}
-
-/* --- Retour en haut --- */
-.backtop{position:fixed;left:20px;bottom:20px;z-index:60;width:46px;height:46px;border-radius:50%;border:none;background:var(--sea,#0D4A63);color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;box-shadow:0 10px 26px -10px rgba(10,55,68,.6);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s,background .2s}
-.backtop.show{opacity:1;pointer-events:auto;transform:none}
-.backtop:hover{background:var(--sea-deep,#0A3347)}
-
 /* --- WhatsApp flottant --- */
 .wafab{position:fixed;right:20px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:50%;background:#1FA855;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -10px rgba(31,168,85,.7);transition:transform .25s}
 .wafab svg{width:30px;height:30px}
 .wafab:hover{transform:translateY(-3px)}
-
-/* ===== Header haut de gamme ===== */
-.head.scrolled{background:rgba(255,255,255,.86) !important;backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);box-shadow:0 8px 30px -16px rgba(10,55,68,.30) !important}
-.nav-main{display:flex;align-items:center;gap:2px;margin:0 auto}
-.nav-link{position:relative;display:inline-flex;align-items:center;gap:.35em;font-family:var(--ff-body);font-weight:500;font-size:.93rem;color:rgba(255,255,255,.9);background:none;border:none;cursor:pointer;padding:9px 14px;border-radius:8px;transition:color .25s;white-space:nowrap;text-decoration:none}
-.nav-link .chev{width:13px;height:13px;transition:transform .25s}
-.nav-link::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:1.5px;background:var(--gold);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s ease}
-.nav-link:hover,.nav-link:focus-visible{color:#fff}
-.nav-link:hover::after,.nav-link:focus-visible::after{transform:scaleX(1)}
-.head.scrolled .nav-link{color:var(--ink-soft)}
-.head.scrolled .nav-link:hover,.head.scrolled .nav-link:focus-visible{color:var(--ink)}
-.nav-item{position:relative}
-.nav-item:hover .chev,.nav-item.open .chev{transform:rotate(180deg)}
-.nav-drop{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(8px);min-width:240px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 26px 54px -20px rgba(10,55,68,.45);padding:8px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease;z-index:5}
-.nav-item:hover .nav-drop,.nav-item.open .nav-drop,.nav-item:focus-within .nav-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
-.nav-drop a{display:block;padding:11px 15px;border-radius:10px;color:var(--ink);font-size:.92rem;font-weight:600;transition:background .2s,color .2s;text-decoration:none;white-space:nowrap}
-.nav-drop a:hover{background:var(--cream);color:var(--gold-deep)}
-.nav-cta-mobile{display:none}
-.nav-burger{order:99;display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;border:none;background:transparent;cursor:pointer;padding:0;flex:none}
-.nav-burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s;margin:0 auto}
-.head.scrolled .nav-burger span{background:var(--ink)}
-.head.navopen .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.head.navopen .nav-burger span:nth-child(2){opacity:0}
-.head.navopen .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:1080px){
-  .nav-burger{display:flex}
-  .nav-main{position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;align-items:stretch;gap:1px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 26px 54px -20px rgba(10,55,68,.45);padding:12px;margin:0;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .32s ease,opacity .2s}
-  .head.navopen .nav-main{max-height:calc(100vh - 96px);overflow-y:auto;opacity:1;pointer-events:auto}
-  .nav-link{color:var(--ink) !important;justify-content:space-between;font-size:1.04rem;padding:14px 16px;border-radius:10px}
-  .nav-link::after{display:none}
-  .nav-link:hover{background:var(--cream)}
-  .nav-item{position:static}
-  .nav-drop{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;border-radius:0;padding:0 0 4px 8px;min-width:0;max-height:0;overflow:hidden;transition:max-height .28s ease}
-  .nav-item.open .nav-drop{max-height:460px}
-  .nav-drop a{padding:12px 14px;font-weight:500}
-  .nav-cta-mobile{display:flex !important;justify-content:center;margin-top:8px}
-}
-
-/* socle : sélecteur de langue en liens + drapeaux */
-.lang-switch{display:flex;gap:5px;align-items:center}
-.lang-switch a{display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,.72);padding:5px 9px;border-radius:8px;transition:.2s;font-family:var(--ff-body);font-weight:600;font-size:.82rem;text-decoration:none;line-height:1}
 .lang-switch a:hover{color:#fff}
 .lang-switch a.is-current{color:#fff;background:rgba(255,255,255,.18)}
 .head.scrolled .lang-switch a{color:var(--ink-soft)}
-.head.scrolled .lang-switch a.is-current{color:var(--ink);background:rgba(21,40,46,.08)}
-.lang-switch .flag{width:19px;height:13px;border-radius:2px;display:block;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.3)}
-.head.scrolled .lang-switch .flag{box-shadow:0 0 0 1px rgba(21,40,46,.2)}
-/* mobile : forcer les noms d'appartements du menu déroulant en foncé (sinon blanc sur blanc) */
-@media(max-width:1080px){.nav-main .nav-drop a,.head .nav-main .nav-drop a,.head:not(.scrolled) .nav-main .nav-drop a{color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;opacity:1!important;visibility:visible!important}}@media(max-width:1080px){.nav-item:hover .nav-drop,.nav-item.open .nav-drop,.nav-item:focus-within .nav-drop{transform:none!important}}
-
-/* ===== V2 ===== */
-.trust-strip{background:var(--sea-deep);color:#fff;font-size:.86rem}
-.trust-strip .wrap{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;padding:10px 22px}
-.trust-strip span{display:inline-flex;align-items:center;gap:7px;opacity:.95}
-.trust-strip svg{flex:none}
-.dispo-box{background:var(--paper);border:1px solid #e7dcc6;border-radius:18px;padding:26px 24px;box-shadow:0 10px 30px rgba(10,51,71,.06);max-width:760px;margin:0 auto}
-.dispo-grid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end}
-.dispo-grid label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
-.dispo-grid input,.dispo-grid select{width:100%;padding:12px 12px;border:1px solid #d9c9a6;border-radius:10px;background:#fff;font:inherit;color:var(--ink)}
-.dispo-grid input:focus-visible,.dispo-grid select:focus-visible{outline:2px solid var(--azure);outline-offset:1px}
-.dispo-note{margin-top:12px;font-size:.88rem;color:var(--ink-soft);text-align:center}
-.btn-wa-go{background:var(--wa);color:#fff;border:0;border-radius:12px;padding:13px 20px;font:inherit;font-weight:600;cursor:pointer;white-space:nowrap}
-.btn-wa-go:hover{filter:brightness(1.06)}
-.copy-mail{display:inline-flex;align-items:center;gap:6px;margin-inline-start:10px;border:1px solid #d9c9a6;background:#fff;color:var(--ink);border-radius:9px;padding:7px 12px;font:inherit;font-size:.85rem;cursor:pointer}
-.copy-mail:hover{background:var(--cream)}
-.est-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.est-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
-@media(max-width:760px){.dispo-grid{grid-template-columns:1fr 1fr}.dispo-grid .go{grid-column:1/-1}.est-grid{grid-template-columns:1fr}}
-[dir="rtl"] .dispo-grid input,[dir="rtl"] .dispo-grid select{text-align:right}
-</style>
+.head.scrolled .lang-switch a.is-current{color:var(--ink);background:rgba(21,40,46,.08)}</style>
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Contact — Azur Stay Saïdia"><meta name="twitter:description" content="Joignez Azur Stay par WhatsApp ou e-mail, 7j/7. Réservation directe et conciergerie à Saïdia.">
+<link rel="stylesheet" href="theme.css">
 </head>
-<body>
+<body><a class="skip-link" href="#main">Aller au contenu</a>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5BX698D"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -289,19 +182,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="nav-item">
         <button type="button" class="nav-link nav-drop-toggle" aria-haspopup="true" aria-expanded="false"><span data-hi="stays">Hébergements</span><svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="nav-drop" role="menu">
-          <a href="page-rdc.html" data-hi="apt_rdc" role="menuitem">Rez-de-chaussée</a>
-          <a href="page-1er-etage.html" data-hi="apt_1er" role="menuitem">1ᵉʳ Étage</a>
-          <a href="page-loft.html" data-hi="apt_loft" role="menuitem">Le Loft</a>
-          <a href="page-studio.html" data-hi="apt_studio" role="menuitem">Studio en Terrasse</a>
+          <a href="page-rdc.html" data-hi="apt_rdc" role="menuitem">Darcom Garden</a>
+          <a href="page-1er-etage.html" data-hi="apt_1er" role="menuitem">Darcom Family</a>
+          <a href="page-loft.html" data-hi="apt_loft" role="menuitem">Darcom Loft</a>
+          <a href="page-studio.html" data-hi="apt_studio" role="menuitem">Darcom Rooftop</a>
           <a href="page-panorama.html" data-hi="apt_panorama" role="menuitem">Panorama du Golf</a>
-        </div>
+        <a href="location-longue-duree-saidia.html" role="menuitem">Location longue durée / Hors saison</a></div>
       </div>
       <a class="nav-link" href="guide-saidia.html" data-hi="guide">Guide</a>
       <a class="nav-link" href="page-conciergerie.html" data-hi="concierge">Conciergerie</a>
       <a class="nav-link" href="page-apropos.html" data-hi="about">À propos</a>
       <a class="nav-link" href="page-avis.html" data-hi="reviews">Avis</a>
       <a class="nav-link" href="page-contact.html" data-hi="contact">Contact</a>
-      <a class="nav-cta-mobile btn btn-gold" href="index.html#logements" data-hi="cta">Réserver en direct</a>
     </nav>
     <div class="head-right"><button class="nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="lang-switch" id="langSwitch" aria-label="Langue">
@@ -310,12 +202,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="page-contact-es.html" hreflang="es"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg><span>ES</span></a>
         <a href="page-contact-ar.html" hreflang="ar"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#C1272D"/><path d="M30 10 35.88 28.09 20.49 16.91 39.51 16.91 24.12 28.09Z" fill="none" stroke="#006233" stroke-width="1.8"/></svg><span>AR</span></a>
       </nav>
-      <div class="head-actions"><a class="btn btn-gold" href="index.html#logements" data-i="cta_book">Réserver en Direct</a></div>
+      <div class="head-actions"><a class="btn btn-gold" href="reservation-directe.html" data-i="cta_book">Réserver en Direct</a></div>
     </div>
   </div>
 </header>
 
-<section class="hero" style="padding:130px 0 70px">
+<section id="main" class="hero" style="padding:130px 0 70px">
   <div class="wrap">
     <span class="eyebrow" data-i="hero_eyebrow">Contact</span>
     <h1 data-i="hero_h1">Contactez Azur Stay</h1>
@@ -417,18 +309,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="foot-grid">
       <div>
         <div class="brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><linearGradient id="bmf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d4a63"/><stop offset="1" stop-color="#2E86AB"/></linearGradient></defs><circle cx="50" cy="50" r="50" fill="url(#bmf)"/><circle cx="50" cy="30" r="11" fill="#fff" opacity=".95"/><path d="M12,62 C20,52 28,52 36,62 C44,72 52,72 60,62 C68,52 76,52 84,62" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round"/></svg></span>Azur Stay</div>
-        <p data-fi="tag">Location de vacances en direct &amp; conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.</p>
+        <p data-fi="tag">Location de vacances en direct &amp; conciergerie à Saïdia et Saïdia Marina. Sans commission, avec une équipe locale.</p><div class="foot-social"><a href="https://www.facebook.com/AzurStaySaidia/" target="_blank" rel="noopener nofollow" aria-label="Suivez Azur Stay sur Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.45-.13-2.4 0-4.05 1.47-4.05 4.17v2.32H7.5V13h2.7v8h3.3z"/></svg></a><a href="https://www.instagram.com/azurstaysaidia/" target="_blank" rel="noopener nofollow" aria-label="Suivez Azur Stay sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor" stroke="none"/></svg></a></div>
       </div>
       <div>
         <h5 data-fi="nav">Navigation</h5>
         <ul>
           <li><a href="index.html" data-fi="home">Accueil</a></li>
-          <li><a href="index.html#logements" data-fi="apts">Nos appartements</a></li>
+          <li><a href="reservation-directe.html" data-fi="apts">Nos appartements</a></li>
           <li><a href="page-conciergerie.html" data-fi="concierge">Conciergerie</a></li>
           <li><a href="page-avis.html" data-fi="reviews">Avis</a></li>
           <li><a href="page-apropos.html" data-fi="about">À propos</a></li>
           <li><a href="page-contact.html" data-fi="contact">Contact</a></li>
-          <li><a href="page-informations-legales.html" data-fi="privacy">Politique de confidentialité</a></li>
+          <li><a href="page-informations-legales.html" data-fi="privacy">Politique de confidentialité</a></li><li><a href="page-conditions-generales.html">Conditions générales</a></li>
         </ul>
       </div>
       <div>
@@ -498,10 +390,10 @@ b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})
   document.querySelectorAll(".nav-drop-toggle").forEach(function(btn){btn.addEventListener("click",function(){var it=btn.closest(".nav-item");var o=it.classList.toggle("open");btn.setAttribute("aria-expanded",o?"true":"false");});});
   if(navmain){navmain.addEventListener("click",function(e){if(e.target.closest("a")&&head){head.classList.remove("navopen");}});}
   document.addEventListener("click",function(e){if(!e.target.closest("#head")){if(head)head.classList.remove("navopen");document.querySelectorAll(".nav-item.open").forEach(function(i){i.classList.remove("open");});}});
-  var HI={fr:{stays:"Hébergements",apt_rdc:"Rez-de-chaussée",apt_1er:"1ᵉʳ Étage",apt_loft:"Le Loft",apt_studio:"Studio en Terrasse",apt_panorama:"Panorama du Golf",guide:"Guide",concierge:"Conciergerie",about:"À propos",reviews:"Avis",contact:"Contact",cta:"Réserver en direct"},
-  en:{stays:"Accommodations",apt_rdc:"Ground Floor",apt_1er:"First Floor",apt_loft:"The Loft",apt_studio:"Terrace Studio",apt_panorama:"Golf Panorama",guide:"Guide",concierge:"Concierge",about:"About",reviews:"Reviews",contact:"Contact",cta:"Book Direct"},
-  es:{stays:"Alojamientos",apt_rdc:"Planta Baja",apt_1er:"Primera Planta",apt_loft:"El Loft",apt_studio:"Estudio con Terraza",apt_panorama:"Panorama del Golf",guide:"Guía",concierge:"Conserjería",about:"Quiénes somos",reviews:"Opiniones",contact:"Contacto",cta:"Reserva Directa"},
-  ar:{stays:"أماكن الإقامة",apt_rdc:"الطابق الأرضي",apt_1er:"الطابق الأول",apt_loft:"اللوفت",apt_studio:"استوديو بشرفة",apt_panorama:"بانوراما الغولف",guide:"دليل",concierge:"إدارة العقارات",about:"من نحن",reviews:"الآراء",contact:"اتصل بنا",cta:"احجز مباشرة"}};
+  var HI={fr:{stays:"Hébergements",apt_rdc:"Rez-de-chaussée",apt_1er:"1ᵉʳ Étage",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama du Golf",guide:"Guide",concierge:"Conciergerie",about:"À propos",reviews:"Avis",contact:"Contact",cta:"Réserver en direct"},
+  en:{stays:"Accommodations",apt_rdc:"Ground Floor",apt_1er:"First Floor",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Golf Panorama",guide:"Guide",concierge:"Concierge",about:"About",reviews:"Reviews",contact:"Contact",cta:"Book Direct"},
+  es:{stays:"Alojamientos",apt_rdc:"Planta Baja",apt_1er:"Primera Planta",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama del Golf",guide:"Guía",concierge:"Conserjería",about:"Quiénes somos",reviews:"Opiniones",contact:"Contacto",cta:"Reserva Directa"},
+  ar:{stays:"أماكن الإقامة",apt_rdc:"الطابق الأرضي",apt_1er:"الطابق الأول",apt_loft:"Darcom Loft",apt_studio:"استوديو بشرفة",apt_panorama:"بانوراما الغولف",guide:"دليل",concierge:"إدارة العقارات",about:"من نحن",reviews:"الآراء",contact:"اتصل بنا",cta:"احجز مباشرة"}};
   function applyHeader(l){var d=HI[l]||HI.fr;document.querySelectorAll("[data-hi]").forEach(function(el){var k=el.getAttribute("data-hi");if(d[k]!=null)el.textContent=d[k];});}
   var L=(document.documentElement.getAttribute("lang")||"fr");if(!HI[L])L="fr";applyHeader(L);
   var ls=document.getElementById("langSwitch");
@@ -511,8 +403,10 @@ b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})
 <script>(function(){function dl(o){(window.dataLayer=window.dataLayer||[]).push(o)}
 document.addEventListener("click",function(e){var a=e.target.closest("a,button");if(!a)return;
 var h=a.getAttribute("href")||"";
-if(h.indexOf("wa.me")>-1)dl({event:"click_whatsapp",page:location.pathname});
-else if(h.indexOf("mailto:")===0)dl({event:"click_email",page:location.pathname});
+var pt=(document.body&&document.body.getAttribute("data-page-type"))||"voyageurs";
+if(a.hasAttribute("data-event"))dl({event:a.getAttribute("data-event"),page:location.pathname,page_type:pt});
+if(h.indexOf("wa.me")>-1)dl({event:"click_whatsapp",page:location.pathname,page_type:pt});
+else if(h.indexOf("mailto:")===0)dl({event:"click_email",page:location.pathname,page_type:pt});
 if(a.hasAttribute("data-copy")){var v=a.getAttribute("data-copy");
 (navigator.clipboard&&navigator.clipboard.writeText)?navigator.clipboard.writeText(v).then(function(){ok(a)}):ok(a);
 dl({event:"copy_email",page:location.pathname});}
