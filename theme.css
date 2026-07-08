@@ -96,3 +96,20 @@ a:focus-visible{outline:2px solid var(--gold,#C9A84C);outline-offset:2px;border-
 .pc-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .pc-list li{display:flex;gap:9px;align-items:flex-start;font-size:.93rem;color:var(--ink-soft,#4C5C61);line-height:1.5}
 .pc-note{max-width:680px;margin:20px auto 0;text-align:center;font-size:.86rem;color:var(--ink-soft,#4C5C61)}
+
+/* --- Visionneuse photos (lightbox) --- */
+.lb-overlay{position:fixed;inset:0;z-index:2000;background:rgba(10,25,30,.94);display:none;align-items:center;justify-content:center}
+.lb-overlay.lb-open{display:flex}
+.lb-fig{margin:0;max-width:92vw;max-height:88vh;display:flex;flex-direction:column;align-items:center;gap:10px}
+.lb-img{max-width:92vw;max-height:80vh;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.lb-cap{color:rgba(255,255,255,.85);font-size:.88rem;text-align:center;max-width:80vw}
+.lb-close,.lb-prev,.lb-next{position:fixed;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s ease}
+.lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.28)}
+.lb-close{top:18px;inset-inline-end:18px}
+.lb-prev{inset-inline-start:14px;top:50%;transform:translateY(-50%)}
+.lb-next{inset-inline-end:14px;top:50%;transform:translateY(-50%)}
+.lb-count{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.85);font-size:.85rem;letter-spacing:.06em}
+.lb-lock{overflow:hidden}
+@media (max-width:720px){.lb-prev,.lb-next{width:40px;height:40px}}
+/* Photos d'album supplémentaires : masquées sur la page, visibles dans la visionneuse */
+.gallery .g.g-more{display:none}
