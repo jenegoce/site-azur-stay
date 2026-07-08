@@ -79,8 +79,20 @@ a:focus-visible{outline:2px solid var(--gold,#C9A84C);outline-offset:2px;border-
 }
 
 /* --- Widget Smoobu : iframe toujours visible + lien de secours --- */
-.smoobu-shell iframe{display:block;width:100%;min-height:780px;border:0}
-@media (max-width:720px){.smoobu-shell iframe{min-height:1000px}}
+.smoobu-shell iframe{display:block;width:100%;min-height:980px;border:0;margin:0 auto}
+@media (max-width:720px){.smoobu-shell iframe{min-height:1250px}}
 .smoobu-fallback{text-align:center;margin-top:14px;color:var(--ink-soft,#4C5C61);font-size:.95rem}
 .smoobu-fallback .btn{margin-left:8px}
 [dir="rtl"] .smoobu-fallback .btn{margin-left:0;margin-right:8px}
+
+/* --- Conciergerie : cartes formules --- */
+.pc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;max-width:820px;margin:0 auto}
+.pc-card{position:relative;background:var(--paper,#FEFCF7);border:1px solid var(--line,rgba(21,40,46,.12));border-radius:var(--r-lg,26px);padding:30px 26px;box-shadow:var(--shadow-soft,0 10px 30px -18px rgba(10,55,68,.35))}
+.pc-featured{border-color:var(--gold,#C9A84C);box-shadow:0 18px 44px -20px rgba(168,134,47,.45)}
+.pc-badge{position:absolute;top:-13px;inset-inline-start:24px;background:var(--gold,#C9A84C);color:#fff;font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.pc-card h3{margin:0 0 6px}
+.pc-price{font-family:var(--ff-display,serif);font-size:2.4rem;font-weight:700;color:var(--sea,#0d4a63);margin-bottom:14px}
+.pc-price small{font-family:var(--ff-body,sans-serif);font-size:.85rem;font-weight:500;color:var(--ink-soft,#4C5C61)}
+.pc-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pc-list li{display:flex;gap:9px;align-items:flex-start;font-size:.93rem;color:var(--ink-soft,#4C5C61);line-height:1.5}
+.pc-note{max-width:680px;margin:20px auto 0;text-align:center;font-size:.86rem;color:var(--ink-soft,#4C5C61)}
