@@ -182,14 +182,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="nav-item">
         <button type="button" class="nav-link nav-drop-toggle" aria-haspopup="true" aria-expanded="false"><span data-hi="stays">أماكن الإقامة</span><svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="nav-drop" role="menu">
-          <a href="page-rdc-ar.html" data-hi="apt_rdc" role="menuitem">Darcom Garden</a>
-          <a href="page-1er-etage-ar.html" data-hi="apt_1er" role="menuitem">Darcom Family</a>
-          <a href="page-loft-ar.html" data-hi="apt_loft" role="menuitem">Darcom Loft</a>
-          <a href="page-studio-ar.html" data-hi="apt_studio" role="menuitem">Darcom Rooftop</a>
-          <a href="page-panorama-ar.html" data-hi="apt_panorama" role="menuitem">بانوراما الغولف</a>
-        <a href="location-longue-duree-saidia-ar.html" role="menuitem">إقامة طويلة المدى / خارج الموسم</a></div>
+          <div class="nav-drop-group" role="group" aria-label="مدينة السعيدية">
+            <span class="nav-drop-cat" data-hi="cat_ville" aria-hidden="true">مدينة السعيدية</span>
+            <a href="page-1er-etage-ar.html" data-hi="apt_1er" role="menuitem">Darcom Family</a>
+            <a href="page-loft-ar.html" data-hi="apt_loft" role="menuitem">Darcom Loft</a>
+            <a href="page-rdc-ar.html" data-hi="apt_rdc" role="menuitem">Darcom Garden</a>
+            <a href="page-studio-ar.html" data-hi="apt_studio" role="menuitem">Darcom Rooftop</a>
+          </div>
+          <div class="nav-drop-group" role="group" aria-label="مارينا السعيدية">
+            <span class="nav-drop-cat" data-hi="cat_marina" aria-hidden="true">مارينا السعيدية</span>
+            <a href="page-panorama-ar.html" data-hi="apt_panorama" role="menuitem">بانوراما الغولف</a>
+          </div>
+          <div class="nav-drop-group" role="group" aria-label="إقامة طويلة المدى">
+            <span class="nav-drop-cat" data-hi="cat_longue" aria-hidden="true">إقامة طويلة المدى</span>
+            <a href="location-longue-duree-saidia-ar.html" role="menuitem">إقامة طويلة المدى / خارج الموسم</a>
+          </div>
+        </div>
+
       </div>
       <a class="nav-link" href="guide-saidia-ar.html" data-hi="guide">دليل</a>
+
       <a class="nav-link" href="page-conciergerie-ar.html" data-hi="concierge">إدارة وتسيير العقارات</a>
       <a class="nav-link" href="page-apropos-ar.html" data-hi="about">من نحن</a>
       <a class="nav-link" href="page-avis-ar.html" data-hi="reviews">الآراء</a>
@@ -387,10 +399,10 @@ b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})
   document.querySelectorAll(".nav-drop-toggle").forEach(function(btn){btn.addEventListener("click",function(){var it=btn.closest(".nav-item");var o=it.classList.toggle("open");btn.setAttribute("aria-expanded",o?"true":"false");});});
   if(navmain){navmain.addEventListener("click",function(e){if(e.target.closest("a")&&head){head.classList.remove("navopen");}});}
   document.addEventListener("click",function(e){if(!e.target.closest("#head")){if(head)head.classList.remove("navopen");document.querySelectorAll(".nav-item.open").forEach(function(i){i.classList.remove("open");});}});
-  var HI={fr:{stays:"Hébergements",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama du Golf",guide:"Guide",concierge:"Conciergerie",about:"À propos",reviews:"Avis",contact:"Contact",cta:"Réserver en direct"},
-  en:{stays:"Accommodations",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Golf Panorama",guide:"Guide",concierge:"Concierge",about:"About",reviews:"Reviews",contact:"Contact",cta:"Book Direct"},
-  es:{stays:"Alojamientos",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama del Golf",guide:"Guía",concierge:"Conserjería",about:"Quiénes somos",reviews:"Opiniones",contact:"Contacto",cta:"Reserva Directa"},
-  ar:{stays:"أماكن الإقامة",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"بانوراما الغولف",guide:"دليل",concierge:"إدارة العقارات",about:"من نحن",reviews:"الآراء",contact:"اتصل بنا",cta:"احجز مباشرة"}};
+  var HI={fr:{stays:"Hébergements",cat_ville:"Saïdia Ville",cat_marina:"Saïdia Marina",cat_longue:"Longue durée",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama du Golf",guide:"Guide",concierge:"Conciergerie",about:"À propos",reviews:"Avis",contact:"Contact",cta:"Réserver en direct"},
+  en:{stays:"Accommodations",cat_ville:"Saïdia Town",cat_marina:"Saïdia Marina",cat_longue:"Long-term stays",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Golf Panorama",guide:"Guide",concierge:"Concierge",about:"About",reviews:"Reviews",contact:"Contact",cta:"Book Direct"},
+  es:{stays:"Alojamientos",cat_ville:"Saïdia Ciudad",cat_marina:"Saïdia Marina",cat_longue:"Larga estancia",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama del Golf",guide:"Guía",concierge:"Conserjería",about:"Quiénes somos",reviews:"Opiniones",contact:"Contacto",cta:"Reserva Directa"},
+  ar:{stays:"أماكن الإقامة",cat_ville:"مدينة السعيدية",cat_marina:"مارينا السعيدية",cat_longue:"إقامة طويلة المدى",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"بانوراما الغولف",guide:"دليل",concierge:"إدارة العقارات",about:"من نحن",reviews:"الآراء",contact:"اتصل بنا",cta:"احجز مباشرة"}};
   function applyHeader(l){var d=HI[l]||HI.fr;document.querySelectorAll("[data-hi]").forEach(function(el){var k=el.getAttribute("data-hi");if(d[k]!=null)el.textContent=d[k];});}
   var L=(document.documentElement.getAttribute("lang")||"fr");if(!HI[L])L="fr";applyHeader(L);
   var ls=document.getElementById("langSwitch");

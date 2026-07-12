@@ -230,7 +230,7 @@ html[dir=rtl] .loc-line svg,html[dir=rtl] .hl svg,html[dir=rtl] .am svg,html[dir
 {
   "@context": "https://schema.org",
   "@type": "Apartment",
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "30"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4", "reviewCount": "10"},
   "name": "Darcom Loft — Azur Stay Saïdia",
   "inLanguage":"en",
   "url": "https://azurstaysaidia.com/page-loft-en.html",
@@ -300,12 +300,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="nav-item">
         <button type="button" class="nav-link nav-drop-toggle" aria-haspopup="true" aria-expanded="false"><span data-hi="stays">Accommodations</span><svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="nav-drop" role="menu">
-          <a href="page-rdc-en.html" data-hi="apt_rdc" role="menuitem">Darcom Garden</a>
-          <a href="page-1er-etage-en.html" data-hi="apt_1er" role="menuitem">Darcom Family</a>
-          <a href="page-loft-en.html" data-hi="apt_loft" role="menuitem">Darcom Loft</a>
-          <a href="page-studio-en.html" data-hi="apt_studio" role="menuitem">Darcom Rooftop</a>
-          <a href="page-panorama-en.html" data-hi="apt_panorama" role="menuitem">Golf Panorama</a>
-        <a href="location-longue-duree-saidia-en.html" role="menuitem">Long-term / Off-season stays</a></div>
+          <div class="nav-drop-group" role="group" aria-label="Saïdia Town">
+            <span class="nav-drop-cat" data-hi="cat_ville" aria-hidden="true">Saïdia Town</span>
+            <a href="page-1er-etage-en.html" data-hi="apt_1er" role="menuitem">Darcom Family</a>
+            <a href="page-loft-en.html" data-hi="apt_loft" role="menuitem">Darcom Loft</a>
+            <a href="page-rdc-en.html" data-hi="apt_rdc" role="menuitem">Darcom Garden</a>
+            <a href="page-studio-en.html" data-hi="apt_studio" role="menuitem">Darcom Rooftop</a>
+          </div>
+          <div class="nav-drop-group" role="group" aria-label="Saïdia Marina">
+            <span class="nav-drop-cat" data-hi="cat_marina" aria-hidden="true">Saïdia Marina</span>
+            <a href="page-panorama-en.html" data-hi="apt_panorama" role="menuitem">Golf Panorama</a>
+          </div>
+          <div class="nav-drop-group" role="group" aria-label="Long-term stays">
+            <span class="nav-drop-cat" data-hi="cat_longue" aria-hidden="true">Long-term stays</span>
+            <a href="location-longue-duree-saidia-en.html" role="menuitem">Long-term / Off-season stays</a>
+          </div>
+        </div>
+
       </div>
       <a class="nav-link" href="guide-saidia-en.html" data-hi="guide">Guide</a>
       <a class="nav-link" href="page-conciergerie-en.html" data-hi="concierge">Concierge</a>
@@ -338,7 +349,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 data-i="apt_name">Darcom Loft</h1>
       <div class="loc-line"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg><span data-i="address">5 Quartier Franco 1 · Saïdia 63602</span></div>
     </div>
-    <div class="rating-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><b>4,9/5</b> · Airbnb &amp; Booking</div>
+    <div class="rating-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><b>4/5</b> · Airbnb &amp; Booking</div>
   </div>
 
   <!-- GALERIE : vraies photos WebP -->
@@ -718,10 +729,10 @@ b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})
   document.querySelectorAll(".nav-drop-toggle").forEach(function(btn){btn.addEventListener("click",function(){var it=btn.closest(".nav-item");var o=it.classList.toggle("open");btn.setAttribute("aria-expanded",o?"true":"false");});});
   if(navmain){navmain.addEventListener("click",function(e){if(e.target.closest("a")&&head){head.classList.remove("navopen");}});}
   document.addEventListener("click",function(e){if(!e.target.closest("#head")){if(head)head.classList.remove("navopen");document.querySelectorAll(".nav-item.open").forEach(function(i){i.classList.remove("open");});}});
-  var HI={fr:{stays:"Hébergements",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama du Golf",guide:"Guide",concierge:"Conciergerie",about:"À propos",reviews:"Avis",contact:"Contact",cta:"Réserver en direct"},
-  en:{stays:"Accommodations",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Golf Panorama",guide:"Guide",concierge:"Concierge",about:"About",reviews:"Reviews",contact:"Contact",cta:"Book Direct"},
-  es:{stays:"Alojamientos",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama del Golf",guide:"Guía",concierge:"Conserjería",about:"Quiénes somos",reviews:"Opiniones",contact:"Contacto",cta:"Reserva Directa"},
-  ar:{stays:"أماكن الإقامة",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"استوديو بشرفة",apt_panorama:"بانوراما الغولف",guide:"دليل",concierge:"إدارة العقارات",about:"من نحن",reviews:"الآراء",contact:"اتصل بنا",cta:"احجز مباشرة"}};
+  var HI={fr:{stays:"Hébergements",cat_ville:"Saïdia Ville",cat_marina:"Saïdia Marina",cat_longue:"Longue durée",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama du Golf",guide:"Guide",concierge:"Conciergerie",about:"À propos",reviews:"Avis",contact:"Contact",cta:"Réserver en direct"},
+  en:{stays:"Accommodations",cat_ville:"Saïdia Town",cat_marina:"Saïdia Marina",cat_longue:"Long-term stays",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Golf Panorama",guide:"Guide",concierge:"Concierge",about:"About",reviews:"Reviews",contact:"Contact",cta:"Book Direct"},
+  es:{stays:"Alojamientos",cat_ville:"Saïdia Ciudad",cat_marina:"Saïdia Marina",cat_longue:"Larga estancia",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"Darcom Rooftop",apt_panorama:"Panorama del Golf",guide:"Guía",concierge:"Conserjería",about:"Quiénes somos",reviews:"Opiniones",contact:"Contacto",cta:"Reserva Directa"},
+  ar:{stays:"أماكن الإقامة",cat_ville:"مدينة السعيدية",cat_marina:"مارينا السعيدية",cat_longue:"إقامة طويلة المدى",apt_rdc:"Darcom Garden",apt_1er:"Darcom Family",apt_loft:"Darcom Loft",apt_studio:"استوديو بشرفة",apt_panorama:"بانوراما الغولف",guide:"دليل",concierge:"إدارة العقارات",about:"من نحن",reviews:"الآراء",contact:"اتصل بنا",cta:"احجز مباشرة"}};
   function applyHeader(l){var d=HI[l]||HI.fr;document.querySelectorAll("[data-hi]").forEach(function(el){var k=el.getAttribute("data-hi");if(d[k]!=null)el.textContent=d[k];});}
   var L=(document.documentElement.getAttribute("lang")||"fr");if(!HI[L])L="fr";applyHeader(L);
   var ls=document.getElementById("langSwitch");
