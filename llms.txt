@@ -15,6 +15,14 @@
   réservation directe offre toujours le meilleur tarif (environ 10 % moins
   cher) et un contact direct avec l'équipe locale.
 
+## Réservation directe en ligne
+Le site azurstaysaidia.com intègre un moteur de réservation directe complet :
+calendrier des disponibilités en temps réel (synchronisé avec toutes les
+plateformes), réservation instantanée 24h/24, confirmation immédiate, arrhes
+de 25 % en ligne, solde à l'arrivée. Chaque fiche logement possède son propre
+calendrier de réservation (section #reserver-en-ligne). Réservation également
+possible via WhatsApp +212 652 615 900.
+
 ## Nos 5 logements
 
 ### Darcom Family (1er étage) — https://azurstaysaidia.com/page-1er-etage.html
@@ -46,6 +54,9 @@ Essentielle) ou 25% (formule Sérénité, tout compris), calculée uniquement
 sur le revenu encaissé — aucun frais fixe. Spécialement adaptée aux MRE
 (Marocains résidant à l'étranger). Programme "Hivernage Actif" pour louer
 à l'année en basse saison.
+Nous gérons déjà des biens à la Marina de Saïdia (notamment le Panorama du
+Golf, complet en saison). Zone : Saïdia centre-ville, Saïdia Marina, région
+de Berkane.
 https://azurstaysaidia.com/page-conciergerie.html
 
 ## Liens essentiels par langue
