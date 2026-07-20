@@ -46,7 +46,7 @@ body{font-family:var(--ff-body);color:var(--ink);background:var(--cream);line-he
 h1,h2,h3{font-family:var(--ff-display);font-weight:500;line-height:1.12;letter-spacing:-.015em}
 h2{font-size:clamp(1.5rem,3.6vw,2.1rem);margin-bottom:.4em}
 h3{font-size:1.18rem;font-weight:600}
-.eyebrow{font-family:var(--ff-body);font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);display:inline-flex;align-items:center;gap:.55em;margin-bottom:.8rem}
+.eyebrow{font-family:var(--ff-body);font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:#8A6A2F;display:inline-flex;align-items:center;gap:.55em;margin-bottom:.8rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:var(--ff-body);font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;line-height:1;text-align:center}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff}
 .btn-ghost:hover{border-color:var(--ink)}
@@ -167,21 +167,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="nav-main" id="navMain" aria-label="Navigation principale">
       <div class="nav-item">
         <button type="button" class="nav-link nav-drop-toggle" aria-haspopup="true" aria-expanded="false"><span data-hi="stays">Alojamientos</span><svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="nav-drop" role="menu">
+        <div class="nav-drop">
           <div class="nav-drop-group" role="group" aria-label="Saïdia Ciudad">
             <a class="nav-drop-cat" data-hi="cat_ville" href="appartements-centre-ville-saidia-es.html">Saïdia Ciudad</a>
-            <a href="page-1er-etage-es.html" data-hi="apt_1er" role="menuitem">Darcom Family</a>
-            <a href="page-loft-es.html" data-hi="apt_loft" role="menuitem">Darcom Loft</a>
-            <a href="page-rdc-es.html" data-hi="apt_rdc" role="menuitem">Darcom Garden</a>
-            <a href="page-studio-es.html" data-hi="apt_studio" role="menuitem">Darcom Rooftop</a>
+            <a href="page-1er-etage-es.html" data-hi="apt_1er">Darcom Family</a>
+            <a href="page-loft-es.html" data-hi="apt_loft">Darcom Loft</a>
+            <a href="page-rdc-es.html" data-hi="apt_rdc">Darcom Garden</a>
+            <a href="page-studio-es.html" data-hi="apt_studio">Darcom Rooftop</a>
           </div>
           <div class="nav-drop-group" role="group" aria-label="Saïdia Marina">
             <a class="nav-drop-cat" data-hi="cat_marina" href="residence-golf-marina-saidia-es.html">Saïdia Marina</a>
-            <a href="page-panorama-es.html" data-hi="apt_panorama" role="menuitem">Panorama del Golf</a>
+            <a href="page-panorama-es.html" data-hi="apt_panorama">Panorama del Golf</a>
           </div>
           <div class="nav-drop-group" role="group" aria-label="Larga estancia">
             <span class="nav-drop-cat" data-hi="cat_longue" aria-hidden="true">Larga estancia</span>
-            <a href="location-longue-duree-saidia-es.html" role="menuitem">Larga estancia / Fuera de temporada</a>
+            <a href="location-longue-duree-saidia-es.html">Larga estancia / Fuera de temporada</a>
           </div>
         </div>
 
@@ -294,7 +294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 data-i="cta_h2">¿Quieres la misma experiencia?</h2>
     <p data-i="cta_p">Reserva directamente tu apartamento en Saïdia. Respuesta rápida por WhatsApp, en francés o árabe.</p>
     <div class="hero-cta">
-      <a class="btn btn-wa btn-lg" href="https://wa.me/212652615900" rel="nofollow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg><span data-i="cta_wa">Reservar por WhatsApp</span></a>
+      <a class="btn btn-wa btn-lg" aria-label="Contactar con Azur Stay por WhatsApp" href="https://wa.me/212652615900" rel="nofollow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg><span data-i="cta_wa">Reservar por WhatsApp</span></a>
       <a class="btn btn-ghost-light btn-lg" href="index.html#logements" data-i="cta_see">Ver nuestros alojamientos</a>
     </div>
   </div></div>

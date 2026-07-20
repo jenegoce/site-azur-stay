@@ -51,7 +51,7 @@ img{max-width:100%;display:block}
 h1,h2,h3{font-family:var(--ff-display);font-weight:500;line-height:1.12;letter-spacing:-.015em}
 h2{font-size:clamp(1.5rem,3.6vw,2.1rem);margin-bottom:.4em}
 h3{font-size:1.2rem;font-weight:600}
-.eyebrow{font-family:var(--ff-body);font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);display:inline-flex;align-items:center;gap:.55em;margin-bottom:.7rem}
+.eyebrow{font-family:var(--ff-body);font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:#8A6A2F;display:inline-flex;align-items:center;gap:.55em;margin-bottom:.7rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:var(--ff-body);font-weight:700;font-size:.97rem;padding:15px 26px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;line-height:1;text-align:center}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff}
 .btn-ghost:hover{border-color:var(--ink)}
@@ -311,21 +311,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="nav-main" id="navMain" aria-label="Navigation principale">
       <div class="nav-item">
         <button type="button" class="nav-link nav-drop-toggle" aria-haspopup="true" aria-expanded="false"><span data-hi="stays">Hébergements</span><svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="nav-drop" role="menu">
+        <div class="nav-drop">
           <div class="nav-drop-group" role="group" aria-label="Saïdia Ville">
             <a class="nav-drop-cat" data-hi="cat_ville" href="appartements-centre-ville-saidia.html">Saïdia Ville</a>
-            <a href="page-1er-etage.html" data-hi="apt_1er" role="menuitem">Darcom Family</a>
-            <a href="page-loft.html" data-hi="apt_loft" role="menuitem">Darcom Loft</a>
-            <a href="page-rdc.html" data-hi="apt_rdc" role="menuitem">Darcom Garden</a>
-            <a href="page-studio.html" data-hi="apt_studio" role="menuitem">Darcom Rooftop</a>
+            <a href="page-1er-etage.html" data-hi="apt_1er">Darcom Family</a>
+            <a href="page-loft.html" data-hi="apt_loft">Darcom Loft</a>
+            <a href="page-rdc.html" data-hi="apt_rdc">Darcom Garden</a>
+            <a href="page-studio.html" data-hi="apt_studio">Darcom Rooftop</a>
           </div>
           <div class="nav-drop-group" role="group" aria-label="Saïdia Marina">
             <a class="nav-drop-cat" data-hi="cat_marina" href="residence-golf-marina-saidia.html">Saïdia Marina</a>
-            <a href="page-panorama.html" data-hi="apt_panorama" role="menuitem">Panorama du Golf</a>
+            <a href="page-panorama.html" data-hi="apt_panorama">Panorama du Golf</a>
           </div>
           <div class="nav-drop-group" role="group" aria-label="Longue durée">
             <span class="nav-drop-cat" data-hi="cat_longue" aria-hidden="true">Longue durée</span>
-            <a href="location-longue-duree-saidia.html" role="menuitem">Location longue durée / Hors saison</a>
+            <a href="location-longue-duree-saidia.html">Location longue durée / Hors saison</a>
           </div>
         </div>
       </div>
@@ -366,7 +366,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- GALERIE : vraies photos WebP -->
   <div class="gallery" aria-label="Galerie photos Darcom Loft">
-    <div class="g"><img width="1280" height="960" decoding="async" src="images/le-loft-sejour.webp" alt="Darcom Loft à Saïdia — séjour ouvert avec cheminée et cuisine" loading="lazy"></div>
+    <div class="g"><img width="1280" height="960" decoding="async" srcset="images/le-loft-sejour-800.webp 800w, images/le-loft-sejour.webp 1280w" sizes="(max-width:760px) 90vw, 590px" src="images/le-loft-sejour.webp" alt="Darcom Loft à Saïdia — séjour ouvert avec cheminée et cuisine" loading="lazy"></div>
     <div class="g"><img width="1280" height="960" decoding="async" src="images/le-loft-salon.webp" alt="Darcom Loft à Saïdia — salon marocain avec TV écran plat" loading="lazy"></div>
     <div class="g"><img width="1280" height="960" decoding="async" src="images/le-loft-salon-2.webp" alt="Darcom Loft à Saïdia — second salon lumineux" loading="lazy"></div>
     <div class="g"><img width="1280" height="960" decoding="async" src="images/le-loft-chambre.webp" alt="Darcom Loft à Saïdia — chambre climatisée avec lit double" loading="lazy"></div>
@@ -528,7 +528,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="price"><span id="bh-price">55€</span> <small data-i="per_night">/ nuit</small></div>
           <div class="sub" data-i="price_sub">À partir de · logement complet · selon saison</div>
         </div>
-        <div class="booking-body"><ul class="bk-perks"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Disponibilités en temps réel</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Arrivée 15 h · Départ 11 h</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Arrhes remboursées si annulation ≥ 14 jours</span></li></ul><a class="btn btn-primary btn-full btn-lg" href="#reserver-en-ligne">Réserver en ligne</a><a class="btn btn-wa btn-full" style="margin-top:10px" href="https://wa.me/212652615900?text=Bonjour%20Azur%20Stay%2C%20je%20souhaite%20r%C3%A9server%20le%20%C2%AB%20Darcom%20Loft%20%C2%BB%20%C3%A0%20Sa%C3%AFdia.%20Voici%20mes%20dates%20et%20le%20nombre%20de%20voyageurs%20%3A%20" rel="nofollow"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg><span>Réserver via WhatsApp</span></a><a class="btn btn-ghost btn-full" style="margin-top:10px" href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Darcom%20Loft">Demande par e-mail</a><div class="booking-foot">
+        <div class="booking-body"><ul class="bk-perks"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Disponibilités en temps réel</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Arrivée 15 h · Départ 11 h</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Arrhes remboursées si annulation ≥ 14 jours</span></li></ul><a class="btn btn-primary btn-full btn-lg" href="#reserver-en-ligne">Réserver en ligne</a><a class="btn btn-wa btn-full" aria-label="Contacter Azur Stay sur WhatsApp" style="margin-top:10px" href="https://wa.me/212652615900?text=Bonjour%20Azur%20Stay%2C%20je%20souhaite%20r%C3%A9server%20le%20%C2%AB%20Darcom%20Loft%20%C2%BB%20%C3%A0%20Sa%C3%AFdia.%20Voici%20mes%20dates%20et%20le%20nombre%20de%20voyageurs%20%3A%20" rel="nofollow"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044z"/></svg><span>Réserver via WhatsApp</span></a><a class="btn btn-ghost btn-full" style="margin-top:10px" href="mailto:contact@azurstaysaidia.com?subject=%5BR%C3%A9servation%5D%20Darcom%20Loft">Demande par e-mail</a><div class="booking-foot">
             <span data-i="foot_terms">Sans frais cachés · Arrhes 25 % · Solde 75 % à l'arrivée</span>
             <span class="secure"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-i="foot_secure">Vérifié · Sécurisé · Réponse sous 15 min</span></span>
           </div>
@@ -558,7 +558,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p style="text-align:center;max-width:640px;margin:10px auto 0;font-size:.88rem;color:var(--ink-soft)">Réservation en ligne instantanée sur ce site : calendrier des disponibilités en temps réel, confirmation immédiate, paiement sécurisé des arrhes (25 %) — sans commission de plateforme.</p>
 <p style="text-align:center;max-width:640px;margin:0 auto;color:var(--ink-soft)">Choisissez vos dates et réservez <b>Darcom Loft</b> en direct&nbsp;: meilleur tarif, sans commission d'intermédiaire, disponibilités en temps réel et paiement sécurisé.</p>
 <div class="smoobu-shell" style="max-width:1040px;margin:26px auto 0">
-<div id="apartmentIframe3377866"><script type="text/javascript" src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script><script>BookingToolIframe.initialize({"url": "https://login.smoobu.com/fr/booking-tool/iframe/1790091/3377866", "baseUrl": "https://login.smoobu.com", "target": "#apartmentIframe3377866"})</script><p class="smoobu-fallback" hidden>Le calendrier ne s'affiche pas ? <a class="btn btn-wa" href="https://wa.me/212652615900?text=Bonjour%20Azur%20Stay%2C%20je%20souhaite%20r%C3%A9server%20le%20%C2%AB%20Darcom%20Loft%20%C2%BB%20%C3%A0%20Sa%C3%AFdia.%20Voici%20mes%20dates%20%3A%20" rel="nofollow">Réserver via WhatsApp</a></p><script>(function(){var c=document.getElementById("apartmentIframe3377866"),f=document.querySelector(".smoobu-fallback");if(!c||!f)return;var n=0,t=setInterval(function(){n++;if(c.querySelector("iframe")){clearInterval(t);f.hidden=true;return}if(n>=10){clearInterval(t);f.hidden=false}},500)})();</script></div>
+<div id="apartmentIframe3377866"><script type="text/javascript" src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script><script>BookingToolIframe.initialize({"url": "https://login.smoobu.com/fr/booking-tool/iframe/1790091/3377866", "baseUrl": "https://login.smoobu.com", "target": "#apartmentIframe3377866"})</script><p class="smoobu-fallback" hidden>Le calendrier ne s'affiche pas ? <a class="btn btn-wa" aria-label="Contacter Azur Stay sur WhatsApp" href="https://wa.me/212652615900?text=Bonjour%20Azur%20Stay%2C%20je%20souhaite%20r%C3%A9server%20le%20%C2%AB%20Darcom%20Loft%20%C2%BB%20%C3%A0%20Sa%C3%AFdia.%20Voici%20mes%20dates%20%3A%20" rel="nofollow">Réserver via WhatsApp</a></p><script>(function(){var c=document.getElementById("apartmentIframe3377866"),f=document.querySelector(".smoobu-fallback");if(!c||!f)return;var n=0,t=setInterval(function(){n++;if(c.querySelector("iframe")){clearInterval(t);f.hidden=true;return}if(n>=10){clearInterval(t);f.hidden=false}},500)})();</script></div>
 </div>
 <p style="text-align:center;margin-top:18px;font-size:.9rem;color:var(--ink-soft)">Une question avant de réserver&nbsp;? <a href="https://wa.me/212652615900" rel="nofollow" style="color:var(--azure);font-weight:600">Écrivez-nous sur WhatsApp</a> — réponse rapide, 7j/7.</p>
 <p style="text-align:center;margin-top:6px;font-size:.82rem;color:var(--ink-soft)">En réservant, vous acceptez nos <a href="page-conditions-generales.html" style="color:var(--azure);font-weight:600">Conditions Générales de Location</a>. Paiement sécurisé via Smoobu &amp; Stripe — aucune donnée bancaire conservée.</p>
@@ -610,7 +610,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav class="mobile-bar" aria-label="Réserver">
   <span class="price-m"><span data-i="from">À partir de</span><b id="bm-price">55€</b></span>
-  <a class="btn btn-wa" href="#reserver-en-ligne" data-i="cta_book_short">Réserver</a>
+  <a class="btn btn-wa" aria-label="Contacter Azur Stay sur WhatsApp" href="#reserver-en-ligne" data-i="cta_book_short">Réserver</a>
 </nav>
 
 <script>
