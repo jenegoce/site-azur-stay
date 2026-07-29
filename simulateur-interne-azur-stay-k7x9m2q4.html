@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<!-- USAGE INTERNE — ne pas diffuser, ne pas lier, ne pas indexer -->
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Simulateur interne — Azur Stay</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{
+  --sea-deep:#0A3347;--sea:#0D4A63;--azure:#2E86AB;
+  --cream:#FBF6EC;--paper:#FFFDF9;--gold:#C9A24C;--gold-deep:#8F7233;
+  --ink:#15282E;--ink-soft:#4C5C61;--line:rgba(21,40,46,.14);
+  --r:14px;--r-lg:20px;--shadow:0 14px 40px -20px rgba(10,55,68,.4);
+  --ff-display:Georgia,"Times New Roman",serif;--ff-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --maxw:1180px;--good:#1FA855;--bad:#C0503A;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;overflow-x:hidden;max-width:100%}
+body{font-family:var(--ff-body);color:var(--ink);background:var(--cream);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased;padding-bottom:86px}
+h1,h2,h3{font-family:var(--ff-display);font-weight:700;line-height:1.15;margin:0 0 .3em}
+h1{font-size:clamp(1.3rem,4vw,1.7rem)}
+h2{font-size:1.05rem;color:var(--sea-deep)}
+h3{font-size:.95rem}
+p{margin:.2em 0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+button{font-family:inherit}
+img,svg{max-width:100%}
+
+/* Bandeau confidentiel */
+.confband{background:var(--sea-deep);color:#FFE2A6;text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.05em;padding:6px 10px;text-transform:uppercase}
+
+/* Header */
+.top{background:linear-gradient(150deg,var(--sea-deep),var(--sea));color:#fff;padding:18px 0 22px}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.top h1{color:#fff;margin:0}
+.top .sub{font-size:.8rem;color:rgba(255,255,255,.75);margin-top:2px}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-weight:700;font-size:.85rem;padding:11px 16px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.2s;line-height:1.1;text-align:center;min-height:44px}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
+.btn-ghost:hover{background:rgba(255,255,255,.2)}
+.btn-outline{background:#fff;color:var(--sea);border-color:var(--line)}
+.btn-wa{background:#1FA855;color:#fff}
+.btn-block{width:100%}
+.btn:disabled,.btn.is-disabled{opacity:.55;cursor:not-allowed}
+
+/* Layout */
+.layout{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;margin-top:22px;align-items:start}
+@media(max-width:980px){.layout{grid-template-columns:1fr}}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:20px;margin-bottom:18px}
+.card > h2{margin-bottom:12px}
+.eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:4px;display:block}
+
+/* Property picker */
+.prop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:10px}
+.prop-btn{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 8px;text-align:left;cursor:pointer;transition:.15s;min-height:60px}
+.prop-btn b{display:block;font-size:.85rem;color:var(--sea)}
+.prop-btn span{display:block;font-size:.72rem;color:var(--ink-soft);margin-top:2px}
+.prop-btn.active{border-color:var(--gold);background:linear-gradient(180deg,#fffdf5,#fff8e8);box-shadow:0 0 0 1px var(--gold) inset}
+.preset-info{font-size:.8rem;color:var(--ink-soft);background:var(--cream);border-radius:10px;padding:10px 12px}
+.custom-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.custom-fields label{grid-column:1/-1;font-size:.78rem;font-weight:700;color:var(--sea)}
+.custom-fields input{width:100%;padding:10px;border-radius:10px;border:1.5px solid var(--line);font-size:.9rem}
+
+/* Segmented controls */
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{flex:1;min-width:100px;min-height:44px;padding:9px 10px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-weight:700;font-size:.8rem;cursor:pointer;color:var(--ink-soft);transition:.15s}
+.seg button.active{border-color:var(--gold);background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff}
+
+/* Fields */
+.field{margin-bottom:16px}
+.field:last-child{margin-bottom:0}
+.field label{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:.83rem;margin-bottom:6px;color:var(--sea)}
+.field label .val{font-family:var(--ff-display);font-weight:700;color:var(--gold-deep)}
+.field .hint{font-size:.72rem;color:var(--ink-soft);margin-top:4px}
+input[type=range]{width:100%;height:34px;accent-color:var(--gold-deep);touch-action:pan-x}
+input[type=number],input[type=text]{padding:10px;border-radius:10px;border:1.5px solid var(--line);font-size:.9rem;width:100%}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:480px){.row3{grid-template-columns:1fr 1fr}}
+
+.season-block{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px;background:#fff}
+.season-block h3{color:var(--sea-deep);margin-bottom:8px}
+.season-block .badge{display:inline-block;font-size:.68rem;font-weight:700;background:var(--cream);color:var(--gold-deep);border-radius:999px;padding:2px 9px;margin-left:6px}
+
+.check-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.check-row input{width:22px;height:22px;flex:none}
+.check-row label{font-weight:700;font-size:.85rem;color:var(--sea)}
+
+/* Events */
+.event-row{display:grid;grid-template-columns:1fr 80px 90px 40px;gap:8px;margin-bottom:8px;align-items:center}
+@media(max-width:560px){.event-row{grid-template-columns:1fr 1fr;grid-template-areas:"label label" "nights price" "rm rm"}
+  .event-row input:nth-child(1){grid-area:label}
+  .event-row input:nth-child(2){grid-area:nights}
+  .event-row input:nth-child(3){grid-area:price}
+  .event-row button{grid-area:rm}
+}
+.event-row input{padding:8px;border-radius:8px;border:1.5px solid var(--line);font-size:.82rem}
+.event-row button{background:var(--bad);color:#fff;border:none;border-radius:8px;height:36px;cursor:pointer;font-weight:700}
+.event-empty{font-size:.78rem;color:var(--ink-soft);font-style:italic;margin-bottom:8px}
+
+/* Channel mix */
+.channel-row{display:flex;justify-content:space-between;font-size:.78rem;margin-top:8px;color:var(--ink-soft)}
+.channel-bar{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:8px 0;border:1px solid var(--line)}
+.channel-bar span{height:100%}
+
+/* Result card */
+.result{background:linear-gradient(155deg,var(--sea-deep),var(--sea));border-radius:var(--r-lg);padding:24px;color:#fff;position:sticky;top:14px}
+@media(max-width:980px){.result{position:static}}
+.result .rl{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#FFE2A6;font-weight:700;margin-bottom:4px}
+.result-net{font-family:var(--ff-display);font-size:clamp(2rem,6vw,2.6rem);font-weight:700;color:var(--gold);line-height:1}
+.result-net small{font-family:var(--ff-body);font-size:.9rem;color:rgba(255,255,255,.85);font-weight:600}
+.result-sub{font-size:.78rem;color:rgba(255,255,255,.8);margin-bottom:16px}
+.cascade{list-style:none;padding:0;margin:0 0 16px;font-size:.85rem}
+.cascade li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.cascade li b{font-weight:700;white-space:nowrap}
+.cascade li.total{border-bottom:none;padding-top:12px;font-size:1rem}
+.cascade li .neg{color:#FFB4A8}
+.cascade li .pos{color:#BFF0D0}
+.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:16px}
+.scenarios .sc{background:rgba(255,255,255,.08);border-radius:10px;padding:9px 5px;text-align:center}
+.scenarios .sc .sl{font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.65)}
+.scenarios .sc .sv{font-family:var(--ff-display);font-weight:700;font-size:.92rem;margin-top:2px}
+.scenarios .sc.central{background:rgba(201,162,76,.25);outline:1.5px solid var(--gold)}
+.gerant-only{background:rgba(255,255,255,.09);border:1px dashed rgba(255,255,255,.4);border-radius:10px;padding:10px 12px;margin-bottom:14px;font-size:.82rem}
+.gerant-only b{color:var(--gold);font-size:1rem}
+body.view-client .gerant-only{display:none}
+
+.strategy-compare{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:16px}
+@media(min-width:700px){.strategy-compare{grid-template-columns:1fr 1fr 1fr}}
+.strat-row{background:rgba(255,255,255,.07);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;font-size:.83rem}
+.strat-row.best{background:rgba(201,162,76,.22);outline:1.5px solid var(--gold)}
+.strat-row .sname{font-weight:700;font-size:.74rem}
+.strat-row .sval{font-family:var(--ff-display);font-weight:700;font-size:1.02rem}
+
+.formule-compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.fc-card{background:rgba(255,255,255,.08);border-radius:10px;padding:10px;text-align:center;font-size:.8rem}
+.fc-card b{display:block;font-family:var(--ff-display);font-size:1.05rem;color:var(--gold);margin-top:2px}
+
+.closed-compare{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.closed-row{display:flex;justify-content:space-between;font-size:.83rem;background:rgba(255,255,255,.07);border-radius:10px;padding:9px 12px}
+.closed-slider{margin:8px 0}
+
+.result-actions{display:flex;flex-direction:column;gap:9px;margin-top:6px}
+
+/* Export */
+.export-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.export-fields .full{grid-column:1/-1}
+.export-fields label{font-size:.78rem;font-weight:700;color:var(--sea);display:block;margin-bottom:4px}
+.export-fields input{padding:10px;border-radius:10px;border:1.5px solid var(--line);width:100%;font-size:.88rem}
+
+.disclaimer{font-size:.75rem;color:var(--ink-soft);background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+
+/* Mobile sticky net bar */
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(10,51,71,.96);color:#fff;backdrop-filter:blur(10px)}
+.stickybar .sb-net{font-family:var(--ff-display);font-weight:700;color:var(--gold);font-size:1.1rem}
+.stickybar .sb-label{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.7)}
+.stickybar button{background:var(--gold);color:#fff;border:none;border-radius:999px;padding:9px 14px;font-weight:700;font-size:.78rem;min-height:40px}
+@media(max-width:980px){.stickybar{display:flex}}
+
+/* Print */
+#printReport{display:none}
+@media print{
+  body *{visibility:hidden}
+  #printReport,#printReport *{visibility:visible}
+  #printReport{display:block;position:absolute;top:0;left:0;width:100%;padding:24px;color:#000;background:#fff}
+  .confband,.stickybar{display:none!important}
+}
+.pr-head{border-bottom:3px solid #0A3347;padding-bottom:10px;margin-bottom:16px}
+.pr-head h1{color:#0A3347;font-size:1.4rem;margin-bottom:2px}
+.pr-meta{display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:.85rem;margin-bottom:16px}
+.pr-cascade{width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:14px}
+.pr-cascade td{padding:6px 4px;border-bottom:1px solid #ddd}
+.pr-cascade tr.total td{font-weight:700;border-top:2px solid #0A3347;border-bottom:none;font-size:1rem}
+.pr-net{font-size:1.6rem;font-weight:700;color:#8F7233;margin:14px 0}
+.pr-disc{font-size:.72rem;color:#555;border-top:1px solid #ccc;padding-top:10px;margin-top:16px}
+</style>
+</head>
+<body>
+
+<div class="confband">🔒 Usage interne — ne pas diffuser</div>
+
+<header class="top">
+  <div class="wrap">
+    <div>
+      <h1>Simulateur interne Azur Stay</h1>
+      <div class="sub">Outil de terrain — conciergerie · gestion locative Saïdia</div>
+    </div>
+    <div class="top-actions">
+      <div class="seg" id="viewSeg" style="min-width:190px">
+        <button type="button" data-view="gerant" class="active">Vue gérant</button>
+        <button type="button" data-view="client">Vue client</button>
+      </div>
+      <button type="button" class="btn btn-ghost" id="btnReset">↺ Réinitialiser</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="layout">
+
+  <!-- INPUTS -->
+  <div class="inputs">
+
+    <div class="card">
+      <span class="eyebrow">Étape 1</span>
+      <h2>Le bien</h2>
+      <div class="prop-grid" id="propGrid"></div>
+      <div class="preset-info" id="presetInfo"></div>
+      <div class="custom-fields" id="customFields" style="display:none">
+        <label for="cfType">Bien du prospect — à renseigner</label>
+        <input type="text" id="cfType" placeholder="Type (ex. Appartement 3 pièces)">
+        <input type="text" id="cfLoc" placeholder="Localisation (ex. Saïdia Marina)">
+        <input type="number" id="cfCap" min="1" max="20" placeholder="Capacité (voyageurs)">
+        <input type="number" id="cfChambres" min="0" max="10" placeholder="Nb. chambres">
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="eyebrow">Étape 2</span>
+      <h2>Stratégie de location</h2>
+      <div class="seg" id="modeSeg">
+        <button type="button" data-mode="court" class="active">Courte durée</button>
+        <button type="button" data-mode="long">Longue durée</button>
+        <button type="button" data-mode="mixte">Mixte</button>
+      </div>
+      <p class="field hint" style="margin-top:10px">Mixte = courte durée en haute saison (été + épaules) + longue durée hors-saison. Le comparatif des 3 stratégies s'affiche toujours dans le résultat.</p>
+    </div>
+
+    <div class="card" id="seasonsCard">
+      <span class="eyebrow">Étape 3</span>
+      <h2>Saisons — prix &amp; occupation</h2>
+
+      <div class="season-block">
+        <h3>Cœur d'été <span class="badge">fin juin → fin août</span></h3>
+        <div class="row2">
+          <div class="field"><label>Nuits dans la période <span class="val" id="v-ete-nights">62</span></label>
+            <input type="number" id="f-ete-nights" min="1" max="365" value="62"></div>
+          <div class="field"><label>Prix / nuit <span class="val" id="v-ete-price">60 €</span></label>
+            <input type="range" id="f-ete-price" min="15" max="400" step="5" value="60"></div>
+        </div>
+        <div class="field"><label>Taux d'occupation <span class="val" id="v-ete-occ">80 %</span></label>
+          <input type="range" id="f-ete-occ" min="0" max="100" step="1" value="80"></div>
+      </div>
+
+      <div class="season-block">
+        <h3>Épaules <span class="badge">déb. juin / septembre</span></h3>
+        <div class="row2">
+          <div class="field"><label>Nuits dans la période <span class="val" id="v-epaules-nights">45</span></label>
+            <input type="number" id="f-epaules-nights" min="1" max="365" value="45"></div>
+          <div class="field"><label>Prix / nuit <span class="val" id="v-epaules-price">45 €</span></label>
+            <input type="range" id="f-epaules-price" min="15" max="400" step="5" value="45"></div>
+        </div>
+        <div class="field"><label>Taux d'occupation <span class="val" id="v-epaules-occ">45 %</span></label>
+          <input type="range" id="f-epaules-occ" min="0" max="100" step="1" value="45"></div>
+      </div>
+
+      <div class="season-block" id="basseBlock">
+        <h3>Basse saison <span class="badge">octobre → mai</span></h3>
+        <div class="row2">
+          <div class="field"><label>Nuits dans la période <span class="val" id="v-basse-nights">243</span></label>
+            <input type="number" id="f-basse-nights" min="1" max="365" value="243"></div>
+          <div class="field"><label>Prix / nuit <span class="val" id="v-basse-price">30 €</span></label>
+            <input type="range" id="f-basse-price" min="15" max="400" step="5" value="30"></div>
+        </div>
+        <div class="field"><label>Taux d'occupation <span class="val" id="v-basse-occ">12 %</span></label>
+          <input type="range" id="f-basse-occ" min="0" max="100" step="1" value="12"></div>
+      </div>
+
+      <p class="field hint">Total nuits saisies : <b id="v-total-nights">365</b> / 365. Ajustable librement — informatif, non bloquant.</p>
+    </div>
+
+    <div class="card" id="longtermCard" style="display:none">
+      <span class="eyebrow">Longue durée</span>
+      <h2>Location longue durée hors-saison</h2>
+      <div class="row2">
+        <div class="field"><label>Loyer mensuel <span class="val" id="v-rent">350 €</span></label>
+          <input type="range" id="f-rent" min="100" max="1500" step="10" value="350"></div>
+        <div class="field"><label>Nb. de mois concernés <span class="val" id="v-months">8</span></label>
+          <input type="range" id="f-months" min="1" max="12" step="1" value="8"></div>
+      </div>
+      <p class="hint">0 % de commission plateforme sur la longue durée. La commission Azur Stay s'applique toujours (hypothèse : gestion et mise en location assurées par l'agence).</p>
+    </div>
+
+    <div class="card" id="eventsCard">
+      <span class="eyebrow">Étape 4</span>
+      <h2>Périodes majorées (événements)</h2>
+      <p class="hint">Libellé libre + nb de jours + majoration % appliquée sur le prix de référence cœur d'été. Occupation supposée 100 % (dates à forte demande) — n'ajoutez que des dates confirmées.</p>
+      <div id="eventsList"></div>
+      <p class="event-empty" id="eventsEmpty">Aucun événement ajouté — n'ajoutez que des dates confirmées (fête, festival, pont).</p>
+      <button type="button" class="btn btn-outline" id="btnAddEvent">+ Ajouter un événement</button>
+    </div>
+
+    <div class="card" id="launchCard">
+      <span class="eyebrow">Étape 5</span>
+      <h2>Stratégie de lancement</h2>
+      <div class="check-row"><input type="checkbox" id="f-launch-on"><label for="f-launch-on">Annonce neuve — remise de lancement</label></div>
+      <div class="row2" id="launchFields" style="display:none">
+        <div class="field"><label>Nuits concernées <span class="val" id="v-launch-nights">10</span></label>
+          <input type="range" id="f-launch-nights" min="1" max="90" step="1" value="10"></div>
+        <div class="field"><label>Remise <span class="val" id="v-launch-discount">20 %</span></label>
+          <input type="range" id="f-launch-discount" min="5" max="50" step="5" value="20"></div>
+      </div>
+    </div>
+
+    <div class="card" id="channelCard">
+      <span class="eyebrow">Étape 6</span>
+      <h2>Mix des canaux de réservation</h2>
+      <div class="field"><label>Booking.com <span class="val" id="v-ch-booking">35 %</span></label>
+        <input type="range" id="f-ch-booking" min="0" max="100" step="1" value="35"></div>
+      <div class="field"><label>Airbnb <span class="val" id="v-ch-airbnb">45 %</span></label>
+        <input type="range" id="f-ch-airbnb" min="0" max="100" step="1" value="45"></div>
+      <div class="field"><label>Réservation directe <span class="val" id="v-ch-direct">20 %</span></label>
+        <input type="range" id="f-ch-direct" min="0" max="100" step="1" value="20" disabled></div>
+      <div class="channel-bar"><span id="bar-booking" style="background:#2E86AB"></span><span id="bar-airbnb" style="background:#C9A24C"></span><span id="bar-direct" style="background:#1FA855"></span></div>
+      <div class="channel-row"><span>Booking</span><span>Airbnb 15,5 % (fixe)</span><span>Direct 0 %</span></div>
+      <div class="field" style="margin-top:14px"><label>Commission Booking.com <span class="val" id="v-booking-rate">17,5 %</span></label>
+        <input type="range" id="f-booking-rate" min="15" max="22" step="0.5" value="17.5"></div>
+      <p class="hint">Commission plateforme moyenne pondérée : <b id="v-weighted-comm">—</b>. Augmenter le direct fait mécaniquement baisser ce taux.</p>
+    </div>
+
+    <div class="card">
+      <span class="eyebrow">Étape 7</span>
+      <h2>Formule Azur Stay</h2>
+      <div class="seg" id="formuleSeg">
+        <button type="button" data-f="20" class="active">20 % — Gestion complète</button>
+        <button type="button" data-f="25">25 % — Sérénité totale</button>
+      </div>
+      <p class="hint">Ménage et blanchisserie inclus dans les deux formules, refacturés au voyageur (coût nul pour le propriétaire). Commission calculée sur le net après plateforme.</p>
+      <div class="field" style="margin-top:14px"><label>Durée moyenne de séjour estimée <span class="val" id="v-avgstay">4 nuits</span></label>
+        <input type="range" id="f-avgstay" min="1" max="14" step="1" value="4"></div>
+    </div>
+
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-col">
+    <div class="result card" id="resultCard" style="margin-bottom:18px">
+      <div class="rl">Net propriétaire estimé / an</div>
+      <div class="result-net"><span id="r-net">0 €</span></div>
+      <div class="result-sub" id="r-sub">≈ 0 €/mois en moyenne</div>
+
+      <ul class="cascade" id="cascadeList"></ul>
+
+      <div class="gerant-only" id="gerantMargin">💼 Ma marge Azur Stay estimée : <b id="gm-amount">0 €</b>/an (<span id="gm-pct">0</span>%)</div>
+
+      <div class="scenarios">
+        <div class="sc"><div class="sl">Prudent</div><div class="sv" id="sc-prudent">0 €</div></div>
+        <div class="sc central"><div class="sl">Central</div><div class="sv" id="sc-central">0 €</div></div>
+        <div class="sc"><div class="sl">Optimiste</div><div class="sv" id="sc-optimiste">0 €</div></div>
+      </div>
+
+      <div class="field" style="margin-bottom:10px"><label style="color:#fff">Nuitées &amp; réservations estimées</label>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.85)"><b id="r-nuits">0</b> nuitées vendues/an · ≈ <b id="r-resa">0</b> réservations (hyp. <span id="r-avgstay2">4</span> nuits/séjour)</p>
+      </div>
+
+      <h3 style="color:#fff;margin-top:16px">Comparatif des 3 stratégies</h3>
+      <div class="strategy-compare" id="strategyCompare"></div>
+
+      <h3 style="color:#fff">Formule 20 % vs 25 %</h3>
+      <div class="formule-compare" id="formuleCompare"></div>
+
+      <h3 style="color:#fff">Appartement fermé vs géré</h3>
+      <div class="field closed-slider"><label style="color:#fff">Charges annuelles si fermé <span class="val" id="v-charges" style="color:var(--gold)">800 €</span></label>
+        <input type="range" id="f-charges" min="400" max="1600" step="50" value="800"></div>
+      <div class="closed-compare" id="closedCompare"></div>
+    </div>
+
+    <div class="card">
+      <h2>Générer l'estimation</h2>
+      <div class="export-fields">
+        <div><label for="ex-name">Nom du prospect</label><input type="text" id="ex-name" placeholder="Nom du propriétaire"></div>
+        <div><label for="ex-date">Date</label><input type="text" id="ex-date"></div>
+        <div class="full"><label for="ex-address">Adresse du bien</label><input type="text" id="ex-address" placeholder="Adresse / quartier"></div>
+      </div>
+      <div class="result-actions">
+        <button type="button" class="btn btn-gold btn-block" id="btnPrint">🖨️ Générer l'estimation (PDF/impression)</button>
+        <button type="button" class="btn btn-wa btn-block" id="btnWa">📲 Envoyer par WhatsApp</button>
+      </div>
+    </div>
+
+    <p class="disclaimer">Estimation indicative fondée sur des hypothèses de marché saisies par le gérant ; ne constitue pas une garantie de revenus. Le résultat dépend du bien, de la saison réelle, du taux d'occupation effectif et de la qualité de gestion. Les frais de travaux restent à la charge du propriétaire.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- Sticky mobile bar -->
+<div class="stickybar" id="stickyBar">
+  <div><div class="sb-label">Net estimé / an</div><div class="sb-net" id="sb-net">0 €</div></div>
+  <button type="button" id="sb-scroll">Voir le détail ↓</button>
+</div>
+
+<!-- Print report -->
+<div id="printReport">
+  <div class="pr-head">
+    <h1>Azur Stay — Estimation confidentielle</h1>
+    <p style="font-size:.8rem;color:#555">Document interne — usage gérant, non contractuel</p>
+  </div>
+  <div class="pr-meta" id="pr-meta"></div>
+  <table class="pr-cascade" id="pr-cascade"></table>
+  <div class="pr-net" id="pr-net"></div>
+  <p id="pr-formule" style="font-size:.85rem"></p>
+  <p id="pr-strategies" style="font-size:.85rem"></p>
+  <p class="pr-disc">Estimation indicative fondée sur des hypothèses de marché ; ne constitue pas une garantie de revenus. Le résultat dépend du bien, de la saison réelle, du taux d'occupation effectif et de la qualité de gestion. Les frais de travaux restent à la charge du propriétaire. Document interne Azur Stay — ne pas diffuser au public.</p>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var PROPERTIES = {
+  rooftop:  {label:"Darcom Rooftop",  loc:"Centre-ville, Quartier Franco",              m2:48,  capMin:2, capMax:3, chambres:0, desc:"Studio en terrasse, climatisé", basePrice:30},
+  garden:   {label:"Darcom Garden",   loc:"Centre-ville, Quartier Franco",              m2:90,  capMin:2, capMax:4, chambres:1, desc:"Entrée indépendante, cour privative", basePrice:35},
+  family:   {label:"Darcom Family",   loc:"Centre-ville, Quartier Franco",              m2:110, capMin:2, capMax:6, chambres:2, desc:"Terrasse barbecue, climatisation", basePrice:45},
+  loft:     {label:"Darcom Loft",     loc:"Centre-ville, Quartier Franco",              m2:110, capMin:2, capMax:4, chambres:2, desc:"Cheminée pierre, 2 salons", basePrice:55},
+  panorama: {label:"Panorama du Golf",loc:"Saïdia Marina, résidence sécurisée, piscine",m2:75,  capMin:2, capMax:5, chambres:1, desc:"Vue panoramique sur le golf, piscine de résidence", basePrice:65},
+  prospect: {label:"Bien du prospect",loc:"", m2:null, capMin:2, capMax:4, chambres:1, desc:"", basePrice:50}
+};
+
+var state = {
+  propertyKey:"rooftop",
+  custom:{type:"",loc:"",cap:4,chambres:1},
+  view:"gerant",
+  mode:"court",
+  formule:20,
+  seasons:{
+    ete:{nights:62,occ:80,price:60},
+    epaules:{nights:45,occ:45,price:45},
+    basse:{nights:243,occ:12,price:30}
+  },
+  events:[],
+  eventSeq:1,
+  channel:{booking:35,airbnb:45,direct:20},
+  bookingRate:17.5,
+  launch:{enabled:false,nights:10,discount:20},
+  longterm:{rent:350,months:8},
+  charges:800,
+  avgStay:4
+};
+
+var fmt = function(n){ return Math.round(n).toLocaleString("fr-FR") + " €"; };
+var fmtPct = function(n){ return (Math.round(n*10)/10).toString().replace(".",",") + " %"; };
+var clamp = function(v,min,max){ return Math.max(min,Math.min(max,v)); };
+
+/* ---------- Property picker ---------- */
+var propGrid = document.getElementById("propGrid");
+Object.keys(PROPERTIES).forEach(function(key){
+  var p = PROPERTIES[key];
+  var b = document.createElement("button");
+  b.type = "button"; b.className = "prop-btn"; b.dataset.key = key;
+  b.innerHTML = "<b>"+p.label+"</b><span>"+(p.m2?p.m2+" m² · ":"")+p.capMin+"-"+p.capMax+" pers.</span>";
+  b.addEventListener("click", function(){ selectProperty(key); });
+  propGrid.appendChild(b);
+});
+
+function selectProperty(key){
+  state.propertyKey = key;
+  document.querySelectorAll(".prop-btn").forEach(function(b){ b.classList.toggle("active", b.dataset.key===key); });
+  var p = PROPERTIES[key];
+  var info = document.getElementById("presetInfo");
+  var custom = document.getElementById("customFields");
+  if(key === "prospect"){
+    info.style.display = "none";
+    custom.style.display = "grid";
+  } else {
+    info.style.display = "block";
+    custom.style.display = "none";
+    info.innerHTML = "<b>"+p.label+"</b> — "+p.m2+" m² · "+p.capMin+"-"+p.capMax+" voyageurs · "+p.desc+"<br><span style='color:var(--ink-soft)'>"+p.loc+"</span>";
+    var base = p.basePrice;
+    state.seasons.ete.price = Math.round(base*2/5)*5;
+    state.seasons.epaules.price = Math.round(base*1.4/5)*5;
+    state.seasons.basse.price = base;
+    syncSeasonInputs();
+  }
+  render();
+}
+
+function syncSeasonInputs(){
+  document.getElementById("f-ete-price").value = state.seasons.ete.price;
+  document.getElementById("f-epaules-price").value = state.seasons.epaules.price;
+  document.getElementById("f-basse-price").value = state.seasons.basse.price;
+}
+
+/* ---------- View toggle ---------- */
+document.querySelectorAll("#viewSeg button").forEach(function(b){
+  b.addEventListener("click", function(){
+    state.view = b.dataset.view;
+    document.querySelectorAll("#viewSeg button").forEach(function(x){ x.classList.toggle("active", x===b); });
+    document.body.classList.toggle("view-client", state.view==="client");
+  });
+});
+
+/* ---------- Mode toggle ---------- */
+document.querySelectorAll("#modeSeg button").forEach(function(b){
+  b.addEventListener("click", function(){
+    state.mode = b.dataset.mode;
+    document.querySelectorAll("#modeSeg button").forEach(function(x){ x.classList.toggle("active", x===b); });
+    updateVisibility();
+    render();
+  });
+});
+
+function updateVisibility(){
+  var m = state.mode;
+  document.getElementById("basseBlock").style.display = (m==="court") ? "block" : "none";
+  document.getElementById("longtermCard").style.display = (m==="long"||m==="mixte") ? "block" : "none";
+  var shortSectionsDisplay = (m==="long") ? "none" : "block";
+  document.getElementById("eventsCard").style.display = shortSectionsDisplay;
+  document.getElementById("launchCard").style.display = shortSectionsDisplay;
+  document.getElementById("channelCard").style.display = shortSectionsDisplay;
+}
+
+/* ---------- Formule toggle ---------- */
+document.querySelectorAll("#formuleSeg button").forEach(function(b){
+  b.addEventListener("click", function(){
+    state.formule = +b.dataset.f;
+    document.querySelectorAll("#formuleSeg button").forEach(function(x){ x.classList.toggle("active", x===b); });
+    render();
+  });
+});
+
+/* ---------- Season / long-term / launch inputs ---------- */
+function bindRange(id, cb){
+  var el = document.getElementById(id);
+  el.addEventListener("input", cb);
+  el.addEventListener("change", cb);
+}
+
+["ete","epaules","basse"].forEach(function(k){
+  bindRange("f-"+k+"-nights", function(e){ state.seasons[k].nights = clamp(+e.target.value,1,365); render(); });
+  bindRange("f-"+k+"-price", function(e){ state.seasons[k].price = +e.target.value; render(); });
+  bindRange("f-"+k+"-occ", function(e){ state.seasons[k].occ = +e.target.value; render(); });
+});
+
+bindRange("f-rent", function(e){ state.longterm.rent = +e.target.value; render(); });
+bindRange("f-months", function(e){ state.longterm.months = +e.target.value; render(); });
+
+document.getElementById("f-launch-on").addEventListener("change", function(e){
+  state.launch.enabled = e.target.checked;
+  document.getElementById("launchFields").style.display = e.target.checked ? "grid" : "none";
+  render();
+});
+bindRange("f-launch-nights", function(e){ state.launch.nights = +e.target.value; render(); });
+bindRange("f-launch-discount", function(e){ state.launch.discount = +e.target.value; render(); });
+
+bindRange("f-avgstay", function(e){ state.avgStay = +e.target.value; render(); });
+bindRange("f-charges", function(e){ state.charges = +e.target.value; render(); });
+
+/* ---------- Custom property fields ---------- */
+document.getElementById("cfType").addEventListener("input", function(e){ state.custom.type = e.target.value; render(); });
+document.getElementById("cfLoc").addEventListener("input", function(e){ state.custom.loc = e.target.value; render(); });
+document.getElementById("cfCap").addEventListener("input", function(e){ state.custom.cap = +e.target.value||0; render(); });
+document.getElementById("cfChambres").addEventListener("input", function(e){ state.custom.chambres = +e.target.value||0; render(); });
+
+/* ---------- Channel mix (3-way proportional slider) ---------- */
+function setChannel(key, val){
+  val = clamp(val,0,100);
+  var keys = ["booking","airbnb","direct"];
+  var others = keys.filter(function(k){ return k!==key; });
+  var remaining = 100 - val;
+  var otherSum = state.channel[others[0]] + state.channel[others[1]];
+  if(otherSum <= 0){
+    state.channel[others[0]] = remaining/2;
+    state.channel[others[1]] = remaining/2;
+  } else {
+    state.channel[others[0]] = remaining * (state.channel[others[0]]/otherSum);
+    state.channel[others[1]] = remaining * (state.channel[others[1]]/otherSum);
+  }
+  state.channel[key] = val;
+}
+bindRange("f-ch-booking", function(e){ setChannel("booking", +e.target.value); render(); });
+bindRange("f-ch-airbnb", function(e){ setChannel("airbnb", +e.target.value); render(); });
+bindRange("f-booking-rate", function(e){ state.bookingRate = +e.target.value; render(); });
+
+/* ---------- Events ---------- */
+document.getElementById("btnAddEvent").addEventListener("click", function(){
+  state.events.push({id:state.eventSeq++, label:"", nights:3, majoration:30});
+  renderEvents();
+  render();
+});
+function renderEvents(){
+  var list = document.getElementById("eventsList");
+  list.innerHTML = "";
+  document.getElementById("eventsEmpty").style.display = state.events.length ? "none" : "block";
+  state.events.forEach(function(ev){
+    var row = document.createElement("div");
+    row.className = "event-row";
+    row.innerHTML =
+      "<input type='text' placeholder='Libellé (ex. Festival, Moussem, Aïd)' value='"+escapeHtml(ev.label)+"'>"+
+      "<input type='number' min='0' max='60' value='"+ev.nights+"' title='Nb de jours (occupation supposée 100 %)'>"+
+      "<input type='number' min='-50' max='300' value='"+Math.round(ev.majoration)+"' title='Majoration % (sur le prix référence été)'>"+
+      "<button type='button' aria-label='Supprimer'>×</button>";
+    var inputs = row.querySelectorAll("input");
+    inputs[0].addEventListener("input", function(e){ ev.label = e.target.value; render(); });
+    inputs[1].addEventListener("input", function(e){ ev.nights = clamp(+e.target.value,0,365); render(); });
+    inputs[2].addEventListener("input", function(e){ ev.majoration = clamp(+e.target.value,-50,300); render(); });
+    row.querySelector("button").addEventListener("click", function(){
+      state.events = state.events.filter(function(x){ return x.id !== ev.id; });
+      renderEvents(); render();
+    });
+    list.appendChild(row);
+  });
+}
+function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+
+/* ---------- Reset ---------- */
+document.getElementById("btnReset").addEventListener("click", function(){
+  state.mode = "court"; state.formule = 20;
+  state.seasons = {ete:{nights:62,occ:80,price:60},epaules:{nights:45,occ:45,price:45},basse:{nights:243,occ:12,price:30}};
+  state.events = []; state.eventSeq = 1;
+  state.channel = {booking:35,airbnb:45,direct:20}; state.bookingRate = 17.5;
+  state.launch = {enabled:false,nights:10,discount:20};
+  state.longterm = {rent:350,months:8};
+  state.charges = 800; state.avgStay = 4;
+  state.custom = {type:"",loc:"",cap:4,chambres:1};
+
+  document.getElementById("f-ete-nights").value=62; document.getElementById("f-ete-occ").value=80;
+  document.getElementById("f-epaules-nights").value=45; document.getElementById("f-epaules-occ").value=45;
+  document.getElementById("f-basse-nights").value=243; document.getElementById("f-basse-occ").value=12;
+  document.getElementById("f-rent").value=350; document.getElementById("f-months").value=8;
+  document.getElementById("f-launch-on").checked=false; document.getElementById("launchFields").style.display="none";
+  document.getElementById("f-launch-nights").value=10; document.getElementById("f-launch-discount").value=20;
+  document.getElementById("f-ch-booking").value=35; document.getElementById("f-ch-airbnb").value=45;
+  document.getElementById("f-booking-rate").value=17.5;
+  document.getElementById("f-avgstay").value=4; document.getElementById("f-charges").value=800;
+  document.getElementById("cfType").value=""; document.getElementById("cfLoc").value="";
+  document.getElementById("cfCap").value=""; document.getElementById("cfChambres").value="";
+  document.querySelectorAll("#modeSeg button").forEach(function(x){ x.classList.toggle("active", x.dataset.mode==="court"); });
+  document.querySelectorAll("#formuleSeg button").forEach(function(x){ x.classList.toggle("active", x.dataset.f==="20"); });
+
+  selectProperty("rooftop");
+  renderEvents();
+  updateVisibility();
+  render();
+});
+
+/* ---------- Calculation engine ---------- */
+function weightedCommission(){
+  var c = state.channel;
+  return (c.booking*state.bookingRate + c.airbnb*15.5 + c.direct*0) / 100;
+}
+
+function shortTermLines(blockKeys, occDelta){
+  var lines = [];
+  blockKeys.forEach(function(k){
+    var s = state.seasons[k];
+    var occ = clamp(s.occ + (occDelta||0), 0, 100);
+    var nuits = s.nights * occ / 100;
+    lines.push({label:seasonLabel(k), nuits:nuits, price:s.price, brut:nuits*s.price});
+  });
+  state.events.forEach(function(ev){
+    var price = state.seasons.ete.price * (1 + ev.majoration/100);
+    lines.push({label:ev.label||"Événement", nuits:ev.nights, price:price, brut:ev.nights*price});
+  });
+  return lines;
+}
+function seasonLabel(k){ return {ete:"Cœur d'été", epaules:"Épaules", basse:"Basse saison"}[k]; }
+
+function computeShortTerm(blockKeys, occDelta, formulePct){
+  var lines = shortTermLines(blockKeys, occDelta);
+  var totalNuits = lines.reduce(function(a,l){ return a+l.nuits; },0);
+  var totalBrut = lines.reduce(function(a,l){ return a+l.brut; },0);
+  var reduction = 0;
+  if(state.launch.enabled && totalNuits > 0){
+    var launchNights = Math.min(state.launch.nights, totalNuits);
+    var avgPrice = totalBrut / totalNuits;
+    reduction = launchNights * avgPrice * (state.launch.discount/100);
+  }
+  var brutAfterLaunch = totalBrut - reduction;
+  var wc = weightedCommission();
+  var platformCommission = brutAfterLaunch * wc / 100;
+  var netAfterPlatform = brutAfterLaunch - platformCommission;
+  var azurCommission = netAfterPlatform * formulePct / 100;
+  var netOwner = netAfterPlatform - azurCommission;
+  return {lines:lines, totalNuits:totalNuits, totalBrut:totalBrut, reduction:reduction, brutAfterLaunch:brutAfterLaunch,
+          weightedComm:wc, platformCommission:platformCommission, netAfterPlatform:netAfterPlatform,
+          azurCommission:azurCommission, netOwner:netOwner};
+}
+
+function computeLongTerm(months, formulePct){
+  var brut = state.longterm.rent * months;
+  var azurCommission = brut * formulePct / 100;
+  var netOwner = brut - azurCommission;
+  return {brut:brut, azurCommission:azurCommission, netOwner:netOwner};
+}
+
+function strategyA(occDelta, formulePct){ // 100% courte durée
+  return computeShortTerm(["ete","epaules","basse"], occDelta, formulePct);
+}
+function strategyB(formulePct){ // 100% longue durée (12 mois)
+  return computeLongTerm(12, formulePct);
+}
+function strategyC(occDelta, formulePct){ // mixte
+  var short = computeShortTerm(["ete","epaules"], occDelta, formulePct);
+  var long = computeLongTerm(state.longterm.months, formulePct);
+  return {short:short, long:long, netOwner: short.netOwner + long.netOwner, totalBrut: short.totalBrut + long.brut};
+}
+
+function centralOf(mode, occDelta, formulePct){
+  if(mode==="court") return {type:"court", data:strategyA(occDelta, formulePct)};
+  if(mode==="long") return {type:"long", data:strategyB(formulePct)};
+  return {type:"mixte", data:strategyC(occDelta, formulePct)};
+}
+
+/* ---------- Render ---------- */
+function render(){
+  // reflect slider values as text
+  ["ete","epaules","basse"].forEach(function(k){
+    document.getElementById("v-"+k+"-nights").textContent = state.seasons[k].nights;
+    document.getElementById("v-"+k+"-price").textContent = state.seasons[k].price + " €";
+    document.getElementById("v-"+k+"-occ").textContent = state.seasons[k].occ + " %";
+  });
+  var totalNights = state.seasons.ete.nights + state.seasons.epaules.nights + state.seasons.basse.nights;
+  document.getElementById("v-total-nights").textContent = totalNights;
+
+  document.getElementById("v-rent").textContent = state.longterm.rent + " €";
+  document.getElementById("v-months").textContent = state.longterm.months;
+
+  document.getElementById("v-launch-nights").textContent = state.launch.nights;
+  document.getElementById("v-launch-discount").textContent = state.launch.discount + " %";
+
+  document.getElementById("v-ch-booking").textContent = Math.round(state.channel.booking) + " %";
+  document.getElementById("v-ch-airbnb").textContent = Math.round(state.channel.airbnb) + " %";
+  document.getElementById("v-ch-direct").textContent = Math.round(state.channel.direct) + " %";
+  document.getElementById("f-ch-booking").value = state.channel.booking;
+  document.getElementById("f-ch-airbnb").value = state.channel.airbnb;
+  document.getElementById("f-ch-direct").value = state.channel.direct;
+  document.getElementById("bar-booking").style.width = state.channel.booking + "%";
+  document.getElementById("bar-airbnb").style.width = state.channel.airbnb + "%";
+  document.getElementById("bar-direct").style.width = state.channel.direct + "%";
+  document.getElementById("v-booking-rate").textContent = fmtPct(state.bookingRate);
+  document.getElementById("v-weighted-comm").textContent = fmtPct(weightedCommission());
+
+  document.getElementById("v-avgstay").textContent = state.avgStay + " nuits";
+  document.getElementById("r-avgstay2").textContent = state.avgStay;
+  document.getElementById("v-charges").textContent = state.charges + " €";
+
+  var mode = state.mode, formule = state.formule;
+  var central = centralOf(mode, 0, formule);
+  var prudent = centralOf(mode, -20, formule);
+  var optimiste = centralOf(mode, 20, formule);
+
+  var netCentral = central.data.netOwner;
+  var netPrudent = prudent.data.netOwner;
+  var netOptimiste = optimiste.data.netOwner;
+
+  document.getElementById("r-net").innerHTML = fmt(netCentral) + "<small>/an</small>";
+  document.getElementById("r-sub").textContent = "≈ " + fmt(netCentral/12) + "/mois en moyenne — " + modeLabel(mode) + " — Formule " + formule + " % " + formuleLabel(formule);
+  document.getElementById("sb-net").textContent = fmt(netCentral) + "/an";
+
+  document.getElementById("sc-prudent").textContent = fmt(netPrudent);
+  document.getElementById("sc-central").textContent = fmt(netCentral);
+  document.getElementById("sc-optimiste").textContent = fmt(netOptimiste);
+
+  renderCascade(central);
+  renderGerantMargin(central);
+
+  var totalNuits = 0;
+  if(mode==="court") totalNuits = central.data.totalNuits;
+  else if(mode==="mixte") totalNuits = central.data.short.totalNuits;
+  document.getElementById("r-nuits").textContent = Math.round(totalNuits);
+  document.getElementById("r-resa").textContent = totalNuits>0 ? Math.round(totalNuits/state.avgStay) : 0;
+
+  renderStrategyCompare(formule);
+  renderFormuleCompare(mode);
+  renderClosedCompare(netCentral);
+
+  updatePrintCache(central, netCentral, mode, formule);
+}
+
+function modeLabel(m){ return {court:"Courte durée", long:"Longue durée", mixte:"Mixte"}[m]; }
+function formuleLabel(f){ return f===25 ? "Sérénité totale" : "Gestion complète"; }
+
+function renderCascade(central){
+  var ul = document.getElementById("cascadeList");
+  ul.innerHTML = "";
+  function li(label, value, cls, isTotal){
+    var el = document.createElement("li");
+    if(isTotal) el.className = "total";
+    el.innerHTML = "<span>"+label+"</span><b class='"+(cls||"")+"'>"+value+"</b>";
+    ul.appendChild(el);
+  }
+  if(central.type==="long"){
+    var d = central.data;
+    li("Loyer annuel (12 mois × loyer)", fmt(d.brut));
+    li("− Commission Azur Stay", "− "+fmt(d.azurCommission), "neg");
+    li("Net propriétaire estimé", fmt(d.netOwner), "", true);
+  } else if(central.type==="court"){
+    var d = central.data;
+    li("Nuitées vendues (annuel)", Math.round(d.totalNuits));
+    li("Revenu brut", fmt(d.totalBrut));
+    if(state.launch.enabled && d.reduction>0) li("− Impact stratégie de lancement", "− "+fmt(d.reduction), "neg");
+    li("− Commission plateforme ("+fmtPct(d.weightedComm)+")", "− "+fmt(d.platformCommission), "neg");
+    li("− Commission Azur Stay ("+state.formule+" %)", "− "+fmt(d.azurCommission), "neg");
+    li("Ménage &amp; linge (refacturés au voyageur)", "0 €");
+    li("Net propriétaire estimé", fmt(d.netOwner), "", true);
+  } else {
+    var s = central.data.short, l = central.data.long;
+    li("Nuitées vendues courte durée", Math.round(s.totalNuits));
+    li("Revenu brut courte durée (été+épaules)", fmt(s.totalBrut));
+    if(state.launch.enabled && s.reduction>0) li("− Impact stratégie de lancement", "− "+fmt(s.reduction), "neg");
+    li("− Commission plateforme ("+fmtPct(s.weightedComm)+")", "− "+fmt(s.platformCommission), "neg");
+    li("− Commission Azur Stay / courte durée", "− "+fmt(s.azurCommission), "neg");
+    li("Ménage &amp; linge courte durée (refacturés au voyageur)", "0 €");
+    li("+ Revenu longue durée hors-saison ("+state.longterm.months+" mois)", "+ "+fmt(l.brut), "pos");
+    li("− Commission Azur Stay / longue durée", "− "+fmt(l.azurCommission), "neg");
+    li("Net propriétaire estimé", fmt(central.data.netOwner), "", true);
+  }
+}
+
+function renderGerantMargin(central){
+  var amount = 0, pct = state.formule;
+  if(central.type==="long") amount = central.data.azurCommission;
+  else if(central.type==="court") amount = central.data.azurCommission;
+  else amount = central.data.short.azurCommission + central.data.long.azurCommission;
+  document.getElementById("gm-amount").textContent = fmt(amount);
+  document.getElementById("gm-pct").textContent = pct;
+}
+
+function renderStrategyCompare(formule){
+  var a = strategyA(0, formule).netOwner;
+  var b = strategyB(formule).netOwner;
+  var c = strategyC(0, formule).netOwner;
+  var rows = [
+    {name:"100 % courte durée", val:a, mode:"court"},
+    {name:"100 % longue durée", val:b, mode:"long"},
+    {name:"Mixte (recommandé souvent)", val:c, mode:"mixte"}
+  ];
+  var maxVal = Math.max(a,b,c);
+  var el = document.getElementById("strategyCompare");
+  el.innerHTML = "";
+  rows.forEach(function(r){
+    var div = document.createElement("div");
+    div.className = "strat-row" + (r.val===maxVal ? " best" : "") + (r.mode===state.mode ? "" : "");
+    div.innerHTML = "<span class='sname'>"+(r.val===maxVal?"★ ":"")+r.name+(r.mode===state.mode?" (sélectionnée)":"")+"</span><span class='sval'>"+fmt(r.val)+"/an</span>";
+    el.appendChild(div);
+  });
+}
+
+function renderFormuleCompare(mode){
+  var c20 = centralOf(mode,0,20).data.netOwner;
+  var c25 = centralOf(mode,0,25).data.netOwner;
+  var el = document.getElementById("formuleCompare");
+  el.innerHTML =
+    "<div class='fc-card'>20 % Gestion complète<b>"+fmt(c20)+"</b></div>"+
+    "<div class='fc-card'>25 % Sérénité totale<b>"+fmt(c25)+"</b></div>";
+}
+
+function renderClosedCompare(netCentral){
+  var el = document.getElementById("closedCompare");
+  var gain = netCentral + state.charges;
+  el.innerHTML =
+    "<div class='closed-row'><span>Bien fermé toute l'année</span><b>− "+fmt(state.charges)+"/an</b></div>"+
+    "<div class='closed-row'><span>Bien géré par Azur Stay</span><b>+ "+fmt(netCentral)+"/an</b></div>"+
+    "<div class='closed-row' style='background:rgba(201,162,76,.25)'><span>Écart annuel en votre faveur</span><b>"+fmt(gain)+"</b></div>";
+}
+
+/* ---------- Print & WhatsApp export ---------- */
+var printCache = {};
+function updatePrintCache(central, netCentral, mode, formule){
+  printCache = {central:central, net:netCentral, mode:mode, formule:formule};
+}
+
+function propertyDescription(){
+  if(state.propertyKey === "prospect"){
+    var c = state.custom;
+    return (c.type||"Bien du prospect") + (c.loc?(" — "+c.loc):"") + (c.cap?(" — "+c.cap+" voyageurs"):"") + (c.chambres?(" — "+c.chambres+" ch."):"");
+  }
+  var p = PROPERTIES[state.propertyKey];
+  return p.label + " — " + p.loc + " — " + p.m2 + " m² — " + p.capMin+"-"+p.capMax + " voyageurs";
+}
+
+document.getElementById("ex-date").value = new Date().toLocaleDateString("fr-FR");
+
+document.getElementById("btnPrint").addEventListener("click", function(){
+  buildPrintReport();
+  window.print();
+});
+
+function buildPrintReport(){
+  var name = document.getElementById("ex-name").value || "—";
+  var date = document.getElementById("ex-date").value || new Date().toLocaleDateString("fr-FR");
+  var address = document.getElementById("ex-address").value || propertyDescription();
+
+  document.getElementById("pr-meta").innerHTML =
+    "<div><b>Prospect :</b> "+escapeHtml(name)+"</div><div><b>Date :</b> "+escapeHtml(date)+"</div>"+
+    "<div style='grid-column:1/-1'><b>Bien :</b> "+escapeHtml(address)+"</div>";
+
+  var rows = [];
+  var c = printCache.central;
+  if(c.type==="long"){
+    rows.push(["Loyer annuel (12 mois)", fmt(c.data.brut)]);
+    rows.push(["− Commission Azur Stay", "− "+fmt(c.data.azurCommission)]);
+  } else if(c.type==="court"){
+    rows.push(["Nuitées vendues (annuel)", Math.round(c.data.totalNuits)]);
+    rows.push(["Revenu brut", fmt(c.data.totalBrut)]);
+    if(state.launch.enabled && c.data.reduction>0) rows.push(["− Impact lancement", "− "+fmt(c.data.reduction)]);
+    rows.push(["− Commission plateforme", "− "+fmt(c.data.platformCommission)]);
+    rows.push(["− Commission Azur Stay", "− "+fmt(c.data.azurCommission)]);
+    rows.push(["Ménage &amp; linge (refacturés au voyageur)", "0 €"]);
+  } else {
+    rows.push(["Revenu brut courte durée", fmt(c.data.short.totalBrut)]);
+    rows.push(["− Commission plateforme", "− "+fmt(c.data.short.platformCommission)]);
+    rows.push(["− Commission Azur Stay (courte durée)", "− "+fmt(c.data.short.azurCommission)]);
+    rows.push(["Ménage &amp; linge courte durée (refacturés au voyageur)", "0 €"]);
+    rows.push(["+ Revenu longue durée", "+ "+fmt(c.data.long.brut)]);
+    rows.push(["− Commission Azur Stay (longue durée)", "− "+fmt(c.data.long.azurCommission)]);
+  }
+  var table = document.getElementById("pr-cascade");
+  table.innerHTML = rows.map(function(r){ return "<tr><td>"+r[0]+"</td><td style='text-align:right'>"+r[1]+"</td></tr>"; }).join("");
+
+  document.getElementById("pr-net").textContent = "Net propriétaire estimé : " + fmt(printCache.net) + " / an (≈ " + fmt(printCache.net/12) + " / mois)";
+  document.getElementById("pr-formule").textContent = "Formule : " + printCache.formule + " % — " + formuleLabel(printCache.formule) + " — Stratégie : " + modeLabel(printCache.mode);
+
+  var a = strategyA(0, printCache.formule).netOwner;
+  var b = strategyB(printCache.formule).netOwner;
+  var cc = strategyC(0, printCache.formule).netOwner;
+  document.getElementById("pr-strategies").textContent =
+    "Comparatif annuel — 100% courte durée : "+fmt(a)+" · 100% longue durée : "+fmt(b)+" · Mixte : "+fmt(cc);
+}
+
+document.getElementById("btnWa").addEventListener("click", function(){
+  var name = document.getElementById("ex-name").value;
+  var address = document.getElementById("ex-address").value || propertyDescription();
+  var c = printCache.central;
+  var msg = "Estimation Azur Stay"+(name?(" pour "+name):"")+"\n"
+    + "Bien : " + address + "\n"
+    + "Stratégie : " + modeLabel(printCache.mode) + " — Formule " + printCache.formule + " % " + formuleLabel(printCache.formule) + "\n"
+    + "Net propriétaire estimé : " + fmt(printCache.net) + "/an (≈ " + fmt(printCache.net/12) + "/mois)\n"
+    + "Comparatif — 100% CD : " + fmt(strategyA(0,printCache.formule).netOwner) + " · 100% LD : " + fmt(strategyB(printCache.formule).netOwner) + " · Mixte : " + fmt(strategyC(0,printCache.formule).netOwner) + "\n\n"
+    + "Estimation indicative, non contractuelle.";
+  window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank", "noopener");
+});
+
+document.getElementById("sb-scroll").addEventListener("click", function(){
+  document.getElementById("resultCard").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+/* ---------- Init ---------- */
+selectProperty("rooftop");
+renderEvents();
+updateVisibility();
+render();
+
+})();
+</script>
+</body>
+</html>
