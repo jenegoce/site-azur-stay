@@ -101,8 +101,9 @@ body{
 
 .btn-save{
   background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff;
-  box-shadow:0 14px 30px -14px rgba(168,134,47,.7);margin-bottom:22px;
+  box-shadow:0 14px 30px -14px rgba(168,134,47,.7);margin-bottom:8px;
 }
+.save-hint{font-size:.76rem;color:var(--ink-soft);margin:0 0 22px;text-align:center}
 
 .paths{display:grid;gap:12px;margin-bottom:8px}
 .path-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);text-align:left;margin:0 0 -2px}
@@ -157,6 +158,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
 
   <button type="button" class="btn btn-save" id="btnVcard">💾 Enregistrer mon contact</button>
+  <p class="save-hint">Puis appuyez sur « Créer un nouveau contact »</p>
 
   <div class="paths">
     <p class="path-label">Vous êtes voyageur</p>
@@ -174,6 +176,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <script>
+function isIOS(){
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
+
 document.getElementById('btnVcard').addEventListener('click', function(){
   var lines = [
     'BEGIN:VCARD',
@@ -188,6 +195,15 @@ document.getElementById('btnVcard').addEventListener('click', function(){
     'END:VCARD'
   ];
   var vcf = lines.join('\r\n');
+
+  if (isIOS()) {
+    // iOS Safari : une navigation directe vers une data URI text/vcard
+    // (sans attribut "download") déclenche l'aperçu Contacts natif au
+    // lieu d'un simple téléchargement dans Fichiers.
+    window.location.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcf);
+    return;
+  }
+
   var blob = new Blob([vcf], {type:'text/vcard;charset=utf-8'});
   var url = URL.createObjectURL(blob);
   var a = document.createElement('a');
