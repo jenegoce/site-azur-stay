@@ -176,11 +176,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <script>
-function isIOS(){
-  return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-}
-
 document.getElementById('btnVcard').addEventListener('click', function(){
   var lines = [
     'BEGIN:VCARD',
@@ -195,14 +190,6 @@ document.getElementById('btnVcard').addEventListener('click', function(){
     'END:VCARD'
   ];
   var vcf = lines.join('\r\n');
-
-  if (isIOS()) {
-    // iOS Safari : une navigation directe vers une data URI text/vcard
-    // (sans attribut "download") déclenche l'aperçu Contacts natif au
-    // lieu d'un simple téléchargement dans Fichiers.
-    window.location.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcf);
-    return;
-  }
 
   var blob = new Blob([vcf], {type:'text/vcard;charset=utf-8'});
   var url = URL.createObjectURL(blob);
